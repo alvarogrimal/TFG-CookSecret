@@ -16,6 +16,7 @@
 		2F8E13822B01DDA1007920E1 /* CookSecretTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13812B01DDA1007920E1 /* CookSecretTests.swift */; };
 		2F8E138C2B01DDA1007920E1 /* CookSecretUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E138B2B01DDA1007920E1 /* CookSecretUITests.swift */; };
 		2F8E138E2B01DDA1007920E1 /* CookSecretUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E138D2B01DDA1007920E1 /* CookSecretUITestsLaunchTests.swift */; };
+		2F8E139B2B01DFC8007920E1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2F8E139A2B01DFC8007920E1 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		2F8E13872B01DDA1007920E1 /* CookSecretUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookSecretUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8E138B2B01DDA1007920E1 /* CookSecretUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookSecretUITests.swift; sourceTree = "<group>"; };
 		2F8E138D2B01DDA1007920E1 /* CookSecretUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookSecretUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2F8E139A2B01DFC8007920E1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		2F8E135D2B01DD9E007920E1 = {
 			isa = PBXGroup;
 			children = (
+				2F8E139A2B01DFC8007920E1 /* .swiftlint.yml */,
 				2F8E13682B01DD9E007920E1 /* CookSecret */,
 				2F8E13802B01DDA1007920E1 /* CookSecretTests */,
 				2F8E138A2B01DDA1007920E1 /* CookSecretUITests */,
@@ -147,6 +150,7 @@
 				2F8E13622B01DD9E007920E1 /* Sources */,
 				2F8E13632B01DD9E007920E1 /* Frameworks */,
 				2F8E13642B01DD9E007920E1 /* Resources */,
+				2F8E139C2B01DFDF007920E1 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -241,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8E139B2B01DFC8007920E1 /* .swiftlint.yml in Resources */,
 				2F8E13712B01DDA0007920E1 /* Preview Assets.xcassets in Resources */,
 				2F8E136E2B01DDA0007920E1 /* Assets.xcassets in Resources */,
 			);
@@ -261,6 +266,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F8E139C2B01DFDF007920E1 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2F8E13622B01DD9E007920E1 /* Sources */ = {
@@ -344,7 +371,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -407,7 +434,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
