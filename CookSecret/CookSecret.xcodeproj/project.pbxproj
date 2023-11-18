@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F66DDD62B0896AC0034A863 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD52B0896AC0034A863 /* DependencyInjector.swift */; };
+		2F66DDD82B08970A0034A863 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD72B08970A0034A863 /* ImageExtension.swift */; };
+		2F66DDDA2B08971A0034A863 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD92B08971A0034A863 /* ColorExtension.swift */; };
+		2F66DDDD2B08973C0034A863 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDDC2B08973C0034A863 /* BaseViewModel.swift */; };
+		2F66DDDF2B0897A90034A863 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDDE2B0897A90034A863 /* BaseCoordinator.swift */; };
+		2F66DDEB2B089AFF0034A863 /* BaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDEA2B089AFF0034A863 /* BaseUseCase.swift */; };
+		2F66DDEE2B089CD90034A863 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDED2B089CD90034A863 /* BaseView.swift */; };
+		2F66DDF02B089D640034A863 /* BaseViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDEF2B089D640034A863 /* BaseViewDidLoadModifier.swift */; };
+		2F66DDF22B089D990034A863 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDF12B089D990034A863 /* ViewExtension.swift */; };
+		2F66DDF52B08A8450034A863 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F66DDF72B08A8450034A863 /* Localizable.strings */; };
 		2F8E136A2B01DD9E007920E1 /* CookSecretApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */; };
 		2F8E136C2B01DD9E007920E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E136B2B01DD9E007920E1 /* ContentView.swift */; };
 		2F8E136E2B01DDA0007920E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8E136D2B01DDA0007920E1 /* Assets.xcassets */; };
-		2F8E13712B01DDA0007920E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8E13702B01DDA0007920E1 /* Preview Assets.xcassets */; };
-		2F8E13732B01DDA0007920E1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13722B01DDA0007920E1 /* Persistence.swift */; };
 		2F8E13762B01DDA0007920E1 /* CookSecret.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13742B01DDA0007920E1 /* CookSecret.xcdatamodeld */; };
 		2F8E13822B01DDA1007920E1 /* CookSecretTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13812B01DDA1007920E1 /* CookSecretTests.swift */; };
 		2F8E138C2B01DDA1007920E1 /* CookSecretUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E138B2B01DDA1007920E1 /* CookSecretUITests.swift */; };
@@ -37,12 +45,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F66DDD52B0896AC0034A863 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		2F66DDD72B08970A0034A863 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		2F66DDD92B08971A0034A863 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		2F66DDDC2B08973C0034A863 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		2F66DDDE2B0897A90034A863 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		2F66DDEA2B089AFF0034A863 /* BaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUseCase.swift; sourceTree = "<group>"; };
+		2F66DDED2B089CD90034A863 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		2F66DDEF2B089D640034A863 /* BaseViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewDidLoadModifier.swift; sourceTree = "<group>"; };
+		2F66DDF12B089D990034A863 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		2F66DDF62B08A8450034A863 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F66DDF82B08A8470034A863 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F8E13662B01DD9E007920E1 /* CookSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookSecretApp.swift; sourceTree = "<group>"; };
 		2F8E136B2B01DD9E007920E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2F8E136D2B01DDA0007920E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2F8E13702B01DDA0007920E1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2F8E13722B01DDA0007920E1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		2F8E13752B01DDA0007920E1 /* CookSecret.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookSecret.xcdatamodel; sourceTree = "<group>"; };
 		2F8E13772B01DDA0007920E1 /* CookSecret.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CookSecret.entitlements; sourceTree = "<group>"; };
 		2F8E13782B01DDA0007920E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,9 +96,237 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F66DDC52B08958B0034A863 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDE62B0899880034A863 /* Entities */,
+				2F66DDE52B08997C0034A863 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2F66DDC62B0895930034A863 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDE22B08993E0034A863 /* Entities */,
+				2F66DDE12B0899340034A863 /* UseCases */,
+				2F66DDE02B0899280034A863 /* Repositories */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2F66DDC72B0895990034A863 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDC82B0895BF0034A863 /* Common */,
+				2F66DDC92B0895C80034A863 /* Modules */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2F66DDC82B0895BF0034A863 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDCA2B0895D00034A863 /* Utils */,
+				2F66DDCB2B0895D60034A863 /* Application */,
+				2F66DDCC2B0895E20034A863 /* DependencyInjection */,
+				2F66DDCD2B0895EE0034A863 /* Extensions */,
+				2F66DDCE2B0895F40034A863 /* Base MVVM */,
+				2F66DDCF2B0895F90034A863 /* Coordinators */,
+				2F66DDD02B0896010034A863 /* Views */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2F66DDC92B0895C80034A863 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDD12B08964F0034A863 /* Recipes */,
+				2F66DDD22B0896560034A863 /* Explore */,
+				2F66DDD32B0896600034A863 /* ShoppingLIst */,
+				2F66DDD42B0896730034A863 /* Planning */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		2F66DDCA2B0895D00034A863 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2F66DDCB2B0895D60034A863 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		2F66DDCC2B0895E20034A863 /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDD52B0896AC0034A863 /* DependencyInjector.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		2F66DDCD2B0895EE0034A863 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDD72B08970A0034A863 /* ImageExtension.swift */,
+				2F66DDD92B08971A0034A863 /* ColorExtension.swift */,
+				2F66DDF12B089D990034A863 /* ViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2F66DDCE2B0895F40034A863 /* Base MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDDC2B08973C0034A863 /* BaseViewModel.swift */,
+				2F66DDED2B089CD90034A863 /* BaseView.swift */,
+				2F66DDEF2B089D640034A863 /* BaseViewDidLoadModifier.swift */,
+			);
+			path = "Base MVVM";
+			sourceTree = "<group>";
+		};
+		2F66DDCF2B0895F90034A863 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDDE2B0897A90034A863 /* BaseCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		2F66DDD02B0896010034A863 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2F66DDD12B08964F0034A863 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				2F8E136B2B01DD9E007920E1 /* ContentView.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		2F66DDD22B0896560034A863 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		2F66DDD32B0896600034A863 /* ShoppingLIst */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShoppingLIst;
+			sourceTree = "<group>";
+		};
+		2F66DDD42B0896730034A863 /* Planning */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Planning;
+			sourceTree = "<group>";
+		};
+		2F66DDE02B0899280034A863 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		2F66DDE12B0899340034A863 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDEA2B089AFF0034A863 /* BaseUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		2F66DDE22B08993E0034A863 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDE42B0899640034A863 /* Request */,
+				2F66DDE32B0899590034A863 /* Response */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		2F66DDE32B0899590034A863 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		2F66DDE42B0899640034A863 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		2F66DDE52B08997C0034A863 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		2F66DDE62B0899880034A863 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDE92B089AB40034A863 /* Database */,
+				2F66DDE72B089A980034A863 /* Request */,
+				2F66DDE82B089AA30034A863 /* Response */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		2F66DDE72B089A980034A863 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		2F66DDE82B089AA30034A863 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		2F66DDE92B089AB40034A863 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				2F8E13742B01DDA0007920E1 /* CookSecret.xcdatamodeld */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		2F66DDEC2B089C440034A863 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				2F8E136D2B01DDA0007920E1 /* Assets.xcassets */,
+				2F8E13782B01DDA0007920E1 /* Info.plist */,
+				2F66DDF72B08A8450034A863 /* Localizable.strings */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
 		2F8E135D2B01DD9E007920E1 = {
 			isa = PBXGroup;
 			children = (
+				2F8E13772B01DDA0007920E1 /* CookSecret.entitlements */,
 				2F8E139A2B01DFC8007920E1 /* .swiftlint.yml */,
 				2F8E13682B01DD9E007920E1 /* CookSecret */,
 				2F8E13802B01DDA1007920E1 /* CookSecretTests */,
@@ -103,24 +348,12 @@
 		2F8E13682B01DD9E007920E1 /* CookSecret */ = {
 			isa = PBXGroup;
 			children = (
-				2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */,
-				2F8E136B2B01DD9E007920E1 /* ContentView.swift */,
-				2F8E136D2B01DDA0007920E1 /* Assets.xcassets */,
-				2F8E13722B01DDA0007920E1 /* Persistence.swift */,
-				2F8E13772B01DDA0007920E1 /* CookSecret.entitlements */,
-				2F8E13782B01DDA0007920E1 /* Info.plist */,
-				2F8E13742B01DDA0007920E1 /* CookSecret.xcdatamodeld */,
-				2F8E136F2B01DDA0007920E1 /* Preview Content */,
+				2F66DDC72B0895990034A863 /* Presentation */,
+				2F66DDC62B0895930034A863 /* Domain */,
+				2F66DDC52B08958B0034A863 /* Data */,
+				2F66DDEC2B089C440034A863 /* Supporting */,
 			);
 			path = CookSecret;
-			sourceTree = "<group>";
-		};
-		2F8E136F2B01DDA0007920E1 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				2F8E13702B01DDA0007920E1 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		2F8E13802B01DDA1007920E1 /* CookSecretTests */ = {
@@ -227,6 +460,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 2F8E135D2B01DD9E007920E1;
 			productRefGroup = 2F8E13672B01DD9E007920E1 /* Products */;
@@ -246,7 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F8E139B2B01DFC8007920E1 /* .swiftlint.yml in Resources */,
-				2F8E13712B01DDA0007920E1 /* Preview Assets.xcassets in Resources */,
+				2F66DDF52B08A8450034A863 /* Localizable.strings in Resources */,
 				2F8E136E2B01DDA0007920E1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,9 +528,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F8E13732B01DDA0007920E1 /* Persistence.swift in Sources */,
+				2F66DDDF2B0897A90034A863 /* BaseCoordinator.swift in Sources */,
+				2F66DDD82B08970A0034A863 /* ImageExtension.swift in Sources */,
+				2F66DDD62B0896AC0034A863 /* DependencyInjector.swift in Sources */,
 				2F8E13762B01DDA0007920E1 /* CookSecret.xcdatamodeld in Sources */,
+				2F66DDF02B089D640034A863 /* BaseViewDidLoadModifier.swift in Sources */,
 				2F8E136C2B01DD9E007920E1 /* ContentView.swift in Sources */,
+				2F66DDF22B089D990034A863 /* ViewExtension.swift in Sources */,
+				2F66DDDD2B08973C0034A863 /* BaseViewModel.swift in Sources */,
+				2F66DDDA2B08971A0034A863 /* ColorExtension.swift in Sources */,
+				2F66DDEE2B089CD90034A863 /* BaseView.swift in Sources */,
+				2F66DDEB2B089AFF0034A863 /* BaseUseCase.swift in Sources */,
 				2F8E136A2B01DD9E007920E1 /* CookSecretApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +574,18 @@
 			targetProxy = 2F8E13882B01DDA1007920E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2F66DDF72B08A8450034A863 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F66DDF62B08A8450034A863 /* es */,
+				2F66DDF82B08A8470034A863 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2F8E138F2B01DDA1007920E1 /* Debug */ = {
@@ -458,14 +712,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CookSecret/CookSecret.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CookSecret.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CookSecret/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6QN9DTJL6X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CookSecret/Info.plist;
+				INFOPLIST_FILE = CookSecret/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -489,14 +743,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CookSecret/CookSecret.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CookSecret.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CookSecret/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6QN9DTJL6X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CookSecret/Info.plist;
+				INFOPLIST_FILE = CookSecret/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
