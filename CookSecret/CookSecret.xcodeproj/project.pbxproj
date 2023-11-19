@@ -17,9 +17,12 @@
 		2F66DDF02B089D640034A863 /* BaseViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDEF2B089D640034A863 /* BaseViewDidLoadModifier.swift */; };
 		2F66DDF22B089D990034A863 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDF12B089D990034A863 /* ViewExtension.swift */; };
 		2F66DDF52B08A8450034A863 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F66DDF72B08A8450034A863 /* Localizable.strings */; };
+		2F66DDFA2B09D3F70034A863 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F66DDF92B09D3F70034A863 /* Launch Screen.storyboard */; };
+		2F66DDFC2B09D4640034A863 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F66DDFB2B09D4640034A863 /* Icon.xcassets */; };
+		2F66DDFE2B09D49E0034A863 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F66DDFD2B09D49E0034A863 /* Colors.xcassets */; };
 		2F8E136A2B01DD9E007920E1 /* CookSecretApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */; };
 		2F8E136C2B01DD9E007920E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E136B2B01DD9E007920E1 /* ContentView.swift */; };
-		2F8E136E2B01DDA0007920E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8E136D2B01DDA0007920E1 /* Assets.xcassets */; };
+		2F8E136E2B01DDA0007920E1 /* Pictures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8E136D2B01DDA0007920E1 /* Pictures.xcassets */; };
 		2F8E13762B01DDA0007920E1 /* CookSecret.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13742B01DDA0007920E1 /* CookSecret.xcdatamodeld */; };
 		2F8E13822B01DDA1007920E1 /* CookSecretTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13812B01DDA1007920E1 /* CookSecretTests.swift */; };
 		2F8E138C2B01DDA1007920E1 /* CookSecretUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E138B2B01DDA1007920E1 /* CookSecretUITests.swift */; };
@@ -56,10 +59,13 @@
 		2F66DDF12B089D990034A863 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		2F66DDF62B08A8450034A863 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F66DDF82B08A8470034A863 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F66DDF92B09D3F70034A863 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2F66DDFB2B09D4640034A863 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
+		2F66DDFD2B09D49E0034A863 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2F8E13662B01DD9E007920E1 /* CookSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookSecretApp.swift; sourceTree = "<group>"; };
 		2F8E136B2B01DD9E007920E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		2F8E136D2B01DDA0007920E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F8E136D2B01DDA0007920E1 /* Pictures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
 		2F8E13752B01DDA0007920E1 /* CookSecret.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookSecret.xcdatamodel; sourceTree = "<group>"; };
 		2F8E13772B01DDA0007920E1 /* CookSecret.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CookSecret.entitlements; sourceTree = "<group>"; };
 		2F8E13782B01DDA0007920E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -316,11 +322,22 @@
 		2F66DDEC2B089C440034A863 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				2F8E136D2B01DDA0007920E1 /* Assets.xcassets */,
+				2F66DDFF2B09D4A30034A863 /* Assets */,
+				2F66DDF92B09D3F70034A863 /* Launch Screen.storyboard */,
 				2F8E13782B01DDA0007920E1 /* Info.plist */,
 				2F66DDF72B08A8450034A863 /* Localizable.strings */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		2F66DDFF2B09D4A30034A863 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DDFB2B09D4640034A863 /* Icon.xcassets */,
+				2F66DDFD2B09D49E0034A863 /* Colors.xcassets */,
+				2F8E136D2B01DDA0007920E1 /* Pictures.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		2F8E135D2B01DD9E007920E1 = {
@@ -481,7 +498,10 @@
 			files = (
 				2F8E139B2B01DFC8007920E1 /* .swiftlint.yml in Resources */,
 				2F66DDF52B08A8450034A863 /* Localizable.strings in Resources */,
-				2F8E136E2B01DDA0007920E1 /* Assets.xcassets in Resources */,
+				2F66DDFA2B09D3F70034A863 /* Launch Screen.storyboard in Resources */,
+				2F66DDFE2B09D49E0034A863 /* Colors.xcassets in Resources */,
+				2F8E136E2B01DDA0007920E1 /* Pictures.xcassets in Resources */,
+				2F66DDFC2B09D4640034A863 /* Icon.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +732,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = CookSecret.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -723,8 +744,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -743,6 +765,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = CookSecret.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -754,8 +777,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
