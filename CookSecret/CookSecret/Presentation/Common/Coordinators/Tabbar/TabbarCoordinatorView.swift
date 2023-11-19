@@ -8,13 +8,7 @@
 import SwiftUI
 
 struct TabbarCoordinatorView: View {
-    
-    // MARK: - Constants
-    
-    private enum ViewConstants {
-        static let tabbarIconSize: CGFloat = 2
-    }
-    
+
     // MARK: - Properties
     
     @StateObject var coordinator: TabbarCoordinator
@@ -23,7 +17,7 @@ struct TabbarCoordinatorView: View {
     
     var body: some View {
         TabView {
-            Text("Tab 1")
+            RecipeCoordinatorView(coordinator: coordinator.recipeCoordinator)
                 .tabItem {
                     Image.recipe
                 }

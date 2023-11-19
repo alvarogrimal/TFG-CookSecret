@@ -18,6 +18,12 @@ final class TabbarCoordinator: BaseCoordinator, TabbarCoordinatorProtocol {
     
     // MARK: - Properties
     
+    var recipeCoordinator: RecipeCoordinator
+    
+    override init() {
+        recipeCoordinator = .sample
+    }
+    
     // MARK: - TabbarCoordinatorProtocol
     
 }

@@ -12,7 +12,7 @@
     </entity>
     <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
-        <attribute name="identifier" attributeType="String"/>
+        <attribute name="identifier" attributeType="String" defaultValueString=""/>
         <attribute name="preparation" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>

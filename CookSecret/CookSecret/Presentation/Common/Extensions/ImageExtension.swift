@@ -13,4 +13,6 @@ extension Image {
     static let search = Image("Search")
     static let list = Image("List")
     static let calendar = Image("Calendar")
+    static let filter = Image("Filter")
+    static let plus = Image("Plus")
 }

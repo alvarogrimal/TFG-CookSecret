@@ -22,7 +22,9 @@ protocol LifecycleViewProtocol: AnyObject {
 
 // MARK: BaseViewModel
 
-open class BaseViewModel<Coordinator>: ViewModelDependencies, LifecycleViewProtocol {
+open class BaseViewModel<Coordinator>: ViewModelDependencies,
+                                       LifecycleViewProtocol,
+                                       ObservableObject {
 
     // MARK: Properties
     
