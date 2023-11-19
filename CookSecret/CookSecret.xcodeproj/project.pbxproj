@@ -24,7 +24,7 @@
 		2F66DE062B09DC040034A863 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DE052B09DC040034A863 /* NavigationItem.swift */; };
 		2F8E136A2B01DD9E007920E1 /* CookSecretApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */; };
 		2F8E136E2B01DDA0007920E1 /* Pictures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8E136D2B01DDA0007920E1 /* Pictures.xcassets */; };
-		2F8E13762B01DDA0007920E1 /* CookSecret.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13742B01DDA0007920E1 /* CookSecret.xcdatamodeld */; };
+		2F8E13762B01DDA0007920E1 /* Recipe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13742B01DDA0007920E1 /* Recipe.xcdatamodeld */; };
 		2F8E13822B01DDA1007920E1 /* CookSecretTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13812B01DDA1007920E1 /* CookSecretTests.swift */; };
 		2F8E138C2B01DDA1007920E1 /* CookSecretUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E138B2B01DDA1007920E1 /* CookSecretUITests.swift */; };
 		2F8E138E2B01DDA1007920E1 /* CookSecretUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E138D2B01DDA1007920E1 /* CookSecretUITestsLaunchTests.swift */; };
@@ -316,7 +316,7 @@
 		2F66DDE92B089AB40034A863 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				2F8E13742B01DDA0007920E1 /* CookSecret.xcdatamodeld */,
+				2F8E13742B01DDA0007920E1 /* Recipe.xcdatamodeld */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -562,7 +562,7 @@
 				2F66DDDF2B0897A90034A863 /* BaseCoordinator.swift in Sources */,
 				2F66DDD82B08970A0034A863 /* ImageExtension.swift in Sources */,
 				2F66DDD62B0896AC0034A863 /* DependencyInjector.swift in Sources */,
-				2F8E13762B01DDA0007920E1 /* CookSecret.xcdatamodeld in Sources */,
+				2F8E13762B01DDA0007920E1 /* Recipe.xcdatamodeld in Sources */,
 				2F66DDF02B089D640034A863 /* BaseViewDidLoadModifier.swift in Sources */,
 				2F66DE042B09DBB90034A863 /* TabbarCoordinatorView.swift in Sources */,
 				2F66DE062B09DC040034A863 /* NavigationItem.swift in Sources */,
@@ -923,13 +923,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2F8E13742B01DDA0007920E1 /* CookSecret.xcdatamodeld */ = {
+		2F8E13742B01DDA0007920E1 /* Recipe.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				2F8E13752B01DDA0007920E1 /* CookSecret.xcdatamodel */,
 			);
 			currentVersion = 2F8E13752B01DDA0007920E1 /* CookSecret.xcdatamodel */;
-			path = CookSecret.xcdatamodeld;
+			path = Recipe.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
