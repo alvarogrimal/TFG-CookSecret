@@ -5,3 +5,8 @@
   Created by Alvaro Grimal Cabello on 18/11/23.
   
 */
+
+// MARK: - Recipes
+
+"recipes_title" = "Mis Recetas";
+"recipes_empty" = "Todavía no tienes ninguna receta";

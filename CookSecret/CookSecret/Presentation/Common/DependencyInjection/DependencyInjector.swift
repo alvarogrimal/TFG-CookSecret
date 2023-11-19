@@ -15,4 +15,7 @@ class DependencyInjector {
     
     // MARK: - ViewModels
     
+    static func getRecipeListViewModel(coordinator: RecipeCoordinatorProtocol) -> RecipeListViewModel {
+        .init(coordinator: coordinator)
+    }
 }
