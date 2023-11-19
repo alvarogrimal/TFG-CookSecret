@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2F66DDD62B0896AC0034A863 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD52B0896AC0034A863 /* DependencyInjector.swift */; };
 		2F66DDD82B08970A0034A863 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD72B08970A0034A863 /* ImageExtension.swift */; };
-		2F66DDDA2B08971A0034A863 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD92B08971A0034A863 /* ColorExtension.swift */; };
 		2F66DDDD2B08973C0034A863 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDDC2B08973C0034A863 /* BaseViewModel.swift */; };
 		2F66DDDF2B0897A90034A863 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDDE2B0897A90034A863 /* BaseCoordinator.swift */; };
 		2F66DDEB2B089AFF0034A863 /* BaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDEA2B089AFF0034A863 /* BaseUseCase.swift */; };
@@ -20,8 +19,10 @@
 		2F66DDFA2B09D3F70034A863 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F66DDF92B09D3F70034A863 /* Launch Screen.storyboard */; };
 		2F66DDFC2B09D4640034A863 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F66DDFB2B09D4640034A863 /* Icon.xcassets */; };
 		2F66DDFE2B09D49E0034A863 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F66DDFD2B09D49E0034A863 /* Colors.xcassets */; };
+		2F66DE022B09DBA90034A863 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DE012B09DBA90034A863 /* TabbarCoordinator.swift */; };
+		2F66DE042B09DBB90034A863 /* TabbarCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DE032B09DBB90034A863 /* TabbarCoordinatorView.swift */; };
+		2F66DE062B09DC040034A863 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DE052B09DC040034A863 /* NavigationItem.swift */; };
 		2F8E136A2B01DD9E007920E1 /* CookSecretApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */; };
-		2F8E136C2B01DD9E007920E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E136B2B01DD9E007920E1 /* ContentView.swift */; };
 		2F8E136E2B01DDA0007920E1 /* Pictures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8E136D2B01DDA0007920E1 /* Pictures.xcassets */; };
 		2F8E13762B01DDA0007920E1 /* CookSecret.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13742B01DDA0007920E1 /* CookSecret.xcdatamodeld */; };
 		2F8E13822B01DDA1007920E1 /* CookSecretTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13812B01DDA1007920E1 /* CookSecretTests.swift */; };
@@ -50,7 +51,6 @@
 /* Begin PBXFileReference section */
 		2F66DDD52B0896AC0034A863 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		2F66DDD72B08970A0034A863 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
-		2F66DDD92B08971A0034A863 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		2F66DDDC2B08973C0034A863 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		2F66DDDE2B0897A90034A863 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2F66DDEA2B089AFF0034A863 /* BaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUseCase.swift; sourceTree = "<group>"; };
@@ -62,9 +62,11 @@
 		2F66DDF92B09D3F70034A863 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2F66DDFB2B09D4640034A863 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		2F66DDFD2B09D49E0034A863 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		2F66DE012B09DBA90034A863 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
+		2F66DE032B09DBB90034A863 /* TabbarCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinatorView.swift; sourceTree = "<group>"; };
+		2F66DE052B09DC040034A863 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
 		2F8E13662B01DD9E007920E1 /* CookSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookSecretApp.swift; sourceTree = "<group>"; };
-		2F8E136B2B01DD9E007920E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2F8E136D2B01DDA0007920E1 /* Pictures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
 		2F8E13752B01DDA0007920E1 /* CookSecret.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookSecret.xcdatamodel; sourceTree = "<group>"; };
 		2F8E13772B01DDA0007920E1 /* CookSecret.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CookSecret.entitlements; sourceTree = "<group>"; };
@@ -182,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				2F66DDD72B08970A0034A863 /* ImageExtension.swift */,
-				2F66DDD92B08971A0034A863 /* ColorExtension.swift */,
 				2F66DDF12B089D990034A863 /* ViewExtension.swift */,
 			);
 			path = Extensions;
@@ -202,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				2F66DDDE2B0897A90034A863 /* BaseCoordinator.swift */,
+				2F66DE052B09DC040034A863 /* NavigationItem.swift */,
+				2F66DE002B09DB960034A863 /* Tabbar */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -216,7 +219,6 @@
 		2F66DDD12B08964F0034A863 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
-				2F8E136B2B01DD9E007920E1 /* ContentView.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -338,6 +340,15 @@
 				2F8E136D2B01DDA0007920E1 /* Pictures.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		2F66DE002B09DB960034A863 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				2F66DE012B09DBA90034A863 /* TabbarCoordinator.swift */,
+				2F66DE032B09DBB90034A863 /* TabbarCoordinatorView.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		2F8E135D2B01DD9E007920E1 = {
@@ -553,12 +564,13 @@
 				2F66DDD62B0896AC0034A863 /* DependencyInjector.swift in Sources */,
 				2F8E13762B01DDA0007920E1 /* CookSecret.xcdatamodeld in Sources */,
 				2F66DDF02B089D640034A863 /* BaseViewDidLoadModifier.swift in Sources */,
-				2F8E136C2B01DD9E007920E1 /* ContentView.swift in Sources */,
+				2F66DE042B09DBB90034A863 /* TabbarCoordinatorView.swift in Sources */,
+				2F66DE062B09DC040034A863 /* NavigationItem.swift in Sources */,
 				2F66DDF22B089D990034A863 /* ViewExtension.swift in Sources */,
 				2F66DDDD2B08973C0034A863 /* BaseViewModel.swift in Sources */,
-				2F66DDDA2B08971A0034A863 /* ColorExtension.swift in Sources */,
 				2F66DDEE2B089CD90034A863 /* BaseView.swift in Sources */,
 				2F66DDEB2B089AFF0034A863 /* BaseUseCase.swift in Sources */,
+				2F66DE022B09DBA90034A863 /* TabbarCoordinator.swift in Sources */,
 				2F8E136A2B01DD9E007920E1 /* CookSecretApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

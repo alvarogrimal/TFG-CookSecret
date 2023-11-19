@@ -9,10 +9,16 @@ import SwiftUI
 
 @main
 struct CookSecretApp: App {
+    
+    // MARK: - Properties
+        
+    @StateObject var tabbarCoordinator: TabbarCoordinator = .init()
 
+    // MARK: - Body
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabbarCoordinatorView(coordinator: tabbarCoordinator)
         }
     }
 }

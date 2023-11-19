@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
+
+extension Image {
+    static let recipe = Image("Recipe")
+    static let search = Image("Search")
+    static let list = Image("List")
+    static let calendar = Image("Calendar")
+}
