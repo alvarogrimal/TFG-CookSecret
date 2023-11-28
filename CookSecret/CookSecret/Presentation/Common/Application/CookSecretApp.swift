@@ -19,6 +19,7 @@ struct CookSecretApp: App {
     var body: some Scene {
         WindowGroup {
             TabbarCoordinatorView(coordinator: tabbarCoordinator)
+                .tint(.black)
         }
     }
 }

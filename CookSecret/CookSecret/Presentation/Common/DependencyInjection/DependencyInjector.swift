@@ -11,11 +11,44 @@ class DependencyInjector {
     
     // MARK: - Repositories
     
+    static func getHttpRepository() -> HttpRepository {
+        URLSessionRepository.shared()
+    }
+    
+    static func getDatabaseRepository() -> DatabaseRepository {
+        CoreDataRepository.shared()
+    }
+    
     // MARK: - UseCases
+    
+    static func searchIngredientUseCase() -> SearchIngredientUseCase {
+        .init(httpRepository: getHttpRepository())
+    }
+    
+    static func addRecipeUseCase() -> AddRecipeUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
+    
+    static func getRecipesUseCase() -> GetRecipesUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
     
     // MARK: - ViewModels
     
     static func getRecipeListViewModel(coordinator: RecipeCoordinatorProtocol) -> RecipeListViewModel {
-        .init(coordinator: coordinator)
+        .init(getRecipesUseCase: getRecipesUseCase(),
+              coordinator: coordinator)
+    }
+    
+    static func getAddRecipeViewModel(coordinator: AddRecipeCoordinator) -> AddRecipeViewModel {
+        .init(addRecipeUseCase: addRecipeUseCase(),
+              coordinator: coordinator)
+    }
+    
+    static func getAddIngredientViewModel(coordinator: AddRecipeCoordinator,
+                                          delegate: AddIngredientDelegate) -> AddIngredientViewModel {
+        .init(coordinator: coordinator,
+              searchIngredientUseCase: searchIngredientUseCase(),
+              delegate: delegate)
     }
 }

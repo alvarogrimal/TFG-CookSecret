@@ -6,7 +6,48 @@
   
 */
 
+// MARK: - General
+
+"general_cancel" = "Cancel";
+"general_save" = "Save";
+"general_add" = "Add";
+
+// MARK: - Info plist
+
+"info_camera_permissions" = "The application needs to access the camera to add an image.";
+"info_gallery_permissions" = "The application needs to access the gallery to add an image.";
+
 // MARK: - Recipes
 
 "recipes_title" = "My Recipes";
 "recipes_empty" = "You do not have any recipe yet";
+
+// MARK: - AddRecipe
+
+"add_recipe_nav_title" = "Add recipe";
+"add_recipe_hours" = "hours";
+"add_recipe_minutes" = "min";
+"add_recipe_seconds" = "sec";
+"add_recipe_title" = "Title";
+"add_recipe_add_title" = "Add a title";
+"add_recipe_description" = "Description";
+"add_recipe_add_descrition" = "Add a description";
+"add_recipe_time" = "Time";
+"add_recipe_people" = "People";
+"add_recipe_person_format" = "%d person";
+"add_recipe_people_format" = "%d people";
+"add_recipe_type" = "Type";
+"add_recipe_preparation" = "Preparation";
+"add_recipe_add_preparation" = "Add the preparation steps";
+"add_recipe_resources" = "Resources";
+"add_recipe_gallery" = "Gallery";
+"add_recipe_camera" = "Camera";
+"add_recipe_ingredients" = "Ingredients";
+
+// MARK: - Add Ingredient
+
+"add_ingredient_title" = "Add ingredient";
+"add_ingredient_name" = "Name";
+"add_ingredient_name_placeholder" = "Insert the name";
+"add_ingredient_quantity" = "Quantity";
+"add_ingredient_quantity_placeholder" = "Add the quantity";
