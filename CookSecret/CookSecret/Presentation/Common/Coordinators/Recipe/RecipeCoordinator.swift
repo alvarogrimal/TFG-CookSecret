@@ -10,6 +10,7 @@ import Foundation
 // MARK: - Protocol
 
 protocol RecipeCoordinatorProtocol: BaseCoordinatorProtocol {
+    func addRecipe()
 }
 
 // MARK: - Coodinator
@@ -19,17 +20,21 @@ final class RecipeCoordinator: BaseCoordinator,
     
     // MARK: - Properties
     
-    @Published var viewModel: RecipeListViewModel?
+    @Published var recipeListViewModel: RecipeListViewModel?
+    @Published var addRecipeNavigationItem: NavigationItem<AddRecipeCoordinator> = .init()
     
     // MARK: - Init
     
     override init() {
         super.init()
-        self.viewModel = DependencyInjector.getRecipeListViewModel(coordinator: self)
+        recipeListViewModel = DependencyInjector.getRecipeListViewModel(coordinator: self)
     }
     
     // MARK: - RecipeCoordinatorProtocol
     
+    func addRecipe() {
+        addRecipeNavigationItem.navigate(to: .init())
+    }
 }
 
 // MARK: - Mock

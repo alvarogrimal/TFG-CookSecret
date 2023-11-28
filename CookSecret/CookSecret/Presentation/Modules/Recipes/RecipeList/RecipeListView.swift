@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeListView: View {
     
-        // MARK: - Properties
+    // MARK: - Properties
     
     private enum ViewConstants {
         static let emptyViewPadding: CGFloat = 16
@@ -27,17 +27,17 @@ struct RecipeListView: View {
         static let shadowY: CGFloat = 4
     }
     
-        // MARK: - Properties
+    // MARK: - Properties
     
     @ObservedObject var viewModel: RecipeListViewModel
     
-        // MARK: - Init
+    // MARK: - Init
     
     init(viewModel: RecipeListViewModel) {
         self.viewModel = viewModel
     }
     
-        // MARK: - Body
+    // MARK: - Body
     
     var body: some View {
         ZStack {
@@ -100,17 +100,17 @@ struct RecipeListView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {}, label: {
                         Image.filter
-                            .tint(.indigo)
+                            .tint(.csIndigo)
                     })
                 }
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    viewModel.recipeList = (0...100).compactMap({ _ in .init() })
+                    viewModel.addRecipeTapped()
                 }, label: {
                     Image.plus
-                        .tint(.indigo)
+                        .tint(.csIndigo)
                 })
             }
         }

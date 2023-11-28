@@ -29,14 +29,27 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     @Published var recipeList: [RecipeListItemViewModel] = []
     @Published var searchText: String = ""
     
+    private let getRecipesUseCase: GetRecipesUseCase
+    
     // MARK: - Lifecycle
+    
+    init(getRecipesUseCase: GetRecipesUseCase,
+         coordinator: BaseCoordinatorProtocol) {
+        self.getRecipesUseCase = getRecipesUseCase
+        super.init(coordinator: coordinator)
+    }
     
     override func onLoad() {
         super.onLoad()
         configurePublishers()
+        getRecipes()
     }
     
     // MARK: - Internal functions
+    
+    func addRecipeTapped() {
+        getCoordinator()?.addRecipe()
+    }
     
     // MARK: - Private functions
     
@@ -49,6 +62,23 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
             .store(in: &cancellableSet)
     }
     
+    private func getRecipes() {
+        Task {
+            do {
+                let recipeListDomain = try await getRecipesUseCase.execute()
+                print("✅ Success: Retrived recipes")
+                Task { @MainActor in
+                    recipeList = recipeListDomain?
+                        .compactMap({ .init(id: $0.id,
+                                            title: $0.title,
+                                            image: $0.resources.first?.image ?? .init()) }) ?? []
+                }
+            } catch {
+                print("❌ Error: Retrived recipes")
+            }
+        }
+    }
+    
     private func search(by value: String) {
         print(value)
     }
@@ -58,6 +88,7 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
 
 extension RecipeListViewModel {
     static let sample: RecipeListViewModel = {
-        .init(coordinator: RecipeCoordinator.sample)
+        .init(getRecipesUseCase: DependencyInjector.getRecipesUseCase(),
+              coordinator: RecipeCoordinator.sample)
     }()
 }

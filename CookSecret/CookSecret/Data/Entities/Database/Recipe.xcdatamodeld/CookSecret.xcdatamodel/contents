@@ -6,6 +6,7 @@
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="extraInfoList" inverseEntity="Recipe"/>
     </entity>
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
+        <attribute name="identifier" attributeType="String" defaultValueString=""/>
         <attribute name="quantity" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredientList" inverseEntity="Recipe"/>
@@ -13,10 +14,20 @@
     <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="identifier" attributeType="String" defaultValueString=""/>
+        <attribute name="isFavorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="people" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="preparation" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="extraInfoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExtraInfo" inverseName="recipes" inverseEntity="ExtraInfo"/>
         <relationship name="ingredientList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="recipes" inverseEntity="Ingredient"/>
+        <relationship name="resourceList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Resource" inverseName="recipes" inverseEntity="Resource"/>
+    </entity>
+    <entity name="Resource" representedClassName="Resource" syncable="YES" codeGenerationType="class">
+        <attribute name="identifier" attributeType="String" defaultValueString=""/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="resourceList" inverseEntity="Recipe"/>
     </entity>
 </model>

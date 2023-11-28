@@ -25,8 +25,18 @@ struct RecipeCoordinatorView: View {
     
     @ViewBuilder
     private func recipeListView() -> some View {
-        if let viewModel = coordinator.viewModel {
+        if let viewModel = coordinator.recipeListViewModel {
             RecipeListView(viewModel: viewModel)
+                .sheet(isPresented: $coordinator.addRecipeNavigationItem.isActive, content: {
+                    addRecipeCoordinatorView()
+                })
+        }
+    }
+    
+    @ViewBuilder
+    private func addRecipeCoordinatorView() -> some View {
+        if let model = coordinator.addRecipeNavigationItem.model {
+            AddRecipeCoordinatorView(coordinator: model)
         }
     }
 }
