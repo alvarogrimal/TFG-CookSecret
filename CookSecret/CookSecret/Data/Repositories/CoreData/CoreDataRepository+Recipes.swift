@@ -77,14 +77,12 @@ extension CoreDataRepository {
     
     func deleteRecipe(with id: String) async throws {
         try await withUnsafeThrowingContinuation { continuation in
-            let fetchRequest : NSFetchRequest<Recipe> = Recipe.fetchRequest()
+            let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
             let context = container.viewContext
             do {
                 let result = try context.fetch(fetchRequest)
-                for object in result {
-                    if object.identifier == id {
-                        context.delete(object)
-                    }
+                for object in result where object.identifier == id {
+                    context.delete(object)
                 }
                 try context.save()
                 print("✅ Success: Garment deleted")

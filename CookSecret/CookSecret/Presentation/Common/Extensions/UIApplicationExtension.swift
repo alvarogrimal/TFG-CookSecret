@@ -19,4 +19,3 @@ extension UIApplication {
         return nil
     }
 }
-

@@ -11,6 +11,9 @@
 "general_cancel" = "Cancelar";
 "general_save" = "Guardar";
 "general_add" = "Añadir";
+"general_share" = "Compartir";
+"general_edit" = "Editar";
+"general_delete" = "Eliminar";
 
 // MARK: - Info plist
 

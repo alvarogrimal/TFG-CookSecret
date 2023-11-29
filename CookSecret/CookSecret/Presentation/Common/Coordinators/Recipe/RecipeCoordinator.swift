@@ -11,6 +11,7 @@ import Foundation
 
 protocol RecipeCoordinatorProtocol: BaseCoordinatorProtocol {
     func addRecipe()
+    func openRecipe(_ recipe: RecipeDomainModel)
 }
 
 // MARK: - Coodinator
@@ -22,6 +23,7 @@ final class RecipeCoordinator: BaseCoordinator,
     
     @Published var recipeListViewModel: RecipeListViewModel?
     @Published var addRecipeNavigationItem: NavigationItem<AddRecipeCoordinator> = .init()
+    @Published var recipeDetailItem: NavigationItem<RecipeDetailViewModel> = .init()
     
     // MARK: - Init
     
@@ -34,6 +36,12 @@ final class RecipeCoordinator: BaseCoordinator,
     
     func addRecipe() {
         addRecipeNavigationItem.navigate(to: .init())
+    }
+    
+    func openRecipe(_ recipe: RecipeDomainModel) {
+        recipeDetailItem.navigate(to: DependencyInjector
+            .getRecipeDetailViewModel(recipe: recipe,
+                                      coordinator: self))
     }
 }
 

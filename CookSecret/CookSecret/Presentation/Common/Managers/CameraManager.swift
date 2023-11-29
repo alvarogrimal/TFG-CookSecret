@@ -34,7 +34,7 @@ public class CameraManager: NSObject {
 
     private func requestCameraPermission() {
         AVCaptureDevice.requestAccess(for: .video, completionHandler: { accessGranted in
-            guard accessGranted == true else { return }
+            guard accessGranted else { return }
             self.presentCamera()
         })
     }

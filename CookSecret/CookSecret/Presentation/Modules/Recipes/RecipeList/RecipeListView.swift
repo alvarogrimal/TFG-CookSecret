@@ -89,10 +89,14 @@ struct RecipeListView: View {
                                            radius: ViewConstants.shadowRadius,
                                            x: ViewConstants.shadowX,
                                            y: ViewConstants.shadowY)
+                                   .onTapGesture {
+                                       viewModel.openRecipe(id: item.id)
+                                   }
                         }
                     }.padding(.horizontal)
                 }
                 .searchable(text: $viewModel.searchText)
+                .refreshable(action: { viewModel.refresh() })
             }
         }
         .toolbar {
