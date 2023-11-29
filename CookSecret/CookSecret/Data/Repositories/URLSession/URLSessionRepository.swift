@@ -40,7 +40,7 @@ final class URLSessionRepository: NSObject,
                                       .init(key: .searchSimple, value: "0"),
                                       .init(key: .json, value: "1")]
         guard let urlRequest = OpenFoodFactsApi.searchByProduct(urlParameters: parameters).urlRequest else {
-            throw NSError()
+            fatalError("Error searchIngredient")
         }
         
         let (data, _) = try await session.data(for: urlRequest)

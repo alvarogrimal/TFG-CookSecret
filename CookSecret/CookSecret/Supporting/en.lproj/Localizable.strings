@@ -11,6 +11,9 @@
 "general_cancel" = "Cancel";
 "general_save" = "Save";
 "general_add" = "Add";
+"general_share" = "Share";
+"general_edit" = "Edit";
+"general_delete" = "Delete";
 
 // MARK: - Info plist
 

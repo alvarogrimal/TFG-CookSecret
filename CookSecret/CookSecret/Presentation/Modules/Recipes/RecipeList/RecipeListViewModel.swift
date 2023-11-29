@@ -30,6 +30,7 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     @Published var searchText: String = ""
     
     private let getRecipesUseCase: GetRecipesUseCase
+    private var domainList: [RecipeDomainModel] = []
     
     // MARK: - Lifecycle
     
@@ -51,6 +52,16 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
         getCoordinator()?.addRecipe()
     }
     
+    func openRecipe(id: String) {
+        if let recipe = domainList.first(where: { $0.id == id }) {
+            getCoordinator()?.openRecipe(recipe)
+        }
+    }
+    
+    func refresh() {
+        getRecipes()
+    }
+    
     // MARK: - Private functions
     
     private func configurePublishers() {
@@ -65,13 +76,13 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     private func getRecipes() {
         Task {
             do {
-                let recipeListDomain = try await getRecipesUseCase.execute()
+                domainList = try await getRecipesUseCase.execute() ?? []
                 print("✅ Success: Retrived recipes")
                 Task { @MainActor in
-                    recipeList = recipeListDomain?
+                    recipeList = domainList
                         .compactMap({ .init(id: $0.id,
                                             title: $0.title,
-                                            image: $0.resources.first?.image ?? .init()) }) ?? []
+                                            image: $0.resources.first?.image ?? .init()) })
                 }
             } catch {
                 print("❌ Error: Retrived recipes")

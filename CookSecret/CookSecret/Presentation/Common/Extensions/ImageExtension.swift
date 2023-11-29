@@ -16,4 +16,7 @@ extension Image {
     static let filter = Image("Filter")
     static let plus = Image("Plus")
     static let cross = Image("Cross")
+    static let clock = Image("Clock")
+    static let people = Image("People")
+    static let forkKnife = Image("ForkKnife")
 }
