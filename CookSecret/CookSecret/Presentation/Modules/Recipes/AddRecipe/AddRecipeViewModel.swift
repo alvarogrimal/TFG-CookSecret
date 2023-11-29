@@ -13,13 +13,13 @@ enum RecipeType: String, CaseIterable {
     func getValue() -> String {
         switch self {
         case .starter:
-            "starter".localized
+            "add_recipe_starter".localized
         case .principal:
-            "principal".localized
+            "add_recipe_principal".localized
         case .secondary:
-            "secondary".localized
+            "add_recipe_secondary".localized
         case .dessert:
-            "dessert".localized
+            "add_recipe_dessert".localized
         }
     }
 }

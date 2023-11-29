@@ -14,6 +14,8 @@
 "general_share" = "Compartir";
 "general_edit" = "Editar";
 "general_delete" = "Eliminar";
+"general_apply" = "Aplicar";
+"general_reset" = "Resetear";
 
 // MARK: - Info plist
 
@@ -46,6 +48,10 @@
 "add_recipe_gallery" = "Galería";
 "add_recipe_camera" = "Cámara";
 "add_recipe_ingredients" = "Ingredientes";
+"add_recipe_starter" = "Entrante";
+"add_recipe_principal" = "Plato principal";
+"add_recipe_secondary" = "Segundo plato";
+"add_recipe_dessert" = "Postre";
 
 // MARK: - Add Ingredient
 
@@ -54,3 +60,12 @@
 "add_ingredient_name_placeholder" = "Escribe el nombre";
 "add_ingredient_quantity" = "Cantidad";
 "add_ingredient_quantity_placeholder" = "Añade la cantidad";
+
+// MARK: - Filters
+
+"filter_title" = "Filtros";
+"filter_favourites" = "Favoritos";
+"filter_type" = "Tipo";
+"filter_time" = "Tiempo";
+"filter_ingredients" = "Ingredientes";
+"filter_ingredients_placeholder" = "Añade un ingrediente";

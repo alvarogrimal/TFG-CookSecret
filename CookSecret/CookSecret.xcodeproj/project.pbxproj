@@ -43,6 +43,8 @@
 		2F619C322B16A2CA007DB3B0 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C312B16A2CA007DB3B0 /* RecipeDetailViewModel.swift */; };
 		2F619C342B16A2D7007DB3B0 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C332B16A2D7007DB3B0 /* RecipeDetailView.swift */; };
 		2F619C362B16AD62007DB3B0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C352B16AD62007DB3B0 /* Utils.swift */; };
+		2F619C392B170146007DB3B0 /* RecipeListFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C382B170146007DB3B0 /* RecipeListFilterViewModel.swift */; };
+		2F619C3B2B170150007DB3B0 /* RecipeListFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C3A2B170150007DB3B0 /* RecipeListFilterView.swift */; };
 		2F66DDD62B0896AC0034A863 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD52B0896AC0034A863 /* DependencyInjector.swift */; };
 		2F66DDD82B08970A0034A863 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD72B08970A0034A863 /* ImageExtension.swift */; };
 		2F66DDDD2B08973C0034A863 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDDC2B08973C0034A863 /* BaseViewModel.swift */; };
@@ -121,6 +123,8 @@
 		2F619C312B16A2CA007DB3B0 /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
 		2F619C332B16A2D7007DB3B0 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		2F619C352B16AD62007DB3B0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		2F619C382B170146007DB3B0 /* RecipeListFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListFilterViewModel.swift; sourceTree = "<group>"; };
+		2F619C3A2B170150007DB3B0 /* RecipeListFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListFilterView.swift; sourceTree = "<group>"; };
 		2F66DDD52B0896AC0034A863 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		2F66DDD72B08970A0034A863 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		2F66DDDC2B08973C0034A863 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -313,6 +317,15 @@
 			path = RecipeDetail;
 			sourceTree = "<group>";
 		};
+		2F619C372B17012F007DB3B0 /* RecipeListFilter */ = {
+			isa = PBXGroup;
+			children = (
+				2F619C382B170146007DB3B0 /* RecipeListFilterViewModel.swift */,
+				2F619C3A2B170150007DB3B0 /* RecipeListFilterView.swift */,
+			);
+			path = RecipeListFilter;
+			sourceTree = "<group>";
+		};
 		2F66DDC52B08958B0034A863 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				2F1156D42B0A16FA009F29F5 /* RecipeList */,
+				2F619C372B17012F007DB3B0 /* RecipeListFilter */,
 				2F1156D92B0A698E009F29F5 /* AddRecipe */,
 				2F619C072B148F35007DB3B0 /* AddIngredient */,
 				2F619C302B16A2A9007DB3B0 /* RecipeDetail */,
@@ -789,6 +803,7 @@
 			files = (
 				2F619C1A2B153138007DB3B0 /* ApiBuilder.swift in Sources */,
 				2F619C322B16A2CA007DB3B0 /* RecipeDetailViewModel.swift in Sources */,
+				2F619C392B170146007DB3B0 /* RecipeListFilterViewModel.swift in Sources */,
 				2F66DDDF2B0897A90034A863 /* BaseCoordinator.swift in Sources */,
 				2F66DDD82B08970A0034A863 /* ImageExtension.swift in Sources */,
 				2F619BEE2B0A966F007DB3B0 /* AddFieldSectionView.swift in Sources */,
@@ -807,6 +822,7 @@
 				2F619C292B15C096007DB3B0 /* RecipeDomainModel.swift in Sources */,
 				2F619BF12B0A9AF7007DB3B0 /* TimerView.swift in Sources */,
 				2F66DDF22B089D990034A863 /* ViewExtension.swift in Sources */,
+				2F619C3B2B170150007DB3B0 /* RecipeListFilterView.swift in Sources */,
 				2F619C042B1481B4007DB3B0 /* AddRecipeCoordinator.swift in Sources */,
 				2F619C0D2B149C68007DB3B0 /* SearchIngredientUseCase.swift in Sources */,
 				2F619BFC2B12FAF7007DB3B0 /* CameraManager.swift in Sources */,

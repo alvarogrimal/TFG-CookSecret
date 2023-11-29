@@ -146,7 +146,7 @@ struct AddRecipeView: View {
                 Button("general_cancel") {
                     dismiss()
                 }
-                .tint(.black)
+                .tint(.persianBlue)
             }
             
             ToolbarItem(placement: .topBarTrailing) {
@@ -157,7 +157,7 @@ struct AddRecipeView: View {
                     }
                 }
                 .disabled(!viewModel.checkSaveIsEnable())
-                .tint(.black)
+                .tint(.persianBlue)
                 
             }
         })

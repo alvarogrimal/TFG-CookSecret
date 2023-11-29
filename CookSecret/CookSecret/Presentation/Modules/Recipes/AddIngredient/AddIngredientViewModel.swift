@@ -60,10 +60,9 @@ final class AddIngredientViewModel: BaseViewModel<AddRecipeCoordinatorProtocol> 
         Task {
             do {
                 let suggestions = try await searchIngredientUseCase.execute(name)
-                let filteredSuggestions = suggestions?.filter({ $0.lowercased().contains(name.lowercased()) })
                 print("✅ Success: Retrieved suggestions")
                 Task { @MainActor in
-                    ingredientSuggestions = Array(filteredSuggestions?.prefix(3) ?? [])
+                    ingredientSuggestions = Array(suggestions?.filter({ !$0.isEmpty }).prefix(3) ?? [])
                 }
             } catch {
                 print("❌ Error: Retrieved suggestions")
