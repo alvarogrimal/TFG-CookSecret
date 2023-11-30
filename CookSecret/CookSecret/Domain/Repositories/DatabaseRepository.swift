@@ -12,5 +12,5 @@ protocol DatabaseRepository {
     func addRecipe(_ recipe: RecipeDomainModel) async throws
     func deleteRecipe(with id: String) async throws
     func editRecipe(_ recipe: RecipeDomainModel) async throws
-    func setFavorite(on recipeId: String) async throws
+    func setFavorite(request: RecipeFavoriteRequestDomainModel) async throws
 }

@@ -33,6 +33,10 @@ class DependencyInjector {
         .init(databaseRepository: getDatabaseRepository())
     }
     
+    static func setRecipeFavoriteUseCase() -> SetRecipeFavouriteUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
+    
     // MARK: - ViewModels
     
     static func getRecipeListViewModel(coordinator: RecipeCoordinatorProtocol) -> RecipeListViewModel {
@@ -54,7 +58,8 @@ class DependencyInjector {
     
     static func getRecipeDetailViewModel(recipe: RecipeDomainModel,
                                          coordinator: RecipeCoordinatorProtocol) -> RecipeDetailViewModel {
-        .init(recipeDomainModel: recipe,
+        .init(recipeDomainModel: recipe, 
+              setRecipeFavoriteUseCase: setRecipeFavoriteUseCase(),
               coordinator: coordinator)
     }
     

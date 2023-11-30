@@ -108,7 +108,7 @@ struct RecipeDetailView: View {
         .toolbar {
             ToolbarItemGroup(placement: .topBarTrailing) {
                 Button {
-                    viewModel.isFavorite.toggle()
+                    viewModel.setFavorite()
                 } label: {
                     Image(systemName: viewModel.isFavorite ? "star.fill" : "star")
                         .foregroundColor(.persianBlue)

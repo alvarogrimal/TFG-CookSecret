@@ -46,6 +46,10 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
          coordinator: RecipeCoordinatorProtocol) {
         self.getRecipesUseCase = getRecipesUseCase
         super.init(coordinator: coordinator)
+        NotificationCenter.default.addObserver(self, 
+                                               selector: #selector(updateList),
+                                               name: .updateList,
+                                               object: nil)
     }
     
     override func onLoad() {
@@ -97,7 +101,7 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
                 domainList = try await getRecipesUseCase.execute() ?? []
                 print("✅ Success: Retrived recipes")
                 Task { @MainActor in
-                    parseToViewList(domain: domainList)
+                    applyFilter()
                 }
             } catch {
                 print("❌ Error: Retrived recipes")
@@ -122,6 +126,10 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
             .compactMap({ .init(id: $0.id,
                                 title: $0.title,
                                 image: $0.resources.first?.image ?? .init()) })
+    }
+    
+    @objc private func updateList() {
+        getRecipes()
     }
 }
 
