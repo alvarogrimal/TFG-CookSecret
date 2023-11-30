@@ -20,6 +20,7 @@ struct RecipeDetailView: View {
     // MARK: - Properties
     
     @ObservedObject var viewModel: RecipeDetailViewModel
+    @Environment(\.dismiss) var dismiss
     
     // MARK: - Body
         
@@ -128,7 +129,9 @@ struct RecipeDetailView: View {
                     }
                     
                     Button(role: .destructive) {
-                        
+                        viewModel.deleteRecipe {
+                            dismiss()
+                        }
                     } label: {
                         Label("general_delete".localized, systemImage: "trash")
                     }

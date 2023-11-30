@@ -66,10 +66,10 @@ extension CoreDataRepository {
             
             do {
                 try context.save()
-                print("✅ Success: Garment saved")
+                print("✅ Success: Recipe saved")
                 continuation.resume()
             } catch {
-                print("❌ Error: Garment saved \(error)")
+                print("❌ Error: Recipe saved \(error)")
                 continuation.resume(throwing: error)
             }
         }
@@ -85,10 +85,10 @@ extension CoreDataRepository {
                     context.delete(object)
                 }
                 try context.save()
-                print("✅ Success: Garment deleted")
+                print("✅ Success: Recipe deleted")
                 continuation.resume()
             } catch {
-                print("❌ Error: Garment retrieved \(error)")
+                print("❌ Error: Recipe retrieved \(error)")
                 continuation.resume(throwing: error)
             }
         }
@@ -110,10 +110,10 @@ extension CoreDataRepository {
                 }
                 recipe.isFavorite = request.isFavourite
                 try context.save()
-                print("✅ Success: Garment deleted")
+                print("✅ Success: Recipe deleted")
                 continuation.resume()
             } catch {
-                print("❌ Error: Garment retrieved \(error)")
+                print("❌ Error: Recipe retrieved \(error)")
                 continuation.resume(throwing: error)
             }
         }
