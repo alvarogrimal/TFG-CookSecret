@@ -27,6 +27,26 @@ extension CoreDataRepository {
         }
     }
     
+    func getRecipe(by id: String) async throws -> RecipeDomainModel {
+        return try await withCheckedThrowingContinuation { continuation in
+            let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+            let context = container.viewContext
+            do {
+                let result = try context.fetch(fetchRequest)
+                guard let recipeDB = result.first(where: { $0.identifier == id }) else {
+                    continuation.resume(throwing: NSError())
+                    return
+                }
+                
+                print("✅ Success: Recipe retrieved")
+                continuation.resume(returning: parseToDomain(recipe: recipeDB))
+            } catch {
+                print("❌ Error: Recipe retrieved \(error)")
+                continuation.resume(throwing: error)
+            }
+        }
+    }
+    
     func addRecipe(_ recipe: RecipeDomainModel) async throws {
         try await withUnsafeThrowingContinuation { continuation in
             let context = container.viewContext
@@ -88,14 +108,61 @@ extension CoreDataRepository {
                 print("✅ Success: Recipe deleted")
                 continuation.resume()
             } catch {
-                print("❌ Error: Recipe retrieved \(error)")
+                print("❌ Error: Recipe deleted \(error)")
                 continuation.resume(throwing: error)
             }
         }
     }
     
     func editRecipe(_ recipe: RecipeDomainModel) async throws {
-        
+        return try await withUnsafeThrowingContinuation { continuation in
+            let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+            let context = container.viewContext
+            do {
+                let result = try context.fetch(fetchRequest)
+                guard let recipeDB = result.first(where: { $0.identifier == recipe.id }) else {
+                    continuation.resume(throwing: NSError())
+                    return
+                }
+                recipeDB.desc = recipe.description
+                recipeDB.isFavorite = recipe.isFavorite
+                recipeDB.people = Int16(recipe.people)
+                recipeDB.preparation = recipe.preparation
+                recipeDB.time = recipe.time
+                recipeDB.timestamp = recipe.dateUpdated
+                recipeDB.title = recipe.title
+                recipeDB.type = recipe.type
+                let extraInfo: [ExtraInfo] = recipe.extraInfo.compactMap({ value in
+                    let item = ExtraInfo(context: context)
+                    item.title = value.title
+                    item.desc = value.description
+                    return item
+                })
+                let ingredients: [Ingredient] = recipe.ingredients.compactMap({ value in
+                    let item = Ingredient(context: context)
+                    item.identifier = value.id
+                    item.title = value.name
+                    item.quantity = value.quantity
+                    return item
+                })
+                let resources: [Resource] = recipe.resources.compactMap({ value in
+                    let item = Resource(context: context)
+                    item.identifier = value.id
+                    item.image = value.image
+                    return item
+                })
+                recipeDB.extraInfoList = NSSet(array: extraInfo)
+                recipeDB.ingredientList = NSSet(array: ingredients)
+                recipeDB.resourceList = NSSet(array: resources)
+                
+                try context.save()
+                print("✅ Success: Recipe updated")
+                continuation.resume()
+            } catch {
+                print("❌ Error: Recipe updated \(error)")
+                continuation.resume(throwing: error)
+            }
+        }
     }
     
     func setFavorite(request: RecipeFavoriteRequestDomainModel) async throws {

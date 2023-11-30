@@ -69,3 +69,7 @@
 "filter_time" = "Time";
 "filter_ingredients" = "Ingredients";
 "filter_ingredients_placeholder" = "Add a ingredient";
+
+// MARK: - Edit recipe
+
+"edit_recipe_title" = "Edit recipe";

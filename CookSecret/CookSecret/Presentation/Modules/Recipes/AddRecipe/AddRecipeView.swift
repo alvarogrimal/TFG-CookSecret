@@ -161,7 +161,7 @@ struct AddRecipeView: View {
                 
             }
         })
-        .navigationBarTitle("add_recipe_nav_title")
+        .navigationBarTitle(viewModel.viewTitle)
         .navigationBarTitleDisplayMode(.inline)
         .interactiveDismissDisabled(true)
 

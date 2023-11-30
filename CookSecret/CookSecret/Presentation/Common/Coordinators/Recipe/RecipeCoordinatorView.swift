@@ -50,6 +50,9 @@ struct RecipeCoordinatorView: View {
     private func getRecipeDetailView() -> some View {
         if let model = coordinator.recipeDetailItem.model {
             RecipeDetailView(viewModel: model)
+                .sheet(isPresented: $coordinator.editRecipeNavigationItem.isActive) {
+                    editRecipeView()
+                }
         }
     }
     
@@ -59,6 +62,13 @@ struct RecipeCoordinatorView: View {
             NavigationView {
                 RecipeListFilterView(viewModel: model)
             }
+        }
+    }
+    
+    @ViewBuilder
+    private func editRecipeView() -> some View {
+        if let model = coordinator.editRecipeNavigationItem.model {
+            AddRecipeCoordinatorView(coordinator: model)
         }
     }
 }

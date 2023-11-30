@@ -28,8 +28,8 @@ struct RecipeResourceViewModel: Identifiable {
     let id: String
     var data: Data
     
-    init(data: Data) {
-        self.id = UUID().uuidString
+    init(id: String = UUID().uuidString, data: Data) {
+        self.id = id
         self.data = data
     }
 }
@@ -47,10 +47,17 @@ struct RecipeIngredientViewModel: Identifiable {
     }
 }
 
+protocol EditRecipeDelegate: AnyObject {
+    func editRecipeCompleted() async throws
+}
+
 final class AddRecipeViewModel: BaseViewModel<AddRecipeCoordinatorProtocol> {
     
     // MARK: - Properties
     
+    var isEditingMode: Bool = false
+    var editDomainId: String?
+    var viewTitle: String = "add_recipe_nav_title".localized
     @Published var title: String = ""
     @Published var description: String = ""
     @Published var timer: TimerViewModel = .init()
@@ -79,13 +86,38 @@ final class AddRecipeViewModel: BaseViewModel<AddRecipeCoordinatorProtocol> {
     private let galleryManager = GalleryManager()
     private let cameraManager = CameraManager()
     private let addRecipeUseCase: AddRecipeUseCase
+    private let editRecipeUseCase: EditRecipeUseCase
     var resourcesList: [RecipeResourceViewModel] = []
+    private weak var editDelegate: EditRecipeDelegate?
     
     // MARK: - Lifecycle
     
     init(addRecipeUseCase: AddRecipeUseCase,
+         editRecipeUseCase: EditRecipeUseCase,
+         type: AddRecipeCoordinator.AddRecipeType,
          coordinator: BaseCoordinatorProtocol) {
         self.addRecipeUseCase = addRecipeUseCase
+        self.editRecipeUseCase = editRecipeUseCase
+        switch type {
+        case .edit(let domainModel, let delegate):
+            editDomainId = domainModel.id
+            editDelegate = delegate
+            viewTitle = "edit_recipe_title".localized
+            title = domainModel.title
+            description = domainModel.description
+            timer = .init(value: domainModel.time)
+            people = domainModel.people
+            self.typeValue = RecipeType(rawValue: domainModel.type ?? "")?.rawValue ?? ""
+            ingredients = domainModel.ingredients.map({ .init(title: $0.name,
+                                                              quantity: $0.quantity) })
+            preparation = domainModel.preparation
+            resources = domainModel.resources.map({ .init(id: $0.id,
+                                                          data: $0.image) })
+            resourcesList = domainModel.resources.map({ .init(id: $0.id,
+                                                              data: $0.image) })
+            isEditingMode = true
+        default: break
+        }
         super.init(coordinator: coordinator)
         galleryManager.delegate = self
         cameraManager.delegate = self
@@ -125,6 +157,7 @@ final class AddRecipeViewModel: BaseViewModel<AddRecipeCoordinatorProtocol> {
     
     func save() async {
         await addRecipe()
+        NotificationCenter.default.post(name: .updateList, object: nil)
     }
     
     func checkSaveIsEnable() -> Bool {
@@ -143,15 +176,27 @@ final class AddRecipeViewModel: BaseViewModel<AddRecipeCoordinatorProtocol> {
 
     private func addRecipe() async {
         do {
-            try await addRecipeUseCase.execute(getDomainRecipe())
-            print("✅ Success: Added recipe")
+            if isEditingMode {
+                let domain = getDomainRecipe()
+                try await editRecipeUseCase.execute(domain)
+                try await editDelegate?.editRecipeCompleted()
+                print("✅ Success: Edited recipe")
+            } else {
+                try await addRecipeUseCase.execute(getDomainRecipe())
+                print("✅ Success: Added recipe")
+            }
         } catch {
-            print("❌ Error: Added recipe")
+            if isEditingMode {
+                
+            } else {
+                print("❌ Error: Added recipe")
+            }
         }
     }
     
     private func getDomainRecipe() -> RecipeDomainModel {
-        .init(title: title,
+        .init(id: editDomainId ?? UUID().uuidString,
+              title: title,
               type: type.rawValue,
               description: description,
               people: people,
@@ -196,7 +241,9 @@ extension AddRecipeViewModel: ImageManagerDelegate {
 
 extension AddRecipeViewModel {
     static let sample: AddRecipeViewModel = {
-        .init(addRecipeUseCase: DependencyInjector.addRecipeUseCase(),
+        .init(addRecipeUseCase: DependencyInjector.addRecipeUseCase(), 
+              editRecipeUseCase: DependencyInjector.editRecipeUseCase(),
+              type: .add,
               coordinator: RecipeCoordinator.sample)
     }()
 }

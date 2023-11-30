@@ -66,10 +66,13 @@ struct RecipeDetailView: View {
                     Divider()
                         .padding(.horizontal)
                     
-                    Text(viewModel.desc)
-                        .foregroundColor(.doveGray)
-                        .fontWeight(.thin)
-                        .padding(.horizontal)
+                    HStack {
+                        Text(viewModel.desc)
+                            .foregroundColor(.doveGray)
+                            .fontWeight(.thin)
+                            .padding(.horizontal)
+                        Spacer(minLength: .zero)
+                    }
                     
                     Divider()
                         .padding(.horizontal)
@@ -96,14 +99,18 @@ struct RecipeDetailView: View {
                     }
                     
                     AddFieldSectionView(title: "add_recipe_preparation", content: {
-                        Text(viewModel.preparation)
-                            .foregroundColor(.doveGray)
-                            .fontWeight(.thin)
+                        HStack {
+                            Text(viewModel.preparation)
+                                .foregroundColor(.doveGray)
+                                .fontWeight(.thin)
+                            Spacer(minLength: .zero)
+                        }
                     }, action: .init())
                     .padding([.horizontal, .bottom])
                 }
             }
         })
+        .isBaseView(viewModel)
         .navigationTitle(viewModel.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -123,7 +130,7 @@ struct RecipeDetailView: View {
                     }
                     
                     Button {
-                        
+                        viewModel.editRecipe()
                     } label: {
                         Label("general_edit".localized, systemImage: "pencil")
                     }
