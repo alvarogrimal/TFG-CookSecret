@@ -28,20 +28,32 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     
     @Published var recipeList: [RecipeListItemViewModel] = []
     @Published var searchText: String = ""
+    @Published var isEmptyList: Bool = false
     
     private let getRecipesUseCase: GetRecipesUseCase
-    private var domainList: [RecipeDomainModel] = []
+    private var domainList: [RecipeDomainModel] = [] {
+        didSet {
+            Task { @MainActor in
+                isEmptyList = domainList.isEmpty
+            }
+        }
+    }
+    private var filter: RecipeListFilterViewModel?
     
     // MARK: - Lifecycle
     
     init(getRecipesUseCase: GetRecipesUseCase,
-         coordinator: BaseCoordinatorProtocol) {
+         coordinator: RecipeCoordinatorProtocol) {
         self.getRecipesUseCase = getRecipesUseCase
         super.init(coordinator: coordinator)
     }
     
     override func onLoad() {
         super.onLoad()
+        if let coordinator = getCoordinator() {
+            filter = DependencyInjector.getRecipeListFilterViewModel(delegate: self,
+                                                                     coordinator: coordinator)
+        }
         configurePublishers()
         getRecipes()
     }
@@ -62,6 +74,12 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
         getRecipes()
     }
     
+    func openFilters() {
+        if let filter {
+            getCoordinator()?.openFilters(filter: filter)
+        }
+    }
+    
     // MARK: - Private functions
     
     private func configurePublishers() {
@@ -79,10 +97,7 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
                 domainList = try await getRecipesUseCase.execute() ?? []
                 print("✅ Success: Retrived recipes")
                 Task { @MainActor in
-                    recipeList = domainList
-                        .compactMap({ .init(id: $0.id,
-                                            title: $0.title,
-                                            image: $0.resources.first?.image ?? .init()) })
+                    parseToViewList(domain: domainList)
                 }
             } catch {
                 print("❌ Error: Retrived recipes")
@@ -91,7 +106,62 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     }
     
     private func search(by value: String) {
-        print(value)
+        guard !value.isEmpty else {
+            parseToViewList(domain: domainList)
+            return
+        }
+        
+        let domainFiltered = domainList.filter { recipe in
+            recipe.title.lowercased().contains(value.lowercased())
+        }
+        parseToViewList(domain: domainFiltered)
+    }
+    
+    private func parseToViewList(domain: [RecipeDomainModel]) {
+        recipeList = domain
+            .compactMap({ .init(id: $0.id,
+                                title: $0.title,
+                                image: $0.resources.first?.image ?? .init()) })
+    }
+}
+
+// MARK: - RecipeListFilterDelegate
+
+extension RecipeListViewModel: RecipeListFilterDelegate {
+    func applyFilter() {
+        if let filter,
+           filter.hasFilter() {
+            let domainFiltered = domainList
+                .filter { recipe in
+                    if filter.checkFavourites {
+                        return recipe.isFavorite
+                    }
+                    return true
+                }
+                .filter { recipe in
+                    if let type = filter.type {
+                        return recipe.type == type.rawValue
+                    }
+                    return true
+                }
+                .filter { recipe in
+                    (filter.initRangeTime...filter.finishRangeTime).contains(recipe.time)
+                }
+                .filter { recipe in
+                    if filter.ingredients.isEmpty { return true }
+                    var containAnyIngredient = false
+                    recipe.ingredients.forEach { item in
+                        if !containAnyIngredient {
+                            containAnyIngredient = filter.ingredients.contains(where: { $0.lowercased() == item.name.lowercased() })
+                        }
+                    }
+                    return containAnyIngredient
+                }
+            
+            parseToViewList(domain: domainFiltered)
+        } else {
+            parseToViewList(domain: domainList)
+        }
     }
 }
 

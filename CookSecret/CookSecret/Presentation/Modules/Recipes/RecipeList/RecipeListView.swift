@@ -41,7 +41,7 @@ struct RecipeListView: View {
     
     var body: some View {
         ZStack {
-            if viewModel.recipeList.isEmpty {
+            if viewModel.isEmptyList {
                     // Emtpy view
                 VStack(spacing: ViewConstants.emptyViewPadding) {
                     Spacer()
@@ -52,7 +52,7 @@ struct RecipeListView: View {
                         .foregroundColor(.doveGray)
                         .frame(width: ViewConstants.emptyViewImageSize)
                     
-                    Text("recipes_empty")
+                    Text("recipes_empty".localized)
                         .font(.body)
                         .fontWeight(.light)
                         .foregroundColor(.doveGray)
@@ -100,9 +100,9 @@ struct RecipeListView: View {
             }
         }
         .toolbar {
-            if !viewModel.recipeList.isEmpty {
+            if !viewModel.isEmptyList {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {}, label: {
+                    Button(action: { viewModel.openFilters() }, label: {
                         Image.filter
                             .tint(.csIndigo)
                     })

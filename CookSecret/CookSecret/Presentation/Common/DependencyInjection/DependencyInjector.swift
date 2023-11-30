@@ -57,4 +57,11 @@ class DependencyInjector {
         .init(recipeDomainModel: recipe,
               coordinator: coordinator)
     }
+    
+    static func getRecipeListFilterViewModel(delegate: RecipeListFilterDelegate?,
+                                             coordinator: RecipeCoordinatorProtocol) -> RecipeListFilterViewModel {
+        .init(searchIngredientUseCase: searchIngredientUseCase(),
+              delegate: delegate,
+              coordinator: coordinator)
+    }
 }

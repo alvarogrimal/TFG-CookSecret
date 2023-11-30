@@ -42,7 +42,6 @@ struct RecipeDetailView: View {
                     }
                     
                     HStack {
-                        Spacer()
                         ForEach(viewModel.info) { value in
                             VStack {
                                 if let image = value.type.getImage() {
@@ -52,12 +51,14 @@ struct RecipeDetailView: View {
                                         .foregroundColor(.doveGray)
                                         .frame(height: ViewConstants.infoImageHeight)
                                 }
-                                
+                                Spacer(minLength: .zero)
                                 Text(value.value)
+                                    .multilineTextAlignment(.center)
                                     .foregroundColor(.doveGray)
                                     .fontWeight(.thin)
+                                Spacer(minLength: .zero)
                             }
-                            Spacer()
+                            .frame(maxWidth: .infinity)
                         }
                     }
                     

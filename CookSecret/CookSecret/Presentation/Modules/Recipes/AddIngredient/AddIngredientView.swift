@@ -65,7 +65,7 @@ struct AddIngredientView: View {
                     dismiss()
                 }
                 .disabled(!viewModel.checkAddIsEnable())
-                .tint(.black)
+                .tint(.persianBlue)
                 
             }
         })
