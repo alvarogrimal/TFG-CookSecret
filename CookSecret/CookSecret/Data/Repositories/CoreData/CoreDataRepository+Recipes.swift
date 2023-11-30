@@ -98,8 +98,25 @@ extension CoreDataRepository {
         
     }
     
-    func setFavorite(on recipeId: String) async throws {
-        
+    func setFavorite(request: RecipeFavoriteRequestDomainModel) async throws {
+        return try await withUnsafeThrowingContinuation { continuation in
+            let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+            let context = container.viewContext
+            do {
+                let result = try context.fetch(fetchRequest)
+                guard let recipe = result.first(where: { $0.identifier == request.id }) else {
+                    continuation.resume(throwing: NSError())
+                    return
+                }
+                recipe.isFavorite = request.isFavourite
+                try context.save()
+                print("✅ Success: Garment deleted")
+                continuation.resume()
+            } catch {
+                print("❌ Error: Garment retrieved \(error)")
+                continuation.resume(throwing: error)
+            }
+        }
     }
     
     // MARK: - Private functions

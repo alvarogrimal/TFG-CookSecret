@@ -42,12 +42,15 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     var preparation: String
     @Published var isFavorite: Bool
     private let recipeDomainModel: RecipeDomainModel
+    private let setRecipeFavoriteUseCase: SetRecipeFavouriteUseCase
     
     // MARK: - Lifecycle
     
     init(recipeDomainModel: RecipeDomainModel,
+         setRecipeFavoriteUseCase: SetRecipeFavouriteUseCase,
          coordinator: BaseCoordinatorProtocol) {
         self.recipeDomainModel = recipeDomainModel
+        self.setRecipeFavoriteUseCase = setRecipeFavoriteUseCase
         resources = recipeDomainModel.resources.compactMap({ $0.image })
         title = recipeDomainModel.title
         desc = recipeDomainModel.description
@@ -83,6 +86,21 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     
     // MARK: - Internal funtions
     
+    func setFavorite() {
+        Task {
+            do {
+                try await setRecipeFavoriteUseCase.execute(.init(id: recipeDomainModel.id,
+                                                                 isFavourite: !isFavorite))
+                NotificationCenter.default.post(name: .updateList, object: nil)
+                print("✅ Success: Set favorite")
+                Task { @MainActor in
+                    isFavorite.toggle()
+                }
+            } catch {
+                print("❌ Error: Set favorite")
+            }
+        }
+    }
 }
 
 // MARK: - Mock
@@ -98,6 +116,7 @@ extension RecipeDetailViewModel {
                                        ingredients: [],
                                        extraInfo: [],
                                        resources: []),
+              setRecipeFavoriteUseCase: DependencyInjector.setRecipeFavoriteUseCase(),
               coordinator: RecipeCoordinator.sample)
     }()
 }
