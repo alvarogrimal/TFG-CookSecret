@@ -43,14 +43,17 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     @Published var isFavorite: Bool
     private let recipeDomainModel: RecipeDomainModel
     private let setRecipeFavoriteUseCase: SetRecipeFavouriteUseCase
+    private let deleteRecipeUseCase: DeleteRecipeUseCase
     
     // MARK: - Lifecycle
     
     init(recipeDomainModel: RecipeDomainModel,
          setRecipeFavoriteUseCase: SetRecipeFavouriteUseCase,
+         deleteRecipeUseCase: DeleteRecipeUseCase,
          coordinator: BaseCoordinatorProtocol) {
         self.recipeDomainModel = recipeDomainModel
         self.setRecipeFavoriteUseCase = setRecipeFavoriteUseCase
+        self.deleteRecipeUseCase = deleteRecipeUseCase
         resources = recipeDomainModel.resources.compactMap({ $0.image })
         title = recipeDomainModel.title
         desc = recipeDomainModel.description
@@ -101,6 +104,19 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
             }
         }
     }
+    
+    func deleteRecipe(completion: @escaping () -> Void) {
+        Task {
+            do {
+                try await deleteRecipeUseCase.execute(recipeDomainModel.id)
+                Task { @MainActor in
+                    NotificationCenter.default.post(name: .updateList, object: nil)
+                    completion()
+                }
+            } catch {}
+        }
+        
+    }
 }
 
 // MARK: - Mock
@@ -116,7 +132,8 @@ extension RecipeDetailViewModel {
                                        ingredients: [],
                                        extraInfo: [],
                                        resources: []),
-              setRecipeFavoriteUseCase: DependencyInjector.setRecipeFavoriteUseCase(),
+              setRecipeFavoriteUseCase: DependencyInjector.setRecipeFavoriteUseCase(), 
+              deleteRecipeUseCase: DependencyInjector.deleteRecipeUseCase(),
               coordinator: RecipeCoordinator.sample)
     }()
 }

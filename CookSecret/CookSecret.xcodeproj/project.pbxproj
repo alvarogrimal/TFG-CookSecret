@@ -48,6 +48,7 @@
 		2F619C3D2B1853DF007DB3B0 /* SetRecipeFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C3C2B1853DF007DB3B0 /* SetRecipeFavoriteUseCase.swift */; };
 		2F619C3F2B185574007DB3B0 /* RecipeFavoriteRequestDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C3E2B185574007DB3B0 /* RecipeFavoriteRequestDomainModel.swift */; };
 		2F619C412B185A57007DB3B0 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C402B185A57007DB3B0 /* NotificationNameExtension.swift */; };
+		2F619C432B185DB0007DB3B0 /* DeleteRecipeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C422B185DB0007DB3B0 /* DeleteRecipeUseCase.swift */; };
 		2F66DDD62B0896AC0034A863 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD52B0896AC0034A863 /* DependencyInjector.swift */; };
 		2F66DDD82B08970A0034A863 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD72B08970A0034A863 /* ImageExtension.swift */; };
 		2F66DDDD2B08973C0034A863 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDDC2B08973C0034A863 /* BaseViewModel.swift */; };
@@ -131,6 +132,7 @@
 		2F619C3C2B1853DF007DB3B0 /* SetRecipeFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRecipeFavoriteUseCase.swift; sourceTree = "<group>"; };
 		2F619C3E2B185574007DB3B0 /* RecipeFavoriteRequestDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFavoriteRequestDomainModel.swift; sourceTree = "<group>"; };
 		2F619C402B185A57007DB3B0 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
+		2F619C422B185DB0007DB3B0 /* DeleteRecipeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRecipeUseCase.swift; sourceTree = "<group>"; };
 		2F66DDD52B0896AC0034A863 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		2F66DDD72B08970A0034A863 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		2F66DDDC2B08973C0034A863 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 				2F619C2C2B167AB4007DB3B0 /* AddRecipeUseCase.swift */,
 				2F619C2E2B168085007DB3B0 /* GetRecipesUseCase.swift */,
 				2F619C3C2B1853DF007DB3B0 /* SetRecipeFavoriteUseCase.swift */,
+				2F619C422B185DB0007DB3B0 /* DeleteRecipeUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				2F619C3D2B1853DF007DB3B0 /* SetRecipeFavoriteUseCase.swift in Sources */,
 				2F1156D12B0A154A009F29F5 /* RecipeCoordinator.swift in Sources */,
 				2F66DDD62B0896AC0034A863 /* DependencyInjector.swift in Sources */,
+				2F619C432B185DB0007DB3B0 /* DeleteRecipeUseCase.swift in Sources */,
 				2F619C342B16A2D7007DB3B0 /* RecipeDetailView.swift in Sources */,
 				2F619C412B185A57007DB3B0 /* NotificationNameExtension.swift in Sources */,
 				2F619C202B15326F007DB3B0 /* OpenFoodFactsApi.swift in Sources */,
