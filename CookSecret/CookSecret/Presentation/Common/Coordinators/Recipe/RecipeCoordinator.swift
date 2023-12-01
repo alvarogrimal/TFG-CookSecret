@@ -13,6 +13,8 @@ protocol RecipeCoordinatorProtocol: BaseCoordinatorProtocol {
     func addRecipe()
     func openRecipe(_ recipe: RecipeDomainModel)
     func openFilters(filter: RecipeListFilterViewModel)
+    func editRecipe(_ recipe: RecipeDomainModel,
+                    delegate: EditRecipeDelegate)
 }
 
 // MARK: - Coodinator
@@ -26,6 +28,7 @@ final class RecipeCoordinator: BaseCoordinator,
     @Published var addRecipeNavigationItem: NavigationItem<AddRecipeCoordinator> = .init()
     @Published var recipeDetailItem: NavigationItem<RecipeDetailViewModel> = .init()
     @Published var filtersItem: NavigationItem<RecipeListFilterViewModel> = .init()
+    @Published var editRecipeNavigationItem: NavigationItem<AddRecipeCoordinator> = .init()
     
     // MARK: - Init
     
@@ -37,7 +40,7 @@ final class RecipeCoordinator: BaseCoordinator,
     // MARK: - RecipeCoordinatorProtocol
     
     func addRecipe() {
-        addRecipeNavigationItem.navigate(to: .init())
+        addRecipeNavigationItem.navigate(to: .init(type: .add))
     }
     
     func openRecipe(_ recipe: RecipeDomainModel) {
@@ -48,6 +51,12 @@ final class RecipeCoordinator: BaseCoordinator,
     
     func openFilters(filter: RecipeListFilterViewModel) {
         filtersItem.navigate(to: filter)
+    }
+    
+    func editRecipe(_ recipe: RecipeDomainModel,
+                    delegate: EditRecipeDelegate) {
+        editRecipeNavigationItem.navigate(to: .init(type: .edit(domainModel: recipe,
+                                                                delegate: delegate)))
     }
 }
 

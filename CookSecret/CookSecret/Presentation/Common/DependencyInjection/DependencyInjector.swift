@@ -29,7 +29,15 @@ class DependencyInjector {
         .init(databaseRepository: getDatabaseRepository())
     }
     
+    static func editRecipeUseCase() -> EditRecipeUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
+    
     static func getRecipesUseCase() -> GetRecipesUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
+    
+    static func getRecipeUseCase() -> GetRecipeUseCase {
         .init(databaseRepository: getDatabaseRepository())
     }
     
@@ -48,8 +56,11 @@ class DependencyInjector {
               coordinator: coordinator)
     }
     
-    static func getAddRecipeViewModel(coordinator: AddRecipeCoordinator) -> AddRecipeViewModel {
+    static func getAddRecipeViewModel(coordinator: AddRecipeCoordinator,
+                                      type: AddRecipeCoordinator.AddRecipeType) -> AddRecipeViewModel {
         .init(addRecipeUseCase: addRecipeUseCase(),
+              editRecipeUseCase: editRecipeUseCase(),
+              type: type,
               coordinator: coordinator)
     }
     
@@ -64,7 +75,8 @@ class DependencyInjector {
                                          coordinator: RecipeCoordinatorProtocol) -> RecipeDetailViewModel {
         .init(recipeDomainModel: recipe, 
               setRecipeFavoriteUseCase: setRecipeFavoriteUseCase(),
-              deleteRecipeUseCase: deleteRecipeUseCase(),
+              deleteRecipeUseCase: deleteRecipeUseCase(), 
+              getRecipeUseCase: getRecipeUseCase(),
               coordinator: coordinator)
     }
     

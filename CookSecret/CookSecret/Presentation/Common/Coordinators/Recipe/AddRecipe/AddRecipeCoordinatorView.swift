@@ -42,5 +42,5 @@ struct AddRecipeCoordinatorView: View {
 }
 
 #Preview {
-    AddRecipeCoordinatorView(coordinator: .init())
+    AddRecipeCoordinatorView(coordinator: .init(type: .add))
 }

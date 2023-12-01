@@ -34,57 +34,36 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     
     // MARK: - Properties
     
-    var resources: [Data]
-    var title: String
-    var info: [InfoRecipeDetailViewModel]
-    var desc: String
-    var ingredients: [RecipeIngredientViewModel]
-    var preparation: String
-    @Published var isFavorite: Bool
-    private let recipeDomainModel: RecipeDomainModel
+    var resources: [Data] = []
+    var title: String = ""
+    var info: [InfoRecipeDetailViewModel] = []
+    var desc: String = ""
+    var ingredients: [RecipeIngredientViewModel] = []
+    var preparation: String = ""
+    @Published var isFavorite: Bool = false
+    private var recipeDomainModel: RecipeDomainModel
     private let setRecipeFavoriteUseCase: SetRecipeFavouriteUseCase
     private let deleteRecipeUseCase: DeleteRecipeUseCase
+    private let getRecipeUseCase: GetRecipeUseCase
     
     // MARK: - Lifecycle
     
     init(recipeDomainModel: RecipeDomainModel,
          setRecipeFavoriteUseCase: SetRecipeFavouriteUseCase,
          deleteRecipeUseCase: DeleteRecipeUseCase,
+         getRecipeUseCase: GetRecipeUseCase,
          coordinator: BaseCoordinatorProtocol) {
         self.recipeDomainModel = recipeDomainModel
         self.setRecipeFavoriteUseCase = setRecipeFavoriteUseCase
         self.deleteRecipeUseCase = deleteRecipeUseCase
-        resources = recipeDomainModel.resources.compactMap({ $0.image })
-        title = recipeDomainModel.title
-        desc = recipeDomainModel.description
-        ingredients = recipeDomainModel.ingredients.compactMap({
-            .init(title: $0.name, quantity: $0.quantity)
-        })
-        preparation = recipeDomainModel.preparation
-        isFavorite = recipeDomainModel.isFavorite
+        self.getRecipeUseCase = getRecipeUseCase
         
-        if recipeDomainModel.extraInfo.isEmpty {
-            let people = String(format: recipeDomainModel.people == 1 ?
-                                "add_recipe_person_format".localized :
-                                 "add_recipe_people_format".localized,
-                                recipeDomainModel.people)
-            info = [
-                .init(id: UUID(), 
-                      type: .time,
-                      value: Utils.getShortTime(from: recipeDomainModel.time)),
-                .init(id: UUID(),
-                      type: .people,
-                      value: people),
-                .init(id: UUID(),
-                      type: .recipeType,
-                      value: RecipeType(rawValue: recipeDomainModel.type ?? "")?.getValue() ?? "")
-            ]
-        } else {
-            info = recipeDomainModel.extraInfo.compactMap({
-                .init(id: UUID(), type: .other, value: $0.description)
-            })
-        }
         super.init(coordinator: coordinator)
+    }
+    
+    override func onLoad() {
+        super.onLoad()
+        parseToView()
     }
     
     // MARK: - Internal funtions
@@ -117,6 +96,55 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
         }
         
     }
+    
+    func editRecipe() {
+        getCoordinator()?.editRecipe(recipeDomainModel,
+                                     delegate: self)
+    }
+    
+    // MARK: - Private functions
+    
+    private func parseToView() {
+        resources = recipeDomainModel.resources.compactMap({ $0.image })
+        title = recipeDomainModel.title
+        desc = recipeDomainModel.description
+        ingredients = recipeDomainModel.ingredients.compactMap({
+            .init(title: $0.name, quantity: $0.quantity)
+        })
+        preparation = recipeDomainModel.preparation
+        isFavorite = recipeDomainModel.isFavorite
+        
+        if recipeDomainModel.extraInfo.isEmpty {
+            let people = String(format: recipeDomainModel.people == 1 ?
+                                "add_recipe_person_format".localized :
+                                 "add_recipe_people_format".localized,
+                                recipeDomainModel.people)
+            info = [
+                .init(id: UUID(),
+                      type: .time,
+                      value: Utils.getShortTime(from: recipeDomainModel.time)),
+                .init(id: UUID(),
+                      type: .people,
+                      value: people),
+                .init(id: UUID(),
+                      type: .recipeType,
+                      value: RecipeType(rawValue: recipeDomainModel.type ?? "")?.getValue() ?? "")
+            ]
+        } else {
+            info = recipeDomainModel.extraInfo.compactMap({
+                .init(id: UUID(), type: .other, value: $0.description)
+            })
+        }
+    }
+}
+
+// MARK: - EditRecipeDelegate
+
+extension RecipeDetailViewModel: EditRecipeDelegate {
+    func editRecipeCompleted() async throws {
+        recipeDomainModel = try await getRecipeUseCase.execute(recipeDomainModel.id) ?? recipeDomainModel
+        parseToView()
+    }
 }
 
 // MARK: - Mock
@@ -133,7 +161,8 @@ extension RecipeDetailViewModel {
                                        extraInfo: [],
                                        resources: []),
               setRecipeFavoriteUseCase: DependencyInjector.setRecipeFavoriteUseCase(), 
-              deleteRecipeUseCase: DependencyInjector.deleteRecipeUseCase(),
+              deleteRecipeUseCase: DependencyInjector.deleteRecipeUseCase(), 
+              getRecipeUseCase: DependencyInjector.getRecipeUseCase(),
               coordinator: RecipeCoordinator.sample)
     }()
 }

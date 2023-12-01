@@ -49,6 +49,8 @@
 		2F619C3F2B185574007DB3B0 /* RecipeFavoriteRequestDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C3E2B185574007DB3B0 /* RecipeFavoriteRequestDomainModel.swift */; };
 		2F619C412B185A57007DB3B0 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C402B185A57007DB3B0 /* NotificationNameExtension.swift */; };
 		2F619C432B185DB0007DB3B0 /* DeleteRecipeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C422B185DB0007DB3B0 /* DeleteRecipeUseCase.swift */; };
+		2F619C452B1A3957007DB3B0 /* EditRecipeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C442B1A3957007DB3B0 /* EditRecipeUseCase.swift */; };
+		2F619C472B1A3CE4007DB3B0 /* GetRecipeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619C462B1A3CE4007DB3B0 /* GetRecipeUseCase.swift */; };
 		2F66DDD62B0896AC0034A863 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD52B0896AC0034A863 /* DependencyInjector.swift */; };
 		2F66DDD82B08970A0034A863 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDD72B08970A0034A863 /* ImageExtension.swift */; };
 		2F66DDDD2B08973C0034A863 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DDDC2B08973C0034A863 /* BaseViewModel.swift */; };
@@ -133,6 +135,8 @@
 		2F619C3E2B185574007DB3B0 /* RecipeFavoriteRequestDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFavoriteRequestDomainModel.swift; sourceTree = "<group>"; };
 		2F619C402B185A57007DB3B0 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		2F619C422B185DB0007DB3B0 /* DeleteRecipeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRecipeUseCase.swift; sourceTree = "<group>"; };
+		2F619C442B1A3957007DB3B0 /* EditRecipeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeUseCase.swift; sourceTree = "<group>"; };
+		2F619C462B1A3CE4007DB3B0 /* GetRecipeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecipeUseCase.swift; sourceTree = "<group>"; };
 		2F66DDD52B0896AC0034A863 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		2F66DDD72B08970A0034A863 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		2F66DDDC2B08973C0034A863 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -504,6 +508,8 @@
 				2F619C2E2B168085007DB3B0 /* GetRecipesUseCase.swift */,
 				2F619C3C2B1853DF007DB3B0 /* SetRecipeFavoriteUseCase.swift */,
 				2F619C422B185DB0007DB3B0 /* DeleteRecipeUseCase.swift */,
+				2F619C442B1A3957007DB3B0 /* EditRecipeUseCase.swift */,
+				2F619C462B1A3CE4007DB3B0 /* GetRecipeUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -814,6 +820,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F619C1A2B153138007DB3B0 /* ApiBuilder.swift in Sources */,
+				2F619C452B1A3957007DB3B0 /* EditRecipeUseCase.swift in Sources */,
 				2F619C322B16A2CA007DB3B0 /* RecipeDetailViewModel.swift in Sources */,
 				2F619C392B170146007DB3B0 /* RecipeListFilterViewModel.swift in Sources */,
 				2F66DDDF2B0897A90034A863 /* BaseCoordinator.swift in Sources */,
@@ -848,6 +855,7 @@
 				2F66DDEE2B089CD90034A863 /* BaseView.swift in Sources */,
 				2F66DDEB2B089AFF0034A863 /* BaseUseCase.swift in Sources */,
 				2F619C3F2B185574007DB3B0 /* RecipeFavoriteRequestDomainModel.swift in Sources */,
+				2F619C472B1A3CE4007DB3B0 /* GetRecipeUseCase.swift in Sources */,
 				2F66DE022B09DBA90034A863 /* TabbarCoordinator.swift in Sources */,
 				2F619C0B2B148F5D007DB3B0 /* AddIngredientViewModel.swift in Sources */,
 				2F619C2F2B168085007DB3B0 /* GetRecipesUseCase.swift in Sources */,

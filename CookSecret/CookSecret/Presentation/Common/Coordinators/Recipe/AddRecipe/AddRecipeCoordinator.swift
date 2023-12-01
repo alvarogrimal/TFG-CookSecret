@@ -18,6 +18,11 @@ protocol AddRecipeCoordinatorProtocol: BaseCoordinatorProtocol {
 class AddRecipeCoordinator: BaseCoordinator,
                             AddRecipeCoordinatorProtocol {
     
+    enum AddRecipeType {
+        case add, edit(domainModel: RecipeDomainModel,
+                       delegate: EditRecipeDelegate)
+    }
+    
     // MARK: - Properties
     
     @Published var addRecipeViewModel: AddRecipeViewModel?
@@ -25,9 +30,10 @@ class AddRecipeCoordinator: BaseCoordinator,
     
     // MARK: - Init
     
-    override init() {
+    init(type: AddRecipeType) {
         super.init()
-        addRecipeViewModel = DependencyInjector.getAddRecipeViewModel(coordinator: self)
+        addRecipeViewModel = DependencyInjector.getAddRecipeViewModel(coordinator: self, 
+                                                                      type: type)
     }
     
     // MARK: - AddRecipeCoordinatorProtocol
