@@ -203,6 +203,7 @@ final class AddRecipeViewModel: BaseViewModel<AddRecipeCoordinatorProtocol> {
               preparation: preparation,
               dateUpdated: .now,
               time: getTimeDouble(),
+              isCustom: true,
               ingredients: ingredients.compactMap({ .init(id: $0.id,
                                                           name: $0.title,
                                                           quantity: $0.quantity) }),

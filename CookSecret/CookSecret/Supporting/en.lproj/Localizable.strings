@@ -73,3 +73,7 @@
 // MARK: - Edit recipe
 
 "edit_recipe_title" = "Edit recipe";
+
+//  MARK: - Explore recipe detail
+
+"explore_recipe_detail_links" = "Links";

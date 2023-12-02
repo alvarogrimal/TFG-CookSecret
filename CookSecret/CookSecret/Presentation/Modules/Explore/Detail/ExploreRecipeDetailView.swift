@@ -1,29 +1,29 @@
 //
-//  RecipeDetailView.swift
+//  ExploreRecipeDetailView.swift
 //  CookSecret
 //
-//  Created by Alvaro Grimal Cabello on 28/11/23.
+//  Created by Alvaro Grimal Cabello on 3/12/23.
 //
 
 import SwiftUI
 
-struct RecipeDetailView: View {
+struct ExploreRecipeDetailView: View {
     
-    // MARK: - Constants
+    // MARK: - Properties
     
-    private enum ViewConstants {
+    enum ViewConstants {
         static let sectionsSpacing: CGFloat = 17
         static let ingredientRowHeight: CGFloat = 50
         static let infoImageHeight: CGFloat = 20
+        static let linkVerticalPadding: CGFloat = 8
     }
     
     // MARK: - Properties
     
-    @ObservedObject var viewModel: RecipeDetailViewModel
-    @Environment(\.dismiss) var dismiss
+    @ObservedObject var viewModel: ExploreRecipeDetailViewModel
     
     // MARK: - Body
-        
+    
     var body: some View {
         GeometryReader(content: { geometry in
             ScrollView {
@@ -32,10 +32,16 @@ struct RecipeDetailView: View {
                         TabView {
                             ForEach(viewModel.resources,
                                     id: \.self) { value in
-                                Image(uiImage: .init(data: value) ?? .init())
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: geometry.size.width)
+                                AsyncImage(url: value) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: geometry.size.width)
+                                } placeholder: {
+                                    Rectangle()
+                                        .fill(.alto)
+                                        .frame(width: geometry.size.width)
+                                }
                             }
                         }
                         .tabViewStyle(.page)
@@ -43,17 +49,10 @@ struct RecipeDetailView: View {
                     }
                     
                     HStack {
-                        ForEach(viewModel.info) { value in
+                        ForEach(viewModel.info, id: \.self) { value in
                             VStack {
-                                if let image = value.type.getImage() {
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .foregroundColor(.doveGray)
-                                        .frame(height: ViewConstants.infoImageHeight)
-                                }
                                 Spacer(minLength: .zero)
-                                Text(value.value)
+                                Text(value)
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(.doveGray)
                                     .fontWeight(.thin)
@@ -66,16 +65,24 @@ struct RecipeDetailView: View {
                     Divider()
                         .padding(.horizontal)
                     
-                    HStack {
-                        Text(viewModel.desc)
-                            .foregroundColor(.doveGray)
-                            .fontWeight(.thin)
-                            .padding(.horizontal)
-                        Spacer(minLength: .zero)
-                    }
-                    
-                    Divider()
+                    if !viewModel.links.isEmpty {
+                        AddFieldSectionView(title: "explore_recipe_detail_links", content: {
+                            ForEach($viewModel.links, id: \.self) { link in
+                                HStack {
+                                    Link(destination: link.wrappedValue, label: {
+                                        Text(link.wrappedValue.host ?? "")
+                                            .foregroundColor(.persianBlue)
+                                            .fontWeight(.thin)
+                                    })
+                                    Spacer()
+                                }
+                                .padding(.vertical, ViewConstants.linkVerticalPadding)
+                                
+                                Divider()
+                            }
+                        }, action: .init())
                         .padding(.horizontal)
+                    }
                     
                     if !viewModel.ingredients.isEmpty {
                         AddFieldSectionView(title: "add_recipe_ingredients", content: {
@@ -107,48 +114,38 @@ struct RecipeDetailView: View {
                 }
             }
         })
-        .isBaseView(viewModel)
-        .navigationTitle(viewModel.title)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItemGroup(placement: .topBarTrailing) {
-                Button {
-                    viewModel.setFavorite()
-                } label: {
-                    Image(systemName: viewModel.isFavorite ? "star.fill" : "star")
-                        .foregroundColor(.persianBlue)
-                }
-                
-                Menu {
-                    Button {
-                        
-                    } label: {
-                        Label("general_share".localized, systemImage: "square.and.arrow.up")
-                    }
-                    
-                    Button {
-                        viewModel.editRecipe()
-                    } label: {
-                        Label("general_edit".localized, systemImage: "pencil")
-                    }
-                    
-                    Button(role: .destructive) {
-                        viewModel.deleteRecipe {
-                            dismiss()
+            .navigationTitle(viewModel.title)
+            .navigationBarTitleDisplayMode(.inline)
+            .isBaseView(viewModel)
+            .toolbar {
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    if !viewModel.isAdded {
+                        Button {
+                            viewModel.addToRecipe()
+                        } label: {
+                            Image.plus
+                                .foregroundColor(.persianBlue)
                         }
-                    } label: {
-                        Label("general_delete".localized, systemImage: "trash")
+                    } else {
+                        Button {
+                            viewModel.setFavorite()
+                        } label: {
+                            Image(systemName: viewModel.isFavorite ? "star.fill" : "star")
+                                .foregroundColor(.persianBlue)
+                        }
+                        
+                        Button(role: .destructive) {
+                            viewModel.deleteRecipe()
+                        } label: {
+                            Image(systemName: "trash")
+                                .foregroundColor(.red)
+                        }
                     }
-                } label: {
-                    Image(systemName: "ellipsis")
-                        .foregroundColor(.persianBlue)
                 }
-
             }
-        }
     }
 }
 
 #Preview {
-    RecipeDetailView(viewModel: .sample)
+    ExploreRecipeDetailView(viewModel: .sample)
 }

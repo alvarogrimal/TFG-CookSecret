@@ -2,7 +2,6 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="22G120" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="ExtraInfo" representedClassName="ExtraInfo" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="extraInfoList" inverseEntity="Recipe"/>
     </entity>
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
@@ -11,9 +10,14 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredientList" inverseEntity="Recipe"/>
     </entity>
+    <entity name="LinkRecipe" representedClassName="LinkRecipe" syncable="YES" codeGenerationType="class">
+        <attribute name="value" optional="YES" attributeType="String"/>
+        <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="linkList" inverseEntity="Recipe"/>
+    </entity>
     <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="identifier" attributeType="String" defaultValueString=""/>
+        <attribute name="isCustom" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="isFavorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="people" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="preparation" optional="YES" attributeType="String"/>
@@ -23,11 +27,13 @@
         <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="extraInfoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExtraInfo" inverseName="recipes" inverseEntity="ExtraInfo"/>
         <relationship name="ingredientList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="recipes" inverseEntity="Ingredient"/>
+        <relationship name="linkList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LinkRecipe" inverseName="recipes" inverseEntity="LinkRecipe"/>
         <relationship name="resourceList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Resource" inverseName="recipes" inverseEntity="Resource"/>
     </entity>
     <entity name="Resource" representedClassName="Resource" syncable="YES" codeGenerationType="class">
         <attribute name="identifier" attributeType="String" defaultValueString=""/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="resourceList" inverseEntity="Recipe"/>
     </entity>
 </model>

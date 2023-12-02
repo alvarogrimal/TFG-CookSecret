@@ -61,10 +61,10 @@ extension CoreDataRepository {
             recipeDB.timestamp = recipe.dateUpdated
             recipeDB.title = recipe.title
             recipeDB.type = recipe.type
+            recipeDB.isCustom = recipe.isCustom
             let extraInfo: [ExtraInfo] = recipe.extraInfo.compactMap({ value in
                 let item = ExtraInfo(context: context)
-                item.title = value.title
-                item.desc = value.description
+                item.desc = value
                 return item
             })
             let ingredients: [Ingredient] = recipe.ingredients.compactMap({ value in
@@ -78,11 +78,19 @@ extension CoreDataRepository {
                 let item = Resource(context: context)
                 item.identifier = value.id
                 item.image = value.image
+                item.url = value.url?.absoluteString ?? ""
                 return item
             })
+            let links: [LinkRecipe] = recipe.links.compactMap { value in
+                let item = LinkRecipe(context: context)
+                item.value = value?.absoluteString ?? ""
+                return item
+            }
+            
             recipeDB.extraInfoList = NSSet(array: extraInfo)
             recipeDB.ingredientList = NSSet(array: ingredients)
             recipeDB.resourceList = NSSet(array: resources)
+            recipeDB.linkList = NSSet(array: links)
             
             do {
                 try context.save()
@@ -132,10 +140,11 @@ extension CoreDataRepository {
                 recipeDB.timestamp = recipe.dateUpdated
                 recipeDB.title = recipe.title
                 recipeDB.type = recipe.type
+                recipeDB.isCustom = recipe.isCustom
+                
                 let extraInfo: [ExtraInfo] = recipe.extraInfo.compactMap({ value in
                     let item = ExtraInfo(context: context)
-                    item.title = value.title
-                    item.desc = value.description
+                    item.desc = value
                     return item
                 })
                 let ingredients: [Ingredient] = recipe.ingredients.compactMap({ value in
@@ -149,11 +158,19 @@ extension CoreDataRepository {
                     let item = Resource(context: context)
                     item.identifier = value.id
                     item.image = value.image
+                    item.url = value.url?.absoluteString ?? ""
                     return item
                 })
+                let links: [LinkRecipe] = recipe.links.compactMap { value in
+                    let item = LinkRecipe(context: context)
+                    item.value = value?.absoluteString
+                    return item
+                }
+                
                 recipeDB.extraInfoList = NSSet(array: extraInfo)
                 recipeDB.ingredientList = NSSet(array: ingredients)
                 recipeDB.resourceList = NSSet(array: resources)
+                recipeDB.linkList = NSSet(array: links)
                 
                 try context.save()
                 print("✅ Success: Recipe updated")
@@ -196,6 +213,8 @@ extension CoreDataRepository {
             .allObjects as? [ExtraInfo] ?? []
         let resources: [Resource] = recipe.resourceList?
             .allObjects as? [Resource] ?? []
+        let links: [LinkRecipe] = recipe.linkList?
+            .allObjects as? [LinkRecipe] ?? []
         
         return RecipeDomainModel(id: recipe.identifier ?? "",
                                  title: recipe.title ?? "",
@@ -206,9 +225,11 @@ extension CoreDataRepository {
                                  preparation: recipe.preparation ?? "",
                                  dateUpdated: recipe.timestamp ?? .now,
                                  time: recipe.time,
+                                 isCustom: recipe.isCustom,
                                  ingredients: parseIngredientsToDomain(ingredients),
                                  extraInfo: parseExtraInfoToDomain(extraInfo),
-                                 resources: parseResourcesToDomain(resources))
+                                 resources: parseResourcesToDomain(resources),
+                                 links: links.compactMap({ URL(string: $0.value ?? "") }))
     }
     
     private func parseIngredientsToDomain(_ ingredients: [Ingredient]) -> [IngredientDomainModel] {
@@ -219,17 +240,15 @@ extension CoreDataRepository {
         }
     }
     
-    private func parseExtraInfoToDomain(_ extraInfo: [ExtraInfo]) -> [ExtraInfoDomainModel] {
-        extraInfo.compactMap { item in
-                .init(title: item.title ?? "",
-                      description: item.desc ?? "")
-        }
+    private func parseExtraInfoToDomain(_ extraInfo: [ExtraInfo]) -> [String] {
+        extraInfo.compactMap { $0.desc }
     }
     
     private func parseResourcesToDomain(_ resources: [Resource]) -> [ResourceDomainModel] {
         resources.compactMap { resource in
                 .init(id: resource.identifier ?? UUID().uuidString,
-                      image: resource.image ?? .init())
+                      image: resource.image ?? .init(),
+                      url: .init(string: resource.url ?? ""))
         }
     }
 }

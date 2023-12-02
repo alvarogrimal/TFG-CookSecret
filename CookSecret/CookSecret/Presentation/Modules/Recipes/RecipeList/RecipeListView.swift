@@ -67,13 +67,32 @@ struct RecipeListView: View {
                         ForEach(viewModel.recipeList, id: \.id) { item in
                             VStack(alignment: .center,
                                    spacing: .zero) {
-                                Image(uiImage: .init(data: item.image) ?? UIImage())
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(height: ViewConstants.itemHeight)
-                                    .frame(minWidth: .zero,
-                                           maxWidth: .infinity)
-                                    .clipped()
+                                
+                                if let thumbnail = item.thumbnailURL {
+                                    AsyncImage(url: thumbnail) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(height: ViewConstants.itemHeight)
+                                            .frame(minWidth: .zero,
+                                                   maxWidth: .infinity)
+                                            .clipped()
+                                    } placeholder: {
+                                        Rectangle()
+                                            .frame(height: ViewConstants.itemHeight)
+                                            .frame(minWidth: .zero,
+                                                   maxWidth: .infinity)
+                                    }
+
+                                } else {
+                                    Image(uiImage: .init(data: item.image) ?? UIImage())
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(height: ViewConstants.itemHeight)
+                                        .frame(minWidth: .zero,
+                                               maxWidth: .infinity)
+                                        .clipped()
+                                }
                                 
                                 Text(item.title)
                                     .font(.title3)

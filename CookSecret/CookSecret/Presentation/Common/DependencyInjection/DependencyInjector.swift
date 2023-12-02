@@ -49,6 +49,18 @@ class DependencyInjector {
         .init(databaseRepository: getDatabaseRepository())
     }
     
+    static func getExploreCategoriesUseCase() -> GetExploreCategoriesUseCase {
+        .init(httpRepository: getHttpRepository())
+    }
+    
+    static func getExploreMealsUseCase() -> GetExploreMealsUseCase {
+        .init(httpRepository: getHttpRepository())
+    }
+    
+    static func getExploreMealDetailUseCase() -> GetExploreMealDetailUseCase {
+        .init(httpRepository: getHttpRepository())
+    }
+    
     // MARK: - ViewModels
     
     static func getRecipeListViewModel(coordinator: RecipeCoordinatorProtocol) -> RecipeListViewModel {
@@ -84,6 +96,25 @@ class DependencyInjector {
                                              coordinator: RecipeCoordinatorProtocol) -> RecipeListFilterViewModel {
         .init(searchIngredientUseCase: searchIngredientUseCase(),
               delegate: delegate,
+              coordinator: coordinator)
+    }
+    
+    static func exploreViewModel(coordinator: ExploreCoordinatorProtocol) -> ExploreViewModel {
+        .init(getExploreCategoriesUseCase: getExploreCategoriesUseCase(),
+              getExploreMealsUseCase: getExploreMealsUseCase(),
+              coordinator: coordinator)
+    }
+    
+    static func getExploreRecipeDetailViewModel(exploreRecipe: ExploreMealSummaryDomainModel? = nil,
+                                                exploreRecipeDetail: RecipeDomainModel? = nil,
+                                                coordinator: ExploreRecipeDetailCoordinatorProtocol) -> ExploreRecipeDetailViewModel {
+        .init(exploreRecipe: exploreRecipe,
+              exploreRecipeDetail: exploreRecipeDetail,
+              getExploreMealDetailUseCase: getExploreMealDetailUseCase(),
+              addRecipeUseCase: addRecipeUseCase(),
+              setRecipeFavoriteUseCase: setRecipeFavoriteUseCase(),
+              deleteRecipeUseCase: deleteRecipeUseCase(),
+              getRecipeUseCase: getRecipeUseCase(),
               coordinator: coordinator)
     }
 }
