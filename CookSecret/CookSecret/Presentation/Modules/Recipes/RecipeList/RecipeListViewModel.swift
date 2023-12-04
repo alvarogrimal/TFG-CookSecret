@@ -12,13 +12,16 @@ struct RecipeListItemViewModel: Identifiable {
     let id: String
     let title: String
     let image: Data
+    let thumbnailURL: URL?
     
     init(id: String = UUID().uuidString,
-         title: String = "Spaghetti with tomato sauce",
-         image: Data = UIImage(named: "mockRecipe")?.jpegData(compressionQuality: 1) ?? .init()) {
+         title: String,
+         image: Data,
+         thumbnailURL: URL? = nil) {
         self.id = id
         self.title = title
         self.image = image
+        self.thumbnailURL = thumbnailURL
     }
 }
 
@@ -125,7 +128,8 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
         recipeList = domain
             .compactMap({ .init(id: $0.id,
                                 title: $0.title,
-                                image: $0.resources.first?.image ?? .init()) })
+                                image: $0.resources.first?.image ?? .init(),
+                                thumbnailURL: $0.resources.first?.url) })
     }
     
     @objc private func updateList() {

@@ -19,4 +19,5 @@ extension Image {
     static let clock = Image("Clock")
     static let people = Image("People")
     static let forkKnife = Image("ForkKnife")
+    static let plusCircle = Image("PlusCircle")
 }

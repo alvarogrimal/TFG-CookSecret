@@ -157,10 +157,11 @@ extension RecipeDetailViewModel {
                                        preparation: "",
                                        dateUpdated: .now,
                                        time: .zero,
+                                       isCustom: true,
                                        ingredients: [],
                                        extraInfo: [],
                                        resources: []),
-              setRecipeFavoriteUseCase: DependencyInjector.setRecipeFavoriteUseCase(), 
+              setRecipeFavoriteUseCase: DependencyInjector.setRecipeFavoriteUseCase(),
               deleteRecipeUseCase: DependencyInjector.deleteRecipeUseCase(), 
               getRecipeUseCase: DependencyInjector.getRecipeUseCase(),
               coordinator: RecipeCoordinator.sample)

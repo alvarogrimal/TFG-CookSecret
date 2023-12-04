@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Protocol
 
-protocol RecipeCoordinatorProtocol: BaseCoordinatorProtocol {
+protocol RecipeCoordinatorProtocol: ExploreRecipeDetailCoordinatorProtocol {
     func addRecipe()
     func openRecipe(_ recipe: RecipeDomainModel)
     func openFilters(filter: RecipeListFilterViewModel)
@@ -27,6 +27,7 @@ final class RecipeCoordinator: BaseCoordinator,
     @Published var recipeListViewModel: RecipeListViewModel?
     @Published var addRecipeNavigationItem: NavigationItem<AddRecipeCoordinator> = .init()
     @Published var recipeDetailItem: NavigationItem<RecipeDetailViewModel> = .init()
+    @Published var exploreRecipeDetailItem: NavigationItem<ExploreRecipeDetailViewModel> = .init()
     @Published var filtersItem: NavigationItem<RecipeListFilterViewModel> = .init()
     @Published var editRecipeNavigationItem: NavigationItem<AddRecipeCoordinator> = .init()
     
@@ -44,9 +45,15 @@ final class RecipeCoordinator: BaseCoordinator,
     }
     
     func openRecipe(_ recipe: RecipeDomainModel) {
-        recipeDetailItem.navigate(to: DependencyInjector
-            .getRecipeDetailViewModel(recipe: recipe,
-                                      coordinator: self))
+        if !recipe.isCustom {
+            exploreRecipeDetailItem.navigate(to: DependencyInjector
+                .getExploreRecipeDetailViewModel(exploreRecipeDetail: recipe,
+                                                 coordinator: self))
+        } else {
+            recipeDetailItem.navigate(to: DependencyInjector
+                .getRecipeDetailViewModel(recipe: recipe,
+                                          coordinator: self))
+        }
     }
     
     func openFilters(filter: RecipeListFilterViewModel) {
@@ -58,6 +65,9 @@ final class RecipeCoordinator: BaseCoordinator,
         editRecipeNavigationItem.navigate(to: .init(type: .edit(domainModel: recipe,
                                                                 delegate: delegate)))
     }
+    
+    func openRecipe(_ exploreRecipe: ExploreMealSummaryDomainModel) {}
+
 }
 
 // MARK: - Mock

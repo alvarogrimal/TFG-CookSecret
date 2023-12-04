@@ -22,7 +22,7 @@ struct TabbarCoordinatorView: View {
                     Image.recipe
                 }
             
-            Text("Tab 2")
+            ExploreCoordinatorView(coordinator: coordinator.exploreCoordinator)
                 .tabItem {
                     Image.search
                 }

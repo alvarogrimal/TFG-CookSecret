@@ -17,9 +17,11 @@ struct RecipeDomainModel {
     var preparation: String
     var dateUpdated: Date
     var time: Double
+    var isCustom: Bool
     var ingredients: [IngredientDomainModel]
-    var extraInfo: [ExtraInfoDomainModel]
+    var extraInfo: [String]
     var resources: [ResourceDomainModel]
+    var links: [URL?]
     
     init(id: String = UUID().uuidString,
          title: String,
@@ -30,9 +32,11 @@ struct RecipeDomainModel {
          preparation: String,
          dateUpdated: Date,
          time: Double,
+         isCustom: Bool,
          ingredients: [IngredientDomainModel],
-         extraInfo: [ExtraInfoDomainModel],
-         resources: [ResourceDomainModel]) {
+         extraInfo: [String],
+         resources: [ResourceDomainModel],
+         links: [URL?] = []) {
         self.id = id
         self.title = title
         self.type = type
@@ -45,6 +49,8 @@ struct RecipeDomainModel {
         self.ingredients = ingredients
         self.extraInfo = extraInfo
         self.resources = resources
+        self.isCustom = isCustom
+        self.links = links
     }
 }
 
@@ -62,18 +68,16 @@ struct IngredientDomainModel {
     }
 }
 
-struct ExtraInfoDomainModel {
-    var title: String
-    var description: String
-}
-
 struct ResourceDomainModel {
     let id: String
     let image: Data
+    let url: URL?
     
     init(id: String = UUID().uuidString,
-         image: Data) {
+         image: Data = Data(),
+         url: URL? = nil) {
         self.id = id
         self.image = image
+        self.url = url
     }
 }

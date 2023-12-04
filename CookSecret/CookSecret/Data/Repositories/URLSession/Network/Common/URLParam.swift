@@ -13,6 +13,8 @@ struct URLParam {
         case searchTerms = "search_terms"
         case searchSimple = "search_simple"
         case json
+        case exploreCategory = "c"
+        case exploreIngredient = "i"
     }
 
     let key: ParamKeys
