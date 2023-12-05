@@ -82,6 +82,19 @@
 		2F7AFF7A2B1CD51B00BA4F70 /* ExploreRecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF792B1CD51B00BA4F70 /* ExploreRecipeDetailView.swift */; };
 		2F7AFF7C2B1CD62400BA4F70 /* GetExploreMealDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF7B2B1CD62400BA4F70 /* GetExploreMealDetailUseCase.swift */; };
 		2F7AFF7E2B1CD88000BA4F70 /* ExploreMealDetailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF7D2B1CD88000BA4F70 /* ExploreMealDetailDataModel.swift */; };
+		2F7AFF812B1EDA6400BA4F70 /* ShoppingList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF7F2B1EDA6400BA4F70 /* ShoppingList.xcdatamodeld */; };
+		2F7AFF832B1EDBA500BA4F70 /* CoreDataRepository+ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF822B1EDBA500BA4F70 /* CoreDataRepository+ShoppingList.swift */; };
+		2F7AFF852B1EDC1C00BA4F70 /* ShoppingListDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF842B1EDC1C00BA4F70 /* ShoppingListDomainModel.swift */; };
+		2F7AFF872B1EDF7700BA4F70 /* GetShoppingListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF862B1EDF7700BA4F70 /* GetShoppingListUseCase.swift */; };
+		2F7AFF892B1EDFE600BA4F70 /* AddShoppingListItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF882B1EDFE600BA4F70 /* AddShoppingListItemUseCase.swift */; };
+		2F7AFF8B2B1EE05000BA4F70 /* DeleteShoppingListItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF8A2B1EE05000BA4F70 /* DeleteShoppingListItemUseCase.swift */; };
+		2F7AFF8D2B1EE08700BA4F70 /* SetCompleteShoppingListItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF8C2B1EE08700BA4F70 /* SetCompleteShoppingListItemUseCase.swift */; };
+		2F7AFF912B1EE1E600BA4F70 /* ShoppingListCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF902B1EE1E600BA4F70 /* ShoppingListCoodinator.swift */; };
+		2F7AFF932B1EE1EE00BA4F70 /* ShoppingListCoodinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF922B1EE1EE00BA4F70 /* ShoppingListCoodinatorView.swift */; };
+		2F7AFF962B1EE2D500BA4F70 /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF952B1EE2D500BA4F70 /* ShoppingListViewModel.swift */; };
+		2F7AFF982B1EE2EE00BA4F70 /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF972B1EE2EE00BA4F70 /* ShoppingListView.swift */; };
+		2F7AFF9B2B1EFC0000BA4F70 /* ShoppingListAddFromRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF9A2B1EFBFF00BA4F70 /* ShoppingListAddFromRecipesView.swift */; };
+		2F7AFF9D2B1EFC0B00BA4F70 /* ShoppingListAddFromRecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7AFF9C2B1EFC0B00BA4F70 /* ShoppingListAddFromRecipesViewModel.swift */; };
 		2F8E136A2B01DD9E007920E1 /* CookSecretApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */; };
 		2F8E136E2B01DDA0007920E1 /* Pictures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8E136D2B01DDA0007920E1 /* Pictures.xcassets */; };
 		2F8E13762B01DDA0007920E1 /* Recipe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E13742B01DDA0007920E1 /* Recipe.xcdatamodeld */; };
@@ -185,6 +198,19 @@
 		2F7AFF792B1CD51B00BA4F70 /* ExploreRecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRecipeDetailView.swift; sourceTree = "<group>"; };
 		2F7AFF7B2B1CD62400BA4F70 /* GetExploreMealDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExploreMealDetailUseCase.swift; sourceTree = "<group>"; };
 		2F7AFF7D2B1CD88000BA4F70 /* ExploreMealDetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreMealDetailDataModel.swift; sourceTree = "<group>"; };
+		2F7AFF802B1EDA6400BA4F70 /* ShoppingList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingList.xcdatamodel; sourceTree = "<group>"; };
+		2F7AFF822B1EDBA500BA4F70 /* CoreDataRepository+ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRepository+ShoppingList.swift"; sourceTree = "<group>"; };
+		2F7AFF842B1EDC1C00BA4F70 /* ShoppingListDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListDomainModel.swift; sourceTree = "<group>"; };
+		2F7AFF862B1EDF7700BA4F70 /* GetShoppingListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShoppingListUseCase.swift; sourceTree = "<group>"; };
+		2F7AFF882B1EDFE600BA4F70 /* AddShoppingListItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListItemUseCase.swift; sourceTree = "<group>"; };
+		2F7AFF8A2B1EE05000BA4F70 /* DeleteShoppingListItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShoppingListItemUseCase.swift; sourceTree = "<group>"; };
+		2F7AFF8C2B1EE08700BA4F70 /* SetCompleteShoppingListItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCompleteShoppingListItemUseCase.swift; sourceTree = "<group>"; };
+		2F7AFF902B1EE1E600BA4F70 /* ShoppingListCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCoodinator.swift; sourceTree = "<group>"; };
+		2F7AFF922B1EE1EE00BA4F70 /* ShoppingListCoodinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCoodinatorView.swift; sourceTree = "<group>"; };
+		2F7AFF952B1EE2D500BA4F70 /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
+		2F7AFF972B1EE2EE00BA4F70 /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
+		2F7AFF9A2B1EFBFF00BA4F70 /* ShoppingListAddFromRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListAddFromRecipesView.swift; sourceTree = "<group>"; };
+		2F7AFF9C2B1EFC0B00BA4F70 /* ShoppingListAddFromRecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListAddFromRecipesViewModel.swift; sourceTree = "<group>"; };
 		2F8E13662B01DD9E007920E1 /* CookSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookSecretApp.swift; sourceTree = "<group>"; };
 		2F8E136D2B01DDA0007920E1 /* Pictures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
@@ -349,6 +375,7 @@
 			children = (
 				2F619C242B15BFEA007DB3B0 /* CoreDataRepository.swift */,
 				2F619C2A2B15C283007DB3B0 /* CoreDataRepository+Recipes.swift */,
+				2F7AFF822B1EDBA500BA4F70 /* CoreDataRepository+ShoppingList.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -507,6 +534,7 @@
 				2F66DE002B09DB960034A863 /* Tabbar */,
 				2F1156CF2B0A152C009F29F5 /* Recipe */,
 				2F619C482B1A7D34007DB3B0 /* Explore */,
+				2F7AFF8F2B1EE1CF00BA4F70 /* ShoppingList */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -540,6 +568,8 @@
 		2F66DDD32B0896600034A863 /* ShoppingLIst */ = {
 			isa = PBXGroup;
 			children = (
+				2F7AFF8E2B1EE1BE00BA4F70 /* Main */,
+				2F7AFF992B1EFBDB00BA4F70 /* RecipeList */,
 			);
 			path = ShoppingLIst;
 			sourceTree = "<group>";
@@ -575,6 +605,10 @@
 				2F619C532B1AF1D4007DB3B0 /* GetExploreCategoriesUseCase.swift */,
 				2F619C5B2B1AF6FB007DB3B0 /* GetExploreMealsUseCase.swift */,
 				2F7AFF7B2B1CD62400BA4F70 /* GetExploreMealDetailUseCase.swift */,
+				2F7AFF862B1EDF7700BA4F70 /* GetShoppingListUseCase.swift */,
+				2F7AFF882B1EDFE600BA4F70 /* AddShoppingListItemUseCase.swift */,
+				2F7AFF8A2B1EE05000BA4F70 /* DeleteShoppingListItemUseCase.swift */,
+				2F7AFF8C2B1EE08700BA4F70 /* SetCompleteShoppingListItemUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -594,6 +628,7 @@
 				2F619C282B15C096007DB3B0 /* RecipeDomainModel.swift */,
 				2F619C552B1AF1FA007DB3B0 /* ExploreCategoryDomainModel.swift */,
 				2F619C592B1AF680007DB3B0 /* ExploreMealSummaryDomainModel.swift */,
+				2F7AFF842B1EDC1C00BA4F70 /* ShoppingListDomainModel.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -648,6 +683,7 @@
 			isa = PBXGroup;
 			children = (
 				2F8E13742B01DDA0007920E1 /* Recipe.xcdatamodeld */,
+				2F7AFF7F2B1EDA6400BA4F70 /* ShoppingList.xcdatamodeld */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -689,6 +725,33 @@
 				2F7AFF792B1CD51B00BA4F70 /* ExploreRecipeDetailView.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		2F7AFF8E2B1EE1BE00BA4F70 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2F7AFF952B1EE2D500BA4F70 /* ShoppingListViewModel.swift */,
+				2F7AFF972B1EE2EE00BA4F70 /* ShoppingListView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2F7AFF8F2B1EE1CF00BA4F70 /* ShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				2F7AFF902B1EE1E600BA4F70 /* ShoppingListCoodinator.swift */,
+				2F7AFF922B1EE1EE00BA4F70 /* ShoppingListCoodinatorView.swift */,
+			);
+			path = ShoppingList;
+			sourceTree = "<group>";
+		};
+		2F7AFF992B1EFBDB00BA4F70 /* RecipeList */ = {
+			isa = PBXGroup;
+			children = (
+				2F7AFF9C2B1EFC0B00BA4F70 /* ShoppingListAddFromRecipesViewModel.swift */,
+				2F7AFF9A2B1EFBFF00BA4F70 /* ShoppingListAddFromRecipesView.swift */,
+			);
+			path = RecipeList;
 			sourceTree = "<group>";
 		};
 		2F8E135D2B01DD9E007920E1 = {
@@ -901,23 +964,30 @@
 			files = (
 				2F619C1A2B153138007DB3B0 /* ApiBuilder.swift in Sources */,
 				2F619C452B1A3957007DB3B0 /* EditRecipeUseCase.swift in Sources */,
+				2F7AFF9D2B1EFC0B00BA4F70 /* ShoppingListAddFromRecipesViewModel.swift in Sources */,
 				2F7AFF7C2B1CD62400BA4F70 /* GetExploreMealDetailUseCase.swift in Sources */,
 				2F619C322B16A2CA007DB3B0 /* RecipeDetailViewModel.swift in Sources */,
 				2F619C392B170146007DB3B0 /* RecipeListFilterViewModel.swift in Sources */,
+				2F7AFF812B1EDA6400BA4F70 /* ShoppingList.xcdatamodeld in Sources */,
 				2F619C522B1A7DFB007DB3B0 /* ExploreViewModel.swift in Sources */,
 				2F619C5E2B1AF748007DB3B0 /* ExploreMealsRequestDomainModel.swift in Sources */,
 				2F66DDDF2B0897A90034A863 /* BaseCoordinator.swift in Sources */,
+				2F7AFF9B2B1EFC0000BA4F70 /* ShoppingListAddFromRecipesView.swift in Sources */,
 				2F66DDD82B08970A0034A863 /* ImageExtension.swift in Sources */,
+				2F7AFF892B1EDFE600BA4F70 /* AddShoppingListItemUseCase.swift in Sources */,
 				2F619BEE2B0A966F007DB3B0 /* AddFieldSectionView.swift in Sources */,
 				2F619C3D2B1853DF007DB3B0 /* SetRecipeFavoriteUseCase.swift in Sources */,
 				2F619C5A2B1AF680007DB3B0 /* ExploreMealSummaryDomainModel.swift in Sources */,
+				2F7AFF852B1EDC1C00BA4F70 /* ShoppingListDomainModel.swift in Sources */,
 				2F1156D12B0A154A009F29F5 /* RecipeCoordinator.swift in Sources */,
 				2F66DDD62B0896AC0034A863 /* DependencyInjector.swift in Sources */,
 				2F619C432B185DB0007DB3B0 /* DeleteRecipeUseCase.swift in Sources */,
 				2F619C342B16A2D7007DB3B0 /* RecipeDetailView.swift in Sources */,
 				2F619C412B185A57007DB3B0 /* NotificationNameExtension.swift in Sources */,
+				2F7AFF8D2B1EE08700BA4F70 /* SetCompleteShoppingListItemUseCase.swift in Sources */,
 				2F619C202B15326F007DB3B0 /* OpenFoodFactsApi.swift in Sources */,
 				2F8E13762B01DDA0007920E1 /* Recipe.xcdatamodeld in Sources */,
+				2F7AFF912B1EE1E600BA4F70 /* ShoppingListCoodinator.swift in Sources */,
 				2F66DDF02B089D640034A863 /* BaseViewDidLoadModifier.swift in Sources */,
 				2F1156D32B0A1557009F29F5 /* RecipeCoordinatorView.swift in Sources */,
 				2F619C5C2B1AF6FB007DB3B0 /* GetExploreMealsUseCase.swift in Sources */,
@@ -930,10 +1000,13 @@
 				2F619C292B15C096007DB3B0 /* RecipeDomainModel.swift in Sources */,
 				2F619BF12B0A9AF7007DB3B0 /* TimerView.swift in Sources */,
 				2F66DDF22B089D990034A863 /* ViewExtension.swift in Sources */,
+				2F7AFF982B1EE2EE00BA4F70 /* ShoppingListView.swift in Sources */,
 				2F619C3B2B170150007DB3B0 /* RecipeListFilterView.swift in Sources */,
 				2F619C042B1481B4007DB3B0 /* AddRecipeCoordinator.swift in Sources */,
+				2F7AFF962B1EE2D500BA4F70 /* ShoppingListViewModel.swift in Sources */,
 				2F619C0D2B149C68007DB3B0 /* SearchIngredientUseCase.swift in Sources */,
 				2F619C4A2B1A7D48007DB3B0 /* ExploreCoordinator.swift in Sources */,
+				2F7AFF932B1EE1EE00BA4F70 /* ShoppingListCoodinatorView.swift in Sources */,
 				2F619BFC2B12FAF7007DB3B0 /* CameraManager.swift in Sources */,
 				2F7AFF762B1CD47D00BA4F70 /* ExploreRecipeDetailViewModel.swift in Sources */,
 				2F1156DD2B0A69B0009F29F5 /* AddRecipeView.swift in Sources */,
@@ -957,8 +1030,10 @@
 				2F1156D82B0A177D009F29F5 /* RecipeListViewModel.swift in Sources */,
 				2F619C252B15BFEA007DB3B0 /* CoreDataRepository.swift in Sources */,
 				2F1156D62B0A1712009F29F5 /* RecipeListView.swift in Sources */,
+				2F7AFF8B2B1EE05000BA4F70 /* DeleteShoppingListItemUseCase.swift in Sources */,
 				2F619BFE2B12FBAC007DB3B0 /* UIAlertControllerExtension.swift in Sources */,
 				2F619C062B14827B007DB3B0 /* AddRecipeCoordinatorView.swift in Sources */,
+				2F7AFF872B1EDF7700BA4F70 /* GetShoppingListUseCase.swift in Sources */,
 				2F619C4C2B1A7D58007DB3B0 /* ExploreCoordinatorView.swift in Sources */,
 				2F619C272B15C051007DB3B0 /* DatabaseRepository.swift in Sources */,
 				2F619C562B1AF1FA007DB3B0 /* ExploreCategoryDomainModel.swift in Sources */,
@@ -970,6 +1045,7 @@
 				2F7AFF7A2B1CD51B00BA4F70 /* ExploreRecipeDetailView.swift in Sources */,
 				2F619C012B1309C9007DB3B0 /* UIApplicationExtension.swift in Sources */,
 				2F619C2D2B167AB4007DB3B0 /* AddRecipeUseCase.swift in Sources */,
+				2F7AFF832B1EDBA500BA4F70 /* CoreDataRepository+ShoppingList.swift in Sources */,
 				2F8E136A2B01DD9E007920E1 /* CookSecretApp.swift in Sources */,
 				2F619C092B148F50007DB3B0 /* AddIngredientView.swift in Sources */,
 			);
@@ -1327,6 +1403,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		2F7AFF7F2B1EDA6400BA4F70 /* ShoppingList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2F7AFF802B1EDA6400BA4F70 /* ShoppingList.xcdatamodel */,
+			);
+			currentVersion = 2F7AFF802B1EDA6400BA4F70 /* ShoppingList.xcdatamodel */;
+			path = ShoppingList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		2F8E13742B01DDA0007920E1 /* Recipe.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

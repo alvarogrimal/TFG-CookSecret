@@ -14,7 +14,7 @@ extension CoreDataRepository {
         try await withCheckedThrowingContinuation { continuation in
             let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
             do {
-                let result = try container.viewContext.fetch(fetchRequest)
+                let result = try containerRecipes.viewContext.fetch(fetchRequest)
                 print("✅ Success: Recipe list retrieved")
                 let domainList = result.compactMap { recipe in
                     parseToDomain(recipe: recipe)
@@ -30,7 +30,7 @@ extension CoreDataRepository {
     func getRecipe(by id: String) async throws -> RecipeDomainModel {
         return try await withCheckedThrowingContinuation { continuation in
             let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-            let context = container.viewContext
+            let context = containerRecipes.viewContext
             do {
                 let result = try context.fetch(fetchRequest)
                 guard let recipeDB = result.first(where: { $0.identifier == id }) else {
@@ -49,7 +49,7 @@ extension CoreDataRepository {
     
     func addRecipe(_ recipe: RecipeDomainModel) async throws {
         try await withUnsafeThrowingContinuation { continuation in
-            let context = container.viewContext
+            let context = containerRecipes.viewContext
             
             let recipeDB = Recipe(context: context)
             recipeDB.identifier = recipe.id
@@ -106,7 +106,7 @@ extension CoreDataRepository {
     func deleteRecipe(with id: String) async throws {
         try await withUnsafeThrowingContinuation { continuation in
             let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-            let context = container.viewContext
+            let context = containerRecipes.viewContext
             do {
                 let result = try context.fetch(fetchRequest)
                 for object in result where object.identifier == id {
@@ -125,7 +125,7 @@ extension CoreDataRepository {
     func editRecipe(_ recipe: RecipeDomainModel) async throws {
         return try await withUnsafeThrowingContinuation { continuation in
             let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-            let context = container.viewContext
+            let context = containerRecipes.viewContext
             do {
                 let result = try context.fetch(fetchRequest)
                 guard let recipeDB = result.first(where: { $0.identifier == recipe.id }) else {
@@ -185,7 +185,7 @@ extension CoreDataRepository {
     func setFavorite(request: RecipeFavoriteRequestDomainModel) async throws {
         return try await withUnsafeThrowingContinuation { continuation in
             let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-            let context = container.viewContext
+            let context = containerRecipes.viewContext
             do {
                 let result = try context.fetch(fetchRequest)
                 guard let recipe = result.first(where: { $0.identifier == request.id }) else {
@@ -194,10 +194,10 @@ extension CoreDataRepository {
                 }
                 recipe.isFavorite = request.isFavourite
                 try context.save()
-                print("✅ Success: Recipe deleted")
+                print("✅ Success: Recipe set favorite")
                 continuation.resume()
             } catch {
-                print("❌ Error: Recipe retrieved \(error)")
+                print("❌ Error: Recipe set favorite \(error)")
                 continuation.resume(throwing: error)
             }
         }

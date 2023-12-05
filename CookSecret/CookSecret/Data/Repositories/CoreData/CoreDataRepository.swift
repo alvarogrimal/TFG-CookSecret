@@ -13,7 +13,8 @@ class CoreDataRepository: NSObject, DatabaseRepository {
     // MARK: - Properties
     
     private static var repositoryInstance: CoreDataRepository?
-    let container: NSPersistentContainer!
+    let containerRecipes: NSPersistentContainer!
+    let containerShoppingList: NSPersistentContainer!
     
     // MARK: - Singleton
     
@@ -27,7 +28,8 @@ class CoreDataRepository: NSObject, DatabaseRepository {
     }
     
     private override init() {
-        container = NSPersistentContainer(name: "Recipe")
+        containerRecipes = NSPersistentContainer(name: "Recipe")
+        containerShoppingList = NSPersistentContainer(name: "ShoppingList")
         super.init()
         setupDatabase()
     }
@@ -35,12 +37,20 @@ class CoreDataRepository: NSObject, DatabaseRepository {
     // MARK: - Private functions
     
     private func setupDatabase() {
-        container.loadPersistentStores { (desc, error) in
+        containerRecipes.loadPersistentStores { (desc, error) in
             if let error = error {
-                print("❌ Error: loading store \(desc) — \(error)")
+                print("❌ Error: recipes loading store \(desc) — \(error)")
                 return
             }
-            print("✅ Database ready!")
+            print("✅ Database recipes ready!")
+        }
+        
+        containerShoppingList.loadPersistentStores { (desc, error) in
+            if let error = error {
+                print("❌ Error: shopping list loading store \(desc) — \(error)")
+                return
+            }
+            print("✅ Database shopping list ready!")
         }
     }
 }

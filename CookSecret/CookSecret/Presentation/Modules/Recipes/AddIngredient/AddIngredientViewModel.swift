@@ -11,7 +11,7 @@ protocol AddIngredientDelegate: AnyObject {
     func addIngredient(_ ingredient: RecipeIngredientViewModel)
 }
 
-final class AddIngredientViewModel: BaseViewModel<AddRecipeCoordinatorProtocol> {
+final class AddIngredientViewModel: BaseViewModel<BaseCoordinatorProtocol> {
     
     // MARK: - Properties
     

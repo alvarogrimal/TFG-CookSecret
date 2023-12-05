@@ -61,6 +61,22 @@ class DependencyInjector {
         .init(httpRepository: getHttpRepository())
     }
     
+    static func getShoppingListUseCase() -> GetShoppingListUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
+    
+    static func addShoppingListItemUseCase() -> AddShoppingListItemUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
+    
+    static func deleteShoppingListItemUseCase() -> DeleteShoppingListItemUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
+    
+    static func setCompleteShoppingListItemUseCase() -> SetCompleteShoppingListItemUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
+    
     // MARK: - ViewModels
     
     static func getRecipeListViewModel(coordinator: RecipeCoordinatorProtocol) -> RecipeListViewModel {
@@ -76,7 +92,7 @@ class DependencyInjector {
               coordinator: coordinator)
     }
     
-    static func getAddIngredientViewModel(coordinator: AddRecipeCoordinator,
+    static func getAddIngredientViewModel(coordinator: BaseCoordinator,
                                           delegate: AddIngredientDelegate) -> AddIngredientViewModel {
         .init(coordinator: coordinator,
               searchIngredientUseCase: searchIngredientUseCase(),
@@ -115,6 +131,21 @@ class DependencyInjector {
               setRecipeFavoriteUseCase: setRecipeFavoriteUseCase(),
               deleteRecipeUseCase: deleteRecipeUseCase(),
               getRecipeUseCase: getRecipeUseCase(),
+              coordinator: coordinator)
+    }
+    
+    static func shoppingListViewModel(coordinator: ShoppingListCoodinatorProtocol) -> ShoppingListViewModel {
+        .init(getShoppingListUseCase: getShoppingListUseCase(),
+              addShoppingListItemUseCase: addShoppingListItemUseCase(),
+              deleteShoppingListItemUseCase: deleteShoppingListItemUseCase(),
+              setCompleteShoppingListItemUseCase: setCompleteShoppingListItemUseCase(),
+              coordinator: coordinator)
+    }
+    
+    static func shoppingListAddFromRecipesViewModel(delegate: AddFromRecipesDelegate?,
+                                                    coordinator: ShoppingListCoodinatorProtocol) -> ShoppingListAddFromRecipesViewModel {
+        .init(delegate: delegate,
+              getRecipesUseCase: DependencyInjector.getRecipesUseCase(),
               coordinator: coordinator)
     }
 }

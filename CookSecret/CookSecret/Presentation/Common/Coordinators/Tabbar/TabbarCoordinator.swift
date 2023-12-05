@@ -20,10 +20,12 @@ final class TabbarCoordinator: BaseCoordinator, TabbarCoordinatorProtocol {
     
     var recipeCoordinator: RecipeCoordinator
     var exploreCoordinator: ExploreCoordinator
+    var shoppingListCoodinator: ShoppingListCoodinator
     
     override init() {
         recipeCoordinator = .sample
         exploreCoordinator = .sample
+        shoppingListCoodinator = .sample
     }
     
     // MARK: - TabbarCoordinatorProtocol

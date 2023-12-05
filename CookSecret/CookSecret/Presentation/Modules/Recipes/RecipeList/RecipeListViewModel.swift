@@ -13,15 +13,18 @@ struct RecipeListItemViewModel: Identifiable {
     let title: String
     let image: Data
     let thumbnailURL: URL?
+    var selected: Bool
     
     init(id: String = UUID().uuidString,
          title: String,
          image: Data,
-         thumbnailURL: URL? = nil) {
+         thumbnailURL: URL? = nil,
+         selected: Bool = false) {
         self.id = id
         self.title = title
         self.image = image
         self.thumbnailURL = thumbnailURL
+        self.selected = selected
     }
 }
 

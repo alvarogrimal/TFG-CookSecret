@@ -27,7 +27,7 @@ struct TabbarCoordinatorView: View {
                     Image.search
                 }
             
-            Text("Tab 3")
+            ShoppingListCoodinatorView(coordinator: coordinator.shoppingListCoodinator)
                 .tabItem {
                     Image.list
                 }

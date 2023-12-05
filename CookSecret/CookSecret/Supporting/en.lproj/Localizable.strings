@@ -77,3 +77,8 @@
 //  MARK: - Explore recipe detail
 
 "explore_recipe_detail_links" = "Links";
+
+// MARK: - Shopping list
+
+"shopping_list_title" = "Shopping List";
+"shopping_list_add_from_recipes" = "Añadir de recetas";
