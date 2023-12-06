@@ -82,3 +82,12 @@
 
 "shopping_list_title" = "Lista de la compra";
 "shopping_list_add_from_recipes" = "Add from recipes";
+
+// MARK: - Calendar
+
+"calendar_title" = "Plan recetas";
+"calendar_today_button" = "Hoy";
+
+// MARK: - Recipes picker
+
+"recipes_picker_title" = "Recetas";

@@ -64,6 +64,7 @@ final class ShoppingListViewModel: BaseViewModel<ShoppingListCoodinatorProtocol>
         Task {
             do {
                 let domainList = try await getShoppingListUseCase.execute()
+                print("✅ Success: Get shopping list")
                 Task { @MainActor in
                     list = (domainList?.list.compactMap({ item in
                             .init(id: item.id,
@@ -73,7 +74,7 @@ final class ShoppingListViewModel: BaseViewModel<ShoppingListCoodinatorProtocol>
                     }) ?? []).sorted { !$0.completed && $1.completed }
                 }
             } catch {
-                
+                print("❌ Error: Get shopping list")
             }
         }
     }
@@ -89,8 +90,9 @@ final class ShoppingListViewModel: BaseViewModel<ShoppingListCoodinatorProtocol>
             do {
                 try await deleteShoppingListItemUseCase.execute(id)
                 getShoppingList()
+                print("✅ Success: delete shopping list item")
             } catch {
-                
+                print("❌ Error: delete shopping list item")
             }
         }
     }
@@ -104,8 +106,10 @@ final class ShoppingListViewModel: BaseViewModel<ShoppingListCoodinatorProtocol>
                                                                       value: !item.completed)
                 try await setCompleteShoppingListItemUseCase.execute(request)
                 getShoppingList()
-            } catch {
                 
+                print("✅ Success: Shopping list item completed")
+            } catch {
+                print("❌ Error: Shopping list item completed")
             }
         }
     }
@@ -115,30 +119,33 @@ final class ShoppingListViewModel: BaseViewModel<ShoppingListCoodinatorProtocol>
             do {
                 try await addShoppingListItemUseCase.execute(domainModel)
                 getShoppingList()
+                print("✅ Success: Add item to shopping list")
             } catch {
-                
+                print("❌ Error: Add item to shopping list")
             }
         }
     }
 }
 
 extension ShoppingListViewModel: AddIngredientDelegate,
-                                 AddFromRecipesDelegate {
+                                 RecipeListPickerDelegate {
     func addIngredient(_ ingredient: RecipeIngredientViewModel) {
         addListItem(.init(id: ingredient.id,
                           name: ingredient.title,
                           quantity: ingredient.quantity))
     }
     
-    func addIngredients(ingredients: [IngredientDomainModel]) {
+    func add(recipes: [RecipeDomainModel]) {
         Task {
             do {
-                for ingredient in ingredients {
+                
+                for ingredient in recipes.flatMap({ $0.ingredients }) {
                     try await self.addShoppingListItemUseCase.execute(.init(ingredient: ingredient))
                 }
                 getShoppingList()
+                print("✅ Success: Add item to shopping list")
             } catch {
-                
+                print("❌ Error: Add item to shopping list")
             }
         }
     }

@@ -20,4 +20,8 @@ protocol DatabaseRepository {
     func setCompletedValue(at id: String, value: Bool) async throws
     func addShoppingListItem(_ item: ShoppingListItemDomainModel) async throws
     func deleteShoppingListItem(_ id: String) async throws
+    // Planning
+    func getPlanning() async throws -> [PlanningItemDomainModel]
+    func setRecipes( _ recipes: [RecipeDomainModel], at date: Date) async throws
+    func deleteRecipe( _ recipeId: String, at date: Date) async throws
 }

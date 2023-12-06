@@ -32,7 +32,7 @@ struct TabbarCoordinatorView: View {
                     Image.list
                 }
             
-            Text("Tab 4")
+            CalendarCoordinatorView(coordinator: coordinator.calendarCoordinator)
                 .tabItem {
                     Image.calendar
                 }
