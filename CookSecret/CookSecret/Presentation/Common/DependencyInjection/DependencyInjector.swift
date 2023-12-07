@@ -77,6 +77,18 @@ class DependencyInjector {
         .init(databaseRepository: getDatabaseRepository())
     }
     
+    static func getPlanningUseCase() -> GetPlanningUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
+    
+    static func deletePlannedRecipeUseCase() -> DeletePlannedRecipeUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
+    
+    static func setPlannedRecipesUseCase() -> SetPlannedRecipesUseCase {
+        .init(databaseRepository: getDatabaseRepository())
+    }
+    
     // MARK: - ViewModels
     
     static func getRecipeListViewModel(coordinator: RecipeCoordinatorProtocol) -> RecipeListViewModel {
@@ -142,10 +154,17 @@ class DependencyInjector {
               coordinator: coordinator)
     }
     
-    static func shoppingListAddFromRecipesViewModel(delegate: AddFromRecipesDelegate?,
-                                                    coordinator: ShoppingListCoodinatorProtocol) -> ShoppingListAddFromRecipesViewModel {
+    static func recipeListPickerViewModel(delegate: RecipeListPickerDelegate?,
+                                          coordinator: BaseCoordinatorProtocol) -> RecipeListPickerViewModel {
         .init(delegate: delegate,
               getRecipesUseCase: DependencyInjector.getRecipesUseCase(),
+              coordinator: coordinator)
+    }
+    
+    static func calendarViewModel(coordinator: CalendarCoordinatorProtocol) -> CalendarViewModel {
+        .init(getPlanningUseCase: getPlanningUseCase(),
+              deletePlannedRecipeUseCase: deletePlannedRecipeUseCase(),
+              setPlannedRecipesUseCase: setPlannedRecipesUseCase(),
               coordinator: coordinator)
     }
 }

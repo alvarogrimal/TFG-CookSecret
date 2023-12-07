@@ -49,7 +49,7 @@ struct ShoppingListCoodinatorView: View {
     private func addFromRecipesView() -> some View {
         if let viewModel = coordinator.addFromRecipesNavigationItem.model {
             NavigationView {
-                ShoppingListAddFromRecipesView(viewModel: viewModel)
+                RecipeListPickerView(viewModel: viewModel)
             }
         }
     }

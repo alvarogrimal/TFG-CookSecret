@@ -1,5 +1,5 @@
 //
-//  ShoppingListAddFromRecipesViewModel.swift
+//  RecipeListPickerViewModel.swift
 //  CookSecret
 //
 //  Created by Alvaro Grimal Cabello on 5/12/23.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol AddFromRecipesDelegate: AnyObject {
-    func addIngredients(ingredients: [IngredientDomainModel])
+protocol RecipeListPickerDelegate: AnyObject {
+    func add(recipes: [RecipeDomainModel])
 }
 
-final class ShoppingListAddFromRecipesViewModel: BaseViewModel<ShoppingListCoodinatorProtocol> {
+final class RecipeListPickerViewModel: BaseViewModel<BaseCoordinatorProtocol> {
     
     // MARK: - Properties
     
@@ -27,13 +27,13 @@ final class ShoppingListAddFromRecipesViewModel: BaseViewModel<ShoppingListCoodi
             }
         }
     }
-    private weak var delegate: AddFromRecipesDelegate?
+    private weak var delegate: RecipeListPickerDelegate?
     
     // MARK: - Lifecycle
     
-    init(delegate: AddFromRecipesDelegate?,
+    init(delegate: RecipeListPickerDelegate?,
          getRecipesUseCase: GetRecipesUseCase,
-         coordinator: ShoppingListCoodinatorProtocol) {
+         coordinator: BaseCoordinatorProtocol) {
         self.delegate = delegate
         self.getRecipesUseCase = getRecipesUseCase
         super.init(coordinator: coordinator)
@@ -59,13 +59,12 @@ final class ShoppingListAddFromRecipesViewModel: BaseViewModel<ShoppingListCoodi
         }
     }
     
-    func addIngredients() {
-        let domainIngredientList = domainList.filter { item in
+    func addTapped() {
+        let domainRecipeList = domainList.filter { item in
             selectedItems.contains(where: { $0 == item.id })
         }
-            .flatMap({ $0.ingredients })
         
-        delegate?.addIngredients(ingredients: domainIngredientList)
+        delegate?.add(recipes: domainRecipeList)
     }
     
     // MARK: - Private functions
@@ -96,8 +95,8 @@ final class ShoppingListAddFromRecipesViewModel: BaseViewModel<ShoppingListCoodi
 
 // MARK: - Mock
 
-extension ShoppingListAddFromRecipesViewModel {
-    static let sample: ShoppingListAddFromRecipesViewModel = {
+extension RecipeListPickerViewModel {
+    static let sample: RecipeListPickerViewModel = {
         .init(delegate: nil,
               getRecipesUseCase: DependencyInjector.getRecipesUseCase(),
               coordinator: ShoppingListCoodinator.sample)

@@ -187,7 +187,7 @@ final class AddRecipeViewModel: BaseViewModel<AddRecipeCoordinatorProtocol> {
             }
         } catch {
             if isEditingMode {
-                
+                print("❌ Error: Edited recipe")
             } else {
                 print("❌ Error: Added recipe")
             }

@@ -11,7 +11,7 @@ import Foundation
 
 protocol ShoppingListCoodinatorProtocol: BaseCoordinatorProtocol {
     func addIngredient(delegate: AddIngredientDelegate)
-    func addFromRecipes(delegate: AddFromRecipesDelegate)
+    func addFromRecipes(delegate: RecipeListPickerDelegate)
 }
 
 // MARK: - Coodinator
@@ -23,7 +23,7 @@ final class ShoppingListCoodinator: BaseCoordinator,
     
     @Published var shoppingListViewModel: ShoppingListViewModel?
     @Published var addIngredientNavigationItem: NavigationItem<AddIngredientViewModel> = .init()
-    @Published var addFromRecipesNavigationItem: NavigationItem<ShoppingListAddFromRecipesViewModel> = .init()
+    @Published var addFromRecipesNavigationItem: NavigationItem<RecipeListPickerViewModel> = .init()
     
     // MARK: - Lifecycle
     
@@ -39,10 +39,10 @@ final class ShoppingListCoodinator: BaseCoordinator,
                                                                                               delegate: delegate))
     }
     
-    func addFromRecipes(delegate: AddFromRecipesDelegate) {
+    func addFromRecipes(delegate: RecipeListPickerDelegate) {
         addFromRecipesNavigationItem.navigate(
-            to: DependencyInjector.shoppingListAddFromRecipesViewModel(delegate: delegate,
-                                                                       coordinator: self))
+            to: DependencyInjector.recipeListPickerViewModel(delegate: delegate,
+                                                             coordinator: self))
     }
 }
 

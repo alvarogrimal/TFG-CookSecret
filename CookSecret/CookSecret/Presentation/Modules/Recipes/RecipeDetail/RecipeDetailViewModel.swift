@@ -88,11 +88,14 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
         Task {
             do {
                 try await deleteRecipeUseCase.execute(recipeDomainModel.id)
+                print("✅ Success: Delete recipe")
                 Task { @MainActor in
                     NotificationCenter.default.post(name: .updateList, object: nil)
                     completion()
                 }
-            } catch {}
+            } catch {
+                print("❌ Error: Delete recipe")
+            }
         }
         
     }

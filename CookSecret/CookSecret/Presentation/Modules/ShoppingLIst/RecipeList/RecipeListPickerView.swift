@@ -1,5 +1,5 @@
 //
-//  ShoppingListAddFromRecipesView.swift
+//  RecipeListPickerView.swift
 //  CookSecret
 //
 //  Created by Alvaro Grimal Cabello on 5/12/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ShoppingListAddFromRecipesView: View {
+struct RecipeListPickerView: View {
     
     // MARK: - Properties
     
@@ -30,7 +30,7 @@ struct ShoppingListAddFromRecipesView: View {
     
     // MARK: - Properties
     
-    @ObservedObject var viewModel: ShoppingListAddFromRecipesViewModel
+    @ObservedObject var viewModel: RecipeListPickerViewModel
     @Environment(\.dismiss) var dismiss
     
     // MARK: - Body
@@ -113,8 +113,8 @@ struct ShoppingListAddFromRecipesView: View {
                                                        .resizable()
                                                        .frame(width: ViewConstants.selectCheckSize,
                                                               height: ViewConstants.selectCheckSize)
-                                                       .foregroundColor(.black)
-                                                       .background(.white)
+                                                       .foregroundColor(.white)
+                                                       .background(.black)
                                                        .cornerRadius(ViewConstants.selectCheckSize/2)
                                                    Spacer()
                                                }
@@ -133,7 +133,7 @@ struct ShoppingListAddFromRecipesView: View {
             if !viewModel.isEmptyList {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("general_add") {
-                        viewModel.addIngredients()
+                        viewModel.addTapped()
                         dismiss()
                     }
                     .disabled(viewModel.selectedItems.isEmpty)
@@ -146,12 +146,12 @@ struct ShoppingListAddFromRecipesView: View {
                 }
             }
         }
-        .navigationTitle("shopping_list_add_from_recipes".localized)
+        .navigationTitle("recipes_picker_title".localized)
         .navigationBarTitleDisplayMode(.inline)
         .isBaseView(viewModel)
     }
 }
 
 #Preview {
-    ShoppingListAddFromRecipesView(viewModel: .sample)
+    RecipeListPickerView(viewModel: .sample)
 }

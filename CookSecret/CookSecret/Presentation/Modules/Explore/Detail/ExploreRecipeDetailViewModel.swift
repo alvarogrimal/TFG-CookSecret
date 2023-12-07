@@ -54,7 +54,7 @@ final class ExploreRecipeDetailViewModel: BaseViewModel<ExploreRecipeDetailCoord
     
     override func onLoad() {
         super.onLoad()
-        if let exploreRecipeDetail {
+        if exploreRecipeDetail != nil {
             isAdded = true
             parseToView()
         } else {
@@ -103,11 +103,14 @@ final class ExploreRecipeDetailViewModel: BaseViewModel<ExploreRecipeDetailCoord
         Task {
             do {
                 try await deleteRecipeUseCase.execute(exploreRecipeDetail.id)
+                print("✅ Success: Delete recipe")
                 Task { @MainActor in
                     NotificationCenter.default.post(name: .updateList, object: nil)
                     isAdded = false
                 }
-            } catch {}
+            } catch {
+                print("❌ Error: Delete recipe")
+            }
         }
         
     }
