@@ -60,7 +60,9 @@ struct RecipeCoordinatorView: View {
                 .sheet(isPresented: $coordinator.shareIsPresented) {
                     if let share = coordinator.share,
                        let recipe = coordinator.recipe {
-                        // TODO: - SHARE VIEW
+                        CloudSharingView(share: share,
+                                         container: CoreDataStack.shared.ckContainer,
+                                         recipe: recipe)
                     }
                 }
         }

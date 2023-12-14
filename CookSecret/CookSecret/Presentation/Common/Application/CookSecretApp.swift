@@ -12,7 +12,7 @@ struct CookSecretApp: App {
     
     // MARK: - Properties
     
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var tabbarCoordinator: TabbarCoordinator = .init()
 
     // MARK: - Body

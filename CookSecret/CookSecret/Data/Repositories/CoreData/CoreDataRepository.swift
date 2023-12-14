@@ -13,7 +13,6 @@ class CoreDataRepository: NSObject, DatabaseRepository {
     // MARK: - Properties
     
     private static var repositoryInstance: CoreDataRepository?
-    let containerRecipes: NSPersistentCloudKitContainer!
     let containerShoppingList: NSPersistentCloudKitContainer!
     let containerPlanning: NSPersistentCloudKitContainer!
     
@@ -29,7 +28,6 @@ class CoreDataRepository: NSObject, DatabaseRepository {
     }
     
     private override init() {
-        containerRecipes = NSPersistentCloudKitContainer(name: "Recipe")
         containerShoppingList = NSPersistentCloudKitContainer(name: "ShoppingList")
         containerPlanning = NSPersistentCloudKitContainer(name: "Planning")
         super.init()
@@ -39,14 +37,14 @@ class CoreDataRepository: NSObject, DatabaseRepository {
     // MARK: - Private functions
     
     private func setupDatabase() {
-        containerRecipes.loadPersistentStores { (desc, error) in
-            if let error = error {
-                print("❌ Error: recipes loading store \(desc) — \(error)")
-                return
-            }
-            print("✅ Database recipes ready!")
-        }
-        
+//        containerRecipes.loadPersistentStores { (desc, error) in
+//            if let error = error {
+//                print("❌ Error: recipes loading store \(desc) — \(error)")
+//                return
+//            }
+//            print("✅ Database recipes ready!")
+//        }
+//        
         containerShoppingList.loadPersistentStores { (desc, error) in
             if let error = error {
                 print("❌ Error: shopping list loading store \(desc) — \(error)")

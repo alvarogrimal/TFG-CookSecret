@@ -14,7 +14,7 @@ extension CoreDataRepository {
         try await withCheckedThrowingContinuation { continuation in
             let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
             do {
-                let result = try containerRecipes.viewContext.fetch(fetchRequest)
+                let result = try CoreDataStack.shared.context.fetch(fetchRequest)
                 print("✅ Success: Recipe list retrieved")
                 let domainList = result.compactMap { recipe in
                     parseToDomain(recipe: recipe)
@@ -30,9 +30,8 @@ extension CoreDataRepository {
     func getRecipe(by id: String) async throws -> RecipeDomainModel {
         return try await withCheckedThrowingContinuation { continuation in
             let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-            let context = containerRecipes.viewContext
             do {
-                let result = try context.fetch(fetchRequest)
+                let result = try CoreDataStack.shared.context.fetch(fetchRequest)
                 guard let recipeDB = result.first(where: { $0.identifier == id }) else {
                     continuation.resume(throwing: NSError())
                     return
@@ -49,9 +48,8 @@ extension CoreDataRepository {
     
     func addRecipe(_ recipe: RecipeDomainModel) async throws {
         try await withUnsafeThrowingContinuation { continuation in
-            let context = containerRecipes.viewContext
             
-            let recipeDB = Recipe(context: context)
+            let recipeDB = Recipe(context: CoreDataStack.shared.context)
             recipeDB.identifier = recipe.id
             recipeDB.desc = recipe.description
             recipeDB.isFavorite = recipe.isFavorite
@@ -63,26 +61,26 @@ extension CoreDataRepository {
             recipeDB.type = recipe.type
             recipeDB.isCustom = recipe.isCustom
             let extraInfo: [ExtraInfo] = recipe.extraInfo.compactMap({ value in
-                let item = ExtraInfo(context: context)
+                let item = ExtraInfo(context: CoreDataStack.shared.context)
                 item.desc = value
                 return item
             })
             let ingredients: [Ingredient] = recipe.ingredients.compactMap({ value in
-                let item = Ingredient(context: context)
+                let item = Ingredient(context: CoreDataStack.shared.context)
                 item.identifier = value.id
                 item.title = value.name
                 item.quantity = value.quantity
                 return item
             })
             let resources: [Resource] = recipe.resources.compactMap({ value in
-                let item = Resource(context: context)
+                let item = Resource(context: CoreDataStack.shared.context)
                 item.identifier = value.id
                 item.image = value.image
                 item.url = value.url?.absoluteString ?? ""
                 return item
             })
             let links: [LinkRecipe] = recipe.links.compactMap { value in
-                let item = LinkRecipe(context: context)
+                let item = LinkRecipe(context: CoreDataStack.shared.context)
                 item.value = value?.absoluteString ?? ""
                 return item
             }
@@ -93,7 +91,7 @@ extension CoreDataRepository {
             recipeDB.linkList = NSSet(array: links)
             
             do {
-                try context.save()
+                try CoreDataStack.shared.context.save()
                 print("✅ Success: Recipe saved")
                 continuation.resume()
             } catch {
@@ -106,13 +104,13 @@ extension CoreDataRepository {
     func deleteRecipe(with id: String) async throws {
         try await withUnsafeThrowingContinuation { continuation in
             let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-            let context = containerRecipes.viewContext
+            
             do {
-                let result = try context.fetch(fetchRequest)
+                let result = try CoreDataStack.shared.context.fetch(fetchRequest)
                 for object in result where object.identifier == id {
-                    context.delete(object)
+                    CoreDataStack.shared.context.delete(object)
                 }
-                try context.save()
+                try CoreDataStack.shared.context.save()
                 print("✅ Success: Recipe deleted")
                 continuation.resume()
             } catch {
@@ -125,9 +123,9 @@ extension CoreDataRepository {
     func editRecipe(_ recipe: RecipeDomainModel) async throws {
         return try await withUnsafeThrowingContinuation { continuation in
             let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-            let context = containerRecipes.viewContext
+            
             do {
-                let result = try context.fetch(fetchRequest)
+                let result = try CoreDataStack.shared.context.fetch(fetchRequest)
                 guard let recipeDB = result.first(where: { $0.identifier == recipe.id }) else {
                     continuation.resume(throwing: NSError())
                     return
@@ -143,26 +141,26 @@ extension CoreDataRepository {
                 recipeDB.isCustom = recipe.isCustom
                 
                 let extraInfo: [ExtraInfo] = recipe.extraInfo.compactMap({ value in
-                    let item = ExtraInfo(context: context)
+                    let item = ExtraInfo(context: CoreDataStack.shared.context)
                     item.desc = value
                     return item
                 })
                 let ingredients: [Ingredient] = recipe.ingredients.compactMap({ value in
-                    let item = Ingredient(context: context)
+                    let item = Ingredient(context: CoreDataStack.shared.context)
                     item.identifier = value.id
                     item.title = value.name
                     item.quantity = value.quantity
                     return item
                 })
                 let resources: [Resource] = recipe.resources.compactMap({ value in
-                    let item = Resource(context: context)
+                    let item = Resource(context: CoreDataStack.shared.context)
                     item.identifier = value.id
                     item.image = value.image
                     item.url = value.url?.absoluteString ?? ""
                     return item
                 })
                 let links: [LinkRecipe] = recipe.links.compactMap { value in
-                    let item = LinkRecipe(context: context)
+                    let item = LinkRecipe(context: CoreDataStack.shared.context)
                     item.value = value?.absoluteString
                     return item
                 }
@@ -172,7 +170,7 @@ extension CoreDataRepository {
                 recipeDB.resourceList = NSSet(array: resources)
                 recipeDB.linkList = NSSet(array: links)
                 
-                try context.save()
+                try CoreDataStack.shared.context.save()
                 print("✅ Success: Recipe updated")
                 continuation.resume()
             } catch {
@@ -185,15 +183,15 @@ extension CoreDataRepository {
     func setFavorite(request: RecipeFavoriteRequestDomainModel) async throws {
         return try await withUnsafeThrowingContinuation { continuation in
             let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-            let context = containerRecipes.viewContext
+
             do {
-                let result = try context.fetch(fetchRequest)
+                let result = try CoreDataStack.shared.context.fetch(fetchRequest)
                 guard let recipe = result.first(where: { $0.identifier == request.id }) else {
                     continuation.resume(throwing: NSError())
                     return
                 }
                 recipe.isFavorite = request.isFavourite
-                try context.save()
+                try CoreDataStack.shared.context.save()
                 print("✅ Success: Recipe set favorite")
                 continuation.resume()
             } catch {

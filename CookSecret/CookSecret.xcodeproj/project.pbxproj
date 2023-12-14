@@ -105,6 +105,9 @@
 		2F8E138C2B01DDA1007920E1 /* RecipeListViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E138B2B01DDA1007920E1 /* RecipeListViewUITests.swift */; };
 		2F8E138E2B01DDA1007920E1 /* CookSecretUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E138D2B01DDA1007920E1 /* CookSecretUITestsLaunchTests.swift */; };
 		2F8E139B2B01DFC8007920E1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2F8E139A2B01DFC8007920E1 /* .swiftlint.yml */; };
+		2FC1B2382B2A5A9400606C4F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC1B2372B2A5A9400606C4F /* CoreDataStack.swift */; };
+		2FC1B23A2B2A5C6500606C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC1B2392B2A5C6500606C4F /* AppDelegate.swift */; };
+		2FC1B23C2B2A64D800606C4F /* CloudSharingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC1B23B2B2A64D800606C4F /* CloudSharingController.swift */; };
 		2FCAF3EA2B20CC2400AB26DB /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 2FCAF3E92B20CC2400AB26DB /* FSCalendar */; };
 		2FCAF3EC2B20D12400AB26DB /* CalendarViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAF3EB2B20D12400AB26DB /* CalendarViewRepresentable.swift */; };
 		2FCAF3F12B21009A00AB26DB /* Planning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAF3EF2B21009A00AB26DB /* Planning.xcdatamodeld */; };
@@ -245,6 +248,9 @@
 		2F8E138B2B01DDA1007920E1 /* RecipeListViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewUITests.swift; sourceTree = "<group>"; };
 		2F8E138D2B01DDA1007920E1 /* CookSecretUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookSecretUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2F8E139A2B01DFC8007920E1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		2FC1B2372B2A5A9400606C4F /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		2FC1B2392B2A5C6500606C4F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2FC1B23B2B2A64D800606C4F /* CloudSharingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudSharingController.swift; sourceTree = "<group>"; };
 		2FCAF3EB2B20D12400AB26DB /* CalendarViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewRepresentable.swift; sourceTree = "<group>"; };
 		2FCAF3F02B21009A00AB26DB /* Planning.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Planning.xcdatamodel; sourceTree = "<group>"; };
 		2FCAF3F22B2101AF00AB26DB /* CoreDataRepository+Planning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRepository+Planning.swift"; sourceTree = "<group>"; };
@@ -414,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				2FEAD2EE2B2FFEE30077607E /* MockCoreDataRepository.swift */,
+				2FC1B2372B2A5A9400606C4F /* CoreDataStack.swift */,
 				2F619C242B15BFEA007DB3B0 /* CoreDataRepository.swift */,
 				2F619C2A2B15C283007DB3B0 /* CoreDataRepository+Recipes.swift */,
 				2F7AFF822B1EDBA500BA4F70 /* CoreDataRepository+ShoppingList.swift */,
@@ -532,6 +539,7 @@
 		2F66DDCB2B0895D60034A863 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				2FC1B2392B2A5C6500606C4F /* AppDelegate.swift */,
 				2F8E13692B01DD9E007920E1 /* CookSecretApp.swift */,
 				2FEAD3062B30225B0077607E /* AppDelegate.swift */,
 			);
@@ -937,6 +945,7 @@
 		2FEAD3012B3020170077607E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FC1B23B2B2A64D800606C4F /* CloudSharingController.swift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1115,6 +1124,7 @@
 				2F619C322B16A2CA007DB3B0 /* RecipeDetailViewModel.swift in Sources */,
 				2F7AFFA02B1FB6E100BA4F70 /* CalendarCoordinator.swift in Sources */,
 				2F619C392B170146007DB3B0 /* RecipeListFilterViewModel.swift in Sources */,
+				2FC1B2382B2A5A9400606C4F /* CoreDataStack.swift in Sources */,
 				2F7AFF812B1EDA6400BA4F70 /* ShoppingList.xcdatamodeld in Sources */,
 				2F619C522B1A7DFB007DB3B0 /* ExploreViewModel.swift in Sources */,
 				2F619C5E2B1AF748007DB3B0 /* ExploreMealsRequestDomainModel.swift in Sources */,
@@ -1147,6 +1157,7 @@
 				2FEAD3052B3021FF0077607E /* MockURLSessionRepository.swift in Sources */,
 				2FCAF3F92B21170500AB26DB /* DeletePlannedRecipeUseCase.swift in Sources */,
 				2F619C2B2B15C283007DB3B0 /* CoreDataRepository+Recipes.swift in Sources */,
+				2FC1B23C2B2A64D800606C4F /* CloudSharingController.swift in Sources */,
 				2F66DE042B09DBB90034A863 /* TabbarCoordinatorView.swift in Sources */,
 				2F66DE062B09DC040034A863 /* NavigationItem.swift in Sources */,
 				2F619C292B15C096007DB3B0 /* RecipeDomainModel.swift in Sources */,
@@ -1175,6 +1186,7 @@
 				2F7AFFA22B1FB6EE00BA4F70 /* CalendarCoordinatorView.swift in Sources */,
 				2F619C472B1A3CE4007DB3B0 /* GetRecipeUseCase.swift in Sources */,
 				2F66DE022B09DBA90034A863 /* TabbarCoordinator.swift in Sources */,
+				2FC1B23A2B2A5C6500606C4F /* AppDelegate.swift in Sources */,
 				2F619C0B2B148F5D007DB3B0 /* AddIngredientViewModel.swift in Sources */,
 				2FCAF3EC2B20D12400AB26DB /* CalendarViewRepresentable.swift in Sources */,
 				2F7AFF7E2B1CD88000BA4F70 /* ExploreMealDetailDataModel.swift in Sources */,

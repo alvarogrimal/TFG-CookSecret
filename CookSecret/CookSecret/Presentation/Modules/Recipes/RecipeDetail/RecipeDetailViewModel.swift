@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct InfoRecipeDetailViewModel: Identifiable {
     
@@ -45,6 +46,8 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     private let setRecipeFavoriteUseCase: SetRecipeFavouriteUseCase
     private let deleteRecipeUseCase: DeleteRecipeUseCase
     private let getRecipeUseCase: GetRecipeUseCase
+    private var share: CKShare?
+    private var recipe: Recipe?
     
     // MARK: - Lifecycle
     
@@ -57,7 +60,7 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
         self.setRecipeFavoriteUseCase = setRecipeFavoriteUseCase
         self.deleteRecipeUseCase = deleteRecipeUseCase
         self.getRecipeUseCase = getRecipeUseCase
-        
+        recipe = CoreDataStack.shared.getRecipe(by: recipeDomainModel.id)
         super.init(coordinator: coordinator)
     }
     
@@ -106,7 +109,32 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     }
     
     func shareRecipe() {
-        // TODO: - SHARE
+        if let recipe {
+            //if !CoreDataStack.shared.isShared(object: recipe) {
+                Task {
+                    await createShare(recipe)
+                }
+//            }
+//            else {
+//                share = CoreDataStack.shared.getShare(recipe)
+//            }
+//            if let share {
+//                Task { @MainActor in
+//                    getCoordinator()?.shareRecipe(share: share,
+//                                                  recipe: recipe)
+//                }
+//            }
+        }
+    }
+    
+    private func createShare(_ recipe: Recipe) async {
+        do {
+            let (_, share, _) = try await CoreDataStack.shared.persistentContainer.share([recipe], to: nil)
+            share[CKShare.SystemFieldKey.title] = recipe.identifier
+            self.share = share
+        } catch let error {
+            print("Failed to create share")
+        }
     }
     
     // MARK: - Private functions
