@@ -102,7 +102,7 @@ final class RecipeListFilterViewModel: BaseViewModel<RecipeCoordinatorProtocol> 
     private func configureSubscribers() {
         $ingredientValue
             .sink { [weak self] value in
-                guard let self = self,
+                guard let self,
                       !value.isEmpty else { return }
                 
                 self.getSuggestions()

@@ -32,13 +32,14 @@
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" name="Aamir"/>
                         <constraints>
+                            <constraint firstItem="2CJ-0y-Z3x" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="90" id="4P7-8d-clr"/>
                             <constraint firstItem="2CJ-0y-Z3x" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Eug-pz-hJY"/>
                             <constraint firstItem="2CJ-0y-Z3x" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-32" id="Jqv-TG-SG6"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="Q3B-4B-g5h"/>
                             <constraint firstItem="2CJ-0y-Z3x" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="90" id="Xb1-H7-99v"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="1" id="moa-c2-u7t"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="x7j-FC-K8j"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="2CJ-0y-Z3x" secondAttribute="trailing" constant="90" id="yxZ-NZ-Spm"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2CJ-0y-Z3x" secondAttribute="trailing" constant="90" id="yxZ-NZ-Spm"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -48,7 +49,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CookSecretIcon" width="128" height="128"/>
+        <image name="CookSecretIcon" width="250" height="254.66667175292969"/>
         <namedColor name="Aamir">
             <color red="0.24705882352941178" green="0.8784313725490196" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -18,7 +18,7 @@ struct ShoppingListCoodinatorView: View {
     var body: some View {
         NavigationView {
             shoppingListView()
-        }
+        }.navigationViewStyle(.stack)
     }
     
     // MARK: - Private functions
@@ -41,7 +41,7 @@ struct ShoppingListCoodinatorView: View {
         if let viewModel = coordinator.addIngredientNavigationItem.model {
             NavigationView {
                 AddIngredientView(viewModel: viewModel)
-            }
+            }.navigationViewStyle(.stack)
         }
     }
     
@@ -50,7 +50,7 @@ struct ShoppingListCoodinatorView: View {
         if let viewModel = coordinator.addFromRecipesNavigationItem.model {
             NavigationView {
                 RecipeListPickerView(viewModel: viewModel)
-            }
+            }.navigationViewStyle(.stack)
         }
     }
 }

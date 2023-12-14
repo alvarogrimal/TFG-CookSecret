@@ -73,6 +73,7 @@ struct RecipeListPickerView: View {
                                             .frame(minWidth: .zero,
                                                    maxWidth: .infinity)
                                             .clipped()
+                                            .clipShape(Rectangle())
                                     } placeholder: {
                                         Rectangle()
                                             .frame(height: ViewConstants.itemHeight)
@@ -88,6 +89,7 @@ struct RecipeListPickerView: View {
                                         .frame(minWidth: .zero,
                                                maxWidth: .infinity)
                                         .clipped()
+                                        .clipShape(Rectangle())
                                 }
                                 
                                 Text(item.title)

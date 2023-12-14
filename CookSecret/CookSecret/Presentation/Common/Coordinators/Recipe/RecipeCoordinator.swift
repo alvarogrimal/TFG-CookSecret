@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CoreData
+import CloudKit
 
 // MARK: - Protocol
 
@@ -15,6 +17,8 @@ protocol RecipeCoordinatorProtocol: ExploreRecipeDetailCoordinatorProtocol {
     func openFilters(filter: RecipeListFilterViewModel)
     func editRecipe(_ recipe: RecipeDomainModel,
                     delegate: EditRecipeDelegate)
+    func shareRecipe(share: CKShare,
+                     recipe: Recipe)
 }
 
 // MARK: - Coodinator
@@ -30,6 +34,9 @@ final class RecipeCoordinator: BaseCoordinator,
     @Published var exploreRecipeDetailItem: NavigationItem<ExploreRecipeDetailViewModel> = .init()
     @Published var filtersItem: NavigationItem<RecipeListFilterViewModel> = .init()
     @Published var editRecipeNavigationItem: NavigationItem<AddRecipeCoordinator> = .init()
+    @Published var shareIsPresented: Bool = false
+    var share: CKShare?
+    var recipe: Recipe?
     
     // MARK: - Init
     
@@ -67,6 +74,13 @@ final class RecipeCoordinator: BaseCoordinator,
     }
     
     func openRecipe(_ exploreRecipe: ExploreMealSummaryDomainModel) {}
+    
+    func shareRecipe(share: CKShare,
+                     recipe: Recipe) {
+        self.share = share
+        self.recipe = recipe
+        shareIsPresented = true
+    }
 
 }
 

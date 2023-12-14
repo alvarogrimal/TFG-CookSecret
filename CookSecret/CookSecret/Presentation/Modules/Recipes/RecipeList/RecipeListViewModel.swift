@@ -95,7 +95,7 @@ final class RecipeListViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     private func configurePublishers() {
         $searchText
             .sink { [weak self] value in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.search(by: value)
             }
             .store(in: &cancellableSet)

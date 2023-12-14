@@ -48,7 +48,7 @@ final class AddIngredientViewModel: BaseViewModel<BaseCoordinatorProtocol> {
     private func configureSubscribers() {
         $name
             .sink { [weak self] value in
-                guard let self = self,
+                guard let self,
                       !value.isEmpty else { return }
                 
                 self.getSuggestions()
