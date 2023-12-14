@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct RecipeCoordinatorView: View {
     
@@ -56,6 +57,12 @@ struct RecipeCoordinatorView: View {
                 .sheet(isPresented: $coordinator.editRecipeNavigationItem.isActive) {
                     editRecipeView()
                 }
+                .sheet(isPresented: $coordinator.shareIsPresented) {
+                    if let share = coordinator.share,
+                       let recipe = coordinator.recipe {
+                        // TODO: - SHARE VIEW
+                    }
+                }
         }
     }
     
@@ -72,6 +79,7 @@ struct RecipeCoordinatorView: View {
             NavigationView {
                 RecipeListFilterView(viewModel: model)
             }
+            .navigationViewStyle(.stack)
         }
     }
     

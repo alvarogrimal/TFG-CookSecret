@@ -46,6 +46,7 @@ struct ExploreView: View {
                                     .frame(minWidth: .zero,
                                            maxWidth: .infinity)
                                     .clipped()
+                                    .clipShape(Rectangle())
                             } placeholder: {
                                 Rectangle()
                                     .fill(.alto)
@@ -70,27 +71,28 @@ struct ExploreView: View {
                                    viewModel.openRecipe(id: item.id)
                                }
                     }
-                }.padding(.horizontal)
+                }.padding()
             } header: {
                 if viewModel.showCategories() {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(viewModel.categoriesList,
                                     id: \.id) { item in
-                                Text(item.value)
-                                    .fontWeight(item.selected ? .bold : .regular)
-                                    .foregroundColor(item.selected ? .white : .black)
-                                    .padding(.horizontal)
-                                    .frame(height: 40)
-                                    .background {
-                                        Capsule()
-                                            .fill(item.selected ? .persianBlue : .clear)
-                                            .stroke(Color.black,
-                                                    lineWidth: 1)
-                                    }
-                                    .onTapGesture { 
-                                        viewModel.categorySelected(id: item.id)
-                                    }
+                                Button {
+                                    viewModel.categorySelected(id: item.id)
+                                } label: {
+                                    Text(item.value)
+                                        .fontWeight(item.selected ? .bold : .regular)
+                                        .foregroundColor(item.selected ? .white : .black)
+                                        .padding(.horizontal)
+                                        .frame(height: 40)
+                                        .background {
+                                            Capsule()
+                                                .fill(item.selected ? .persianBlue : .clear)
+                                                .stroke(Color.black,
+                                                        lineWidth: 1)
+                                        }
+                                }
                             }
                         }
                         .padding(.horizontal)

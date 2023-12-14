@@ -105,6 +105,10 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
                                      delegate: self)
     }
     
+    func shareRecipe() {
+        // TODO: - SHARE
+    }
+    
     // MARK: - Private functions
     
     private func parseToView() {

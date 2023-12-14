@@ -18,7 +18,7 @@ struct CalendarCoordinatorView: View {
     var body: some View {
         NavigationView {
             calendarView()
-        }
+        }.navigationViewStyle(.stack)
     }
     
     // MARK: - Private functions
@@ -38,7 +38,7 @@ struct CalendarCoordinatorView: View {
         if let viewModel = coordinator.addRecipesNavigationItem.model {
             NavigationView {
                 RecipeListPickerView(viewModel: viewModel)
-            }
+            }.navigationViewStyle(.stack)
         }
     }
 }

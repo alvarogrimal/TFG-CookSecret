@@ -575,6 +575,7 @@
 		2F66DDD12B08964F0034A863 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				2FC9785D2B23BE0E008F354B /* Share */,
 				2F1156D42B0A16FA009F29F5 /* RecipeList */,
 				2F619C372B17012F007DB3B0 /* RecipeListFilter */,
 				2F1156D92B0A698E009F29F5 /* AddRecipe */,
@@ -845,6 +846,13 @@
 				2F8E138D2B01DDA1007920E1 /* CookSecretUITestsLaunchTests.swift */,
 			);
 			path = CookSecretUITests;
+			sourceTree = "<group>";
+		};
+		2FC9785D2B23BE0E008F354B /* Share */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Share;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

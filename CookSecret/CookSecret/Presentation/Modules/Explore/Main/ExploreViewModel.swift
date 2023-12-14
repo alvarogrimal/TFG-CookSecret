@@ -48,7 +48,7 @@ final class ExploreViewModel: BaseViewModel<ExploreCoordinatorProtocol> {
         
         $searchText
             .sink { [weak self] value in
-                guard let self = self else { return }
+                guard let self else { return }
                 if value.isEmpty {
                     if let category = self.categoriesList.first(where: { $0.selected }) {
                         getRecipesBy(type: .category, value: category.value)

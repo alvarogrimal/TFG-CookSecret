@@ -18,7 +18,7 @@ struct ExploreCoordinatorView: View {
     var body: some View {
         NavigationView {
             exploreView()
-        }
+        }.navigationViewStyle(.stack)
     }
     
     // MARK: - Private functions
