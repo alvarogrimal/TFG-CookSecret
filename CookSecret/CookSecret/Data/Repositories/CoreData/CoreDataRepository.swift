@@ -14,8 +14,8 @@ class CoreDataRepository: NSObject, DatabaseRepository {
     
     private static var repositoryInstance: CoreDataRepository?
     let containerRecipes: NSPersistentCloudKitContainer!
-    let containerShoppingList: NSPersistentContainer!
-    let containerPlanning: NSPersistentContainer!
+    let containerShoppingList: NSPersistentCloudKitContainer!
+    let containerPlanning: NSPersistentCloudKitContainer!
     
     // MARK: - Singleton
     
@@ -30,8 +30,8 @@ class CoreDataRepository: NSObject, DatabaseRepository {
     
     private override init() {
         containerRecipes = NSPersistentCloudKitContainer(name: "Recipe")
-        containerShoppingList = NSPersistentContainer(name: "ShoppingList")
-        containerPlanning = NSPersistentContainer(name: "Planning")
+        containerShoppingList = NSPersistentCloudKitContainer(name: "ShoppingList")
+        containerPlanning = NSPersistentCloudKitContainer(name: "Planning")
         super.init()
         setupDatabase()
     }
