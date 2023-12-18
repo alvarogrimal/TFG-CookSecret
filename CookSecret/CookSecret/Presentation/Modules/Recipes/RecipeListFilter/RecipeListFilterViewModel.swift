@@ -89,12 +89,12 @@ final class RecipeListFilterViewModel: BaseViewModel<RecipeCoordinatorProtocol> 
     
     func hasFilter() -> Bool {
         !(!checkFavourites &&
-          typeValue == "" &&
-          ingredients == [] &&
-          ingredientValue == "" &&
+          typeValue.isEmpty &&
+          ingredients.isEmpty &&
+          ingredientValue.isEmpty &&
           initRangeTime == minTime &&
           finishRangeTime == maxTime &&
-          ingredientSuggestions == [])
+          ingredientSuggestions.isEmpty)
     }
     
     // MARK: - Private functions

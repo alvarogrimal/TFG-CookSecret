@@ -27,6 +27,18 @@ struct RecipeListView: View {
         static let shadowY: CGFloat = 4
     }
     
+    enum AccesibilityKeys: String {
+        case recipeListView
+        case emptyRecipeImage
+        case emptyRecipeText
+        case recipeThumbnail
+        case recipeTitle
+        case recipeCell
+        case recipeScrollView
+        case filterButton
+        case addRecipeButton
+    }
+    
     // MARK: - Properties
     
     @ObservedObject var viewModel: RecipeListViewModel
@@ -51,11 +63,13 @@ struct RecipeListView: View {
                         .scaledToFit()
                         .foregroundColor(.doveGray)
                         .frame(width: ViewConstants.emptyViewImageSize)
+                        .accessibilityIdentifier(AccesibilityKeys.emptyRecipeImage.rawValue)
                     
                     Text("recipes_empty".localized)
                         .font(.body)
                         .fontWeight(.light)
                         .foregroundColor(.doveGray)
+                        .accessibilityIdentifier(AccesibilityKeys.emptyRecipeText.rawValue)
                     
                     Spacer()
                 }
@@ -84,6 +98,7 @@ struct RecipeListView: View {
                                             .frame(minWidth: .zero,
                                                    maxWidth: .infinity)
                                     }
+                                    .accessibilityIdentifier(AccesibilityKeys.recipeThumbnail.rawValue)
 
                                 } else {
                                     Image(uiImage: .init(data: item.image) ?? UIImage())
@@ -103,6 +118,7 @@ struct RecipeListView: View {
                                     .multilineTextAlignment(.center)
                                     .padding(.vertical, ViewConstants.itemTitleVerticalPadding)
                                     .padding(.horizontal, ViewConstants.itemTitleHorizonalPadding)
+                                    .accessibilityIdentifier(AccesibilityKeys.recipeTitle.rawValue)
                             }
                                    .background(.white)
                                    .cornerRadius(ViewConstants.itemCornerRadius)
@@ -113,11 +129,13 @@ struct RecipeListView: View {
                                    .onTapGesture {
                                        viewModel.openRecipe(id: item.id)
                                    }
+                                   .accessibilityIdentifier(AccesibilityKeys.recipeCell.rawValue)
                         }
                     }.padding(.horizontal)
                 }
                 .searchable(text: $viewModel.searchText)
                 .refreshable(action: { viewModel.refresh() })
+                .accessibilityIdentifier(AccesibilityKeys.recipeScrollView.rawValue)
             }
         }
         .toolbar {
@@ -127,6 +145,7 @@ struct RecipeListView: View {
                         Image.filter
                             .tint(.csIndigo)
                     })
+                    .accessibilityIdentifier(AccesibilityKeys.filterButton.rawValue)
                 }
             }
             
@@ -137,8 +156,10 @@ struct RecipeListView: View {
                     Image.plus
                         .tint(.csIndigo)
                 })
+                .accessibilityIdentifier(AccesibilityKeys.addRecipeButton.rawValue)
             }
         }
+        .accessibilityIdentifier(AccesibilityKeys.recipeListView.rawValue)
         .navigationTitle("recipes_title")
         .navigationBarTitleDisplayMode(.large)
         .isBaseView(viewModel)
