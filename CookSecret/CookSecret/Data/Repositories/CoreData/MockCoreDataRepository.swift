@@ -6,13 +6,13 @@
 //
 
 import Foundation
-@testable import CookSecret
 
 class MockCoreDataRepository: DatabaseRepository {
     
     enum ResponseType {
         case failure
         case success
+        case successEmpty
     }
     
     var response: ResponseType = .success
@@ -39,6 +39,8 @@ class MockCoreDataRepository: DatabaseRepository {
                                               quantity: "QUANTITY1")],
                           extraInfo: [],
                           resources: [])]
+        case .successEmpty:
+            return []
         }
     }
     
@@ -46,7 +48,7 @@ class MockCoreDataRepository: DatabaseRepository {
         switch response {
         case .failure:
             throw NSError()
-        case .success:
+        case .success, .successEmpty:
             return .init(title: "title",
                          description: "description",
                          people: 1,
@@ -65,7 +67,7 @@ class MockCoreDataRepository: DatabaseRepository {
         switch response {
         case .failure:
             throw NSError()
-        case .success:
+        case .success, .successEmpty:
             return
         }
     }
@@ -74,7 +76,7 @@ class MockCoreDataRepository: DatabaseRepository {
         switch response {
         case .failure:
             throw NSError()
-        case .success:
+        case .success, .successEmpty:
             return
         }
     }
@@ -83,7 +85,7 @@ class MockCoreDataRepository: DatabaseRepository {
         switch response {
         case .failure:
             throw NSError()
-        case .success:
+        case .success, .successEmpty:
             return
         }
     }
@@ -92,7 +94,7 @@ class MockCoreDataRepository: DatabaseRepository {
         switch response {
         case .failure:
             throw NSError()
-        case .success:
+        case .success, .successEmpty:
             return
         }
     }
@@ -106,6 +108,8 @@ class MockCoreDataRepository: DatabaseRepository {
                                                         quantity: "QUANTITY1")),
                                 .init(ingredient: .init(name: "INGREDIENT2",
                                                         quantity: "QUANTITY2"))])
+        case .successEmpty:
+            return .init(list: [])
         }
     }
     
@@ -113,7 +117,7 @@ class MockCoreDataRepository: DatabaseRepository {
         switch response {
         case .failure:
             throw NSError()
-        case .success:
+        case .success, .successEmpty:
             return
         }
     }
@@ -122,7 +126,7 @@ class MockCoreDataRepository: DatabaseRepository {
         switch response {
         case .failure:
             throw NSError()
-        case .success:
+        case .success, .successEmpty:
             return
         }
     }
@@ -131,7 +135,7 @@ class MockCoreDataRepository: DatabaseRepository {
         switch response {
         case .failure:
             throw NSError()
-        case .success:
+        case .success, .successEmpty:
             return
         }
     }
@@ -155,6 +159,8 @@ class MockCoreDataRepository: DatabaseRepository {
                                       extraInfo: [],
                                       resources: [])])
             ]
+        case .successEmpty:
+            return []
         }
     }
     
@@ -162,7 +168,7 @@ class MockCoreDataRepository: DatabaseRepository {
         switch response {
         case .failure:
             throw NSError()
-        case .success:
+        case .success, .successEmpty:
             return
         }
     }
@@ -171,7 +177,7 @@ class MockCoreDataRepository: DatabaseRepository {
         switch response {
         case .failure:
             throw NSError()
-        case .success:
+        case .success, .successEmpty:
             return
         }
     }

@@ -12,11 +12,23 @@ class DependencyInjector {
     // MARK: - Repositories
     
     static func getHttpRepository() -> HttpRepository {
-        URLSessionRepository.shared()
+        if CommandLine.arguments.contains("testing") {
+            return MockURLSessionRepository(response: .success)
+        } else {
+            return URLSessionRepository.shared()
+        }
     }
     
     static func getDatabaseRepository() -> DatabaseRepository {
-        CoreDataRepository.shared()
+        if CommandLine.arguments.contains("testing") {
+            if CommandLine.arguments.contains("successEmpty") {
+                return MockCoreDataRepository(response: .successEmpty)
+            } else {
+                return MockCoreDataRepository(response: .success)
+            }
+        } else {
+            return CoreDataRepository.shared()
+        }
     }
     
     // MARK: - UseCases

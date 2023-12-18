@@ -11,7 +11,8 @@ import SwiftUI
 struct CookSecretApp: App {
     
     // MARK: - Properties
-        
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var tabbarCoordinator: TabbarCoordinator = .init()
 
     // MARK: - Body
