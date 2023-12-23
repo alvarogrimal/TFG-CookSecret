@@ -43,7 +43,7 @@ struct CloudSharingView: UIViewControllerRepresentable {
   }
 
   func makeUIViewController(context: Context) -> UICloudSharingController {
-    share[CKShare.SystemFieldKey.title] = recipe.identifier
+    share[CKShare.SystemFieldKey.title] = recipe.title
     let controller = UICloudSharingController(share: share, container: container)
     controller.modalPresentationStyle = .formSheet
     controller.delegate = context.coordinator

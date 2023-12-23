@@ -187,7 +187,7 @@ extension CoreDataStack {
             print("Unable to get CKShare")
             return nil
         }
-        share[CKShare.SystemFieldKey.title] = recipe.identifier
+        share[CKShare.SystemFieldKey.title] = recipe.title
         return share
     }
     

@@ -7,12 +7,17 @@
 
 import Foundation
 import UIKit
+import CloudKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func applicationDidFinishLaunching(_ application: UIApplication) {
+    func application(_ application: UIApplication, 
+                     configurationForConnecting connectingSceneSession: UISceneSession,
+                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        
         if CommandLine.arguments.contains("testing") {
             UIView.setAnimationsEnabled(false)
-		}
+        }
+        
         let sceneConfig = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
         sceneConfig.sceneClass = SceneDelegate.self
         return sceneConfig

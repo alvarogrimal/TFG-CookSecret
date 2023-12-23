@@ -109,28 +109,27 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
     }
     
     func shareRecipe() {
-        if let recipe {
-            //if !CoreDataStack.shared.isShared(object: recipe) {
-                Task {
+        Task {
+            if let recipe {
+                if !CoreDataStack.shared.isShared(object: recipe) {
                     await createShare(recipe)
+                } else {
+                    share = CoreDataStack.shared.getShare(recipe)
                 }
-//            }
-//            else {
-//                share = CoreDataStack.shared.getShare(recipe)
-//            }
-//            if let share {
-//                Task { @MainActor in
-//                    getCoordinator()?.shareRecipe(share: share,
-//                                                  recipe: recipe)
-//                }
-//            }
+                if let share {
+                    Task { @MainActor in
+                        getCoordinator()?.shareRecipe(share: share,
+                                                      recipe: recipe)
+                    }
+                }
+            }
         }
     }
     
     private func createShare(_ recipe: Recipe) async {
         do {
             let (_, share, _) = try await CoreDataStack.shared.persistentContainer.share([recipe], to: nil)
-            share[CKShare.SystemFieldKey.title] = recipe.identifier
+            share[CKShare.SystemFieldKey.title] = recipe.title
             self.share = share
         } catch let error {
             print("Failed to create share")
