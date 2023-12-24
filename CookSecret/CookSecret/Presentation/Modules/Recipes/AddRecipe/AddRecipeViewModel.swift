@@ -26,11 +26,16 @@ enum RecipeType: String, CaseIterable {
 
 struct RecipeResourceViewModel: Identifiable {
     let id: String
-    var data: Data
+    var image: UIImage
     
-    init(id: String = UUID().uuidString, data: Data) {
+    init(id: String = UUID().uuidString, 
+         image: UIImage) {
         self.id = id
-        self.data = data
+        self.image = image
+    }
+    
+    func getData() -> Data {
+        image.jpegData(compressionQuality: 1) ?? Data()
     }
 }
 
@@ -39,9 +44,10 @@ struct RecipeIngredientViewModel: Identifiable {
     let title: String
     let quantity: String
     
-    init(title: String,
+    init(id: String = UUID().uuidString,
+         title: String,
          quantity: String) {
-        self.id = UUID().uuidString
+        self.id = id
         self.title = title
         self.quantity = quantity
     }
@@ -87,7 +93,6 @@ final class AddRecipeViewModel: BaseViewModel<AddRecipeCoordinatorProtocol> {
     private let cameraManager = CameraManager()
     private let addRecipeUseCase: AddRecipeUseCase
     private let editRecipeUseCase: EditRecipeUseCase
-    var resourcesList: [RecipeResourceViewModel] = []
     private weak var editDelegate: EditRecipeDelegate?
     
     // MARK: - Lifecycle
@@ -108,26 +113,18 @@ final class AddRecipeViewModel: BaseViewModel<AddRecipeCoordinatorProtocol> {
             timer = .init(value: domainModel.time)
             people = domainModel.people
             self.typeValue = RecipeType(rawValue: domainModel.type ?? "")?.rawValue ?? ""
-            ingredients = domainModel.ingredients.map({ .init(title: $0.name,
+            ingredients = domainModel.ingredients.map({ .init(id: $0.id,
+                                                              title: $0.name,
                                                               quantity: $0.quantity) })
             preparation = domainModel.preparation
             resources = domainModel.resources.map({ .init(id: $0.id,
-                                                          data: $0.image) })
-            resourcesList = domainModel.resources.map({ .init(id: $0.id,
-                                                              data: $0.image) })
+                                                          image: UIImage(data: $0.image) ?? .init()) })
             isEditingMode = true
         default: break
         }
         super.init(coordinator: coordinator)
         galleryManager.delegate = self
         cameraManager.delegate = self
-    }
-    
-    override func onAppear() {
-        super.onAppear()
-        Task { @MainActor in
-            resources = resourcesList
-        }
     }
     
     // MARK: - Internal functions
@@ -208,8 +205,8 @@ final class AddRecipeViewModel: BaseViewModel<AddRecipeCoordinatorProtocol> {
                                                           name: $0.title,
                                                           quantity: $0.quantity) }),
               extraInfo: [],
-              resources: resourcesList.compactMap({ .init(id: $0.id,
-                                                          image: $0.data) }))
+              resources: resources.compactMap({ .init(id: $0.id,
+                                                      image: $0.getData()) }))
     }
     
     private func getTimeDouble() -> Double {
@@ -231,9 +228,8 @@ extension AddRecipeViewModel: AddIngredientDelegate {
 // MARK: - ImageManagerDelegate
 
 extension AddRecipeViewModel: ImageManagerDelegate {
-    func pictureTaken(_ imageData: Data, completion: @escaping () -> Void) {
-        let resource = RecipeResourceViewModel(data: imageData)
-        resourcesList.append(resource)
+    func pictureTaken(_ image: UIImage, completion: @escaping () -> Void) {
+        resources.append(.init(image: image))
         completion()
     }
 }

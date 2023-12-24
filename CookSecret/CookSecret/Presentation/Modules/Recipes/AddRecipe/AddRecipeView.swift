@@ -18,6 +18,11 @@ struct AddRecipeView: View {
         static let peopleLimit: ClosedRange<Int> = 1...20
         static let preparationLineLimit: ClosedRange<Int> = 2...4
         static let ingredientRowHeight: CGFloat = 50
+        
+        static let resourceImageSize: CGFloat = 122
+        static let resourceImageCornerRadius: CGFloat = 8
+        static let resourceDeleteSize: CGFloat = 16
+        static let resourcePadding: CGFloat = 6
     }
     
     // MARK: - Properties
@@ -118,11 +123,31 @@ struct AddRecipeView: View {
                 AddFieldSectionView(title: "add_recipe_resources", content: {
                     ScrollView(.horizontal) {
                         HStack {
-                            ForEach(viewModel.resources,
-                                    id: \.id) { element in
-                                AddRecipeResourceItemView(
-                                    element: element,
-                                    removeAction: viewModel.deleteResource(id: element.id))
+                            ForEach(viewModel.resources, id: \.id) { element in
+                                ZStack {
+                                    Image(uiImage: element.image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: ViewConstants.resourceImageSize,
+                                               height: ViewConstants.resourceImageSize)
+                                        .clipped()
+                                        .cornerRadius(ViewConstants.resourceImageCornerRadius)
+                                    
+                                    VStack {
+                                        HStack(alignment: .top, content: {
+                                            Spacer()
+                                            Button {
+                                                viewModel.deleteResource(id: element.id)
+                                            } label: {
+                                                Image.cross
+                                                    .frame(width: ViewConstants.resourceDeleteSize,
+                                                           height: ViewConstants.resourceDeleteSize)
+                                            }
+                                        })
+                                        Spacer()
+                                    }
+                                    .padding(ViewConstants.resourcePadding)
+                                }
                             }
                         }
                     }
@@ -135,7 +160,7 @@ struct AddRecipeView: View {
                         viewModel.openGallery()
                     }
                     Button("add_recipe_camera") {
-                        viewModel.openGallery()
+                        viewModel.openCamera()
                     }
                 }
             }
@@ -164,7 +189,6 @@ struct AddRecipeView: View {
         .navigationBarTitle(viewModel.viewTitle)
         .navigationBarTitleDisplayMode(.inline)
         .interactiveDismissDisabled(true)
-
     }
 }
 

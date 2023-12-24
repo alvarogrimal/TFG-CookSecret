@@ -76,6 +76,7 @@ struct RecipeListPickerView: View {
                                             .clipShape(Rectangle())
                                     } placeholder: {
                                         Rectangle()
+                                            .fill(.gray)
                                             .frame(height: ViewConstants.itemHeight)
                                             .frame(minWidth: .zero,
                                                    maxWidth: .infinity)
@@ -92,13 +93,17 @@ struct RecipeListPickerView: View {
                                         .clipShape(Rectangle())
                                 }
                                 
-                                Text(item.title)
-                                    .font(.title3)
-                                    .fontWeight(.thin)
-                                    .lineLimit(ViewConstants.itemTitleLineLimit)
-                                    .multilineTextAlignment(.center)
-                                    .padding(.vertical, ViewConstants.itemTitleVerticalPadding)
-                                    .padding(.horizontal, ViewConstants.itemTitleHorizonalPadding)
+                                VStack {
+                                    Spacer(minLength: .zero)
+                                    Text(item.title)
+                                        .font(.title3)
+                                        .fontWeight(.thin)
+                                        .lineLimit(ViewConstants.itemTitleLineLimit)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.vertical, ViewConstants.itemTitleVerticalPadding)
+                                        .padding(.horizontal, ViewConstants.itemTitleHorizonalPadding)
+                                    Spacer(minLength: .zero)
+                                }
                             }
                                    .background(.white)
                                    .cornerRadius(ViewConstants.itemCornerRadius)

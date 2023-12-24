@@ -53,13 +53,17 @@ struct ExploreView: View {
                                     .frame(height: ViewConstants.itemHeight)
                             }
                             
-                            Text(item.title)
-                                .font(.title3)
-                                .fontWeight(.thin)
-                                .lineLimit(ViewConstants.itemTitleLineLimit)
-                                .multilineTextAlignment(.center)
-                                .padding(.vertical, ViewConstants.itemTitleVerticalPadding)
-                                .padding(.horizontal, ViewConstants.itemTitleHorizonalPadding)
+                            VStack {
+                                Spacer(minLength: .zero)
+                                Text(item.title)
+                                    .font(.title3)
+                                    .fontWeight(.thin)
+                                    .lineLimit(ViewConstants.itemTitleLineLimit)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.vertical, ViewConstants.itemTitleVerticalPadding)
+                                    .padding(.horizontal, ViewConstants.itemTitleHorizonalPadding)
+                                Spacer(minLength: .zero)
+                            }
                         }
                                .background(.white)
                                .cornerRadius(ViewConstants.itemCornerRadius)

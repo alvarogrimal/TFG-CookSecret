@@ -9,7 +9,7 @@ import UIKit
 import Photos
 
 @objc public protocol ImageManagerDelegate: AnyObject {
-    @objc func pictureTaken(_ imageData: Data, completion: @escaping () -> Void)
+    @objc func pictureTaken(_ image: UIImage, completion: @escaping () -> Void)
 }
 
 public class GalleryManager: NSObject {
@@ -76,9 +76,8 @@ extension GalleryManager: UIImagePickerControllerDelegate, UINavigationControlle
 
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
-           let delegate = delegate,
-           let data = image.jpegData(compressionQuality: 1.0) {
-            delegate.pictureTaken(data, completion: {
+           let delegate = delegate{
+            delegate.pictureTaken(image, completion: {
                 picker.dismiss(animated: true, completion: nil)
             })
         } else {

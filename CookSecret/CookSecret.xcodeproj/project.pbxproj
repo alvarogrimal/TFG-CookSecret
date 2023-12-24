@@ -17,7 +17,6 @@
 		2F619BF12B0A9AF7007DB3B0 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619BF02B0A9AF7007DB3B0 /* TimerView.swift */; };
 		2F619BF32B0A9B40007DB3B0 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619BF22B0A9B40007DB3B0 /* TimerViewModel.swift */; };
 		2F619BF52B0A9DDF007DB3B0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619BF42B0A9DDF007DB3B0 /* StringExtension.swift */; };
-		2F619BF72B0F0E3C007DB3B0 /* AddRecipeResourceItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619BF62B0F0E3C007DB3B0 /* AddRecipeResourceItemView.swift */; };
 		2F619BFB2B12FAF7007DB3B0 /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619BF92B12FAF7007DB3B0 /* GalleryManager.swift */; };
 		2F619BFC2B12FAF7007DB3B0 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619BFA2B12FAF7007DB3B0 /* CameraManager.swift */; };
 		2F619BFE2B12FBAC007DB3B0 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F619BFD2B12FBAC007DB3B0 /* UIAlertControllerExtension.swift */; };
@@ -151,7 +150,6 @@
 		2F619BF02B0A9AF7007DB3B0 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		2F619BF22B0A9B40007DB3B0 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		2F619BF42B0A9DDF007DB3B0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		2F619BF62B0F0E3C007DB3B0 /* AddRecipeResourceItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeResourceItemView.swift; sourceTree = "<group>"; };
 		2F619BF92B12FAF7007DB3B0 /* GalleryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
 		2F619BFA2B12FAF7007DB3B0 /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		2F619BFD2B12FBAC007DB3B0 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
@@ -323,7 +321,6 @@
 			children = (
 				2F619BEF2B0A9AE2007DB3B0 /* TimePicker */,
 				2F619BED2B0A966F007DB3B0 /* AddFieldSectionView.swift */,
-				2F619BF62B0F0E3C007DB3B0 /* AddRecipeResourceItemView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -1198,7 +1195,6 @@
 				2FCAF3F32B2101AF00AB26DB /* CoreDataRepository+Planning.swift in Sources */,
 				2FEAD3072B30225B0077607E /* AppDelegate.swift in Sources */,
 				2F619C622B1B0468007DB3B0 /* ExploreMealSummaryListDataModel.swift in Sources */,
-				2F619BF72B0F0E3C007DB3B0 /* AddRecipeResourceItemView.swift in Sources */,
 				2F619BF52B0A9DDF007DB3B0 /* StringExtension.swift in Sources */,
 				2F619C182B15312D007DB3B0 /* HttpMethod.swift in Sources */,
 				2F619C1C2B153144007DB3B0 /* URLParam.swift in Sources */,

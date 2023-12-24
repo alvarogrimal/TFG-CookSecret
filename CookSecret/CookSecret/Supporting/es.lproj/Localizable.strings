@@ -41,7 +41,7 @@
 "add_recipe_people" = "Personas";
 "add_recipe_person_format" = "%d persona";
 "add_recipe_people_format" = "%d personas";
-"add_recipe_type" = "Type";
+"add_recipe_type" = "Tipo";
 "add_recipe_preparation" = "Preparación";
 "add_recipe_add_preparation" = "Añade los pasos de preparación";
 "add_recipe_resources" = "Recursos";
@@ -81,7 +81,7 @@
 // MARK: - Shopping list
 
 "shopping_list_title" = "Lista de la compra";
-"shopping_list_add_from_recipes" = "Add from recipes";
+"shopping_list_add_from_recipes" = "Añadir desde recetas";
 
 // MARK: - Calendar
 
