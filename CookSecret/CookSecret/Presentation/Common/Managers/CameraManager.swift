@@ -72,9 +72,8 @@ extension CameraManager: UIImagePickerControllerDelegate, UINavigationController
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
-           let delegate = delegate,
-           let data = image.jpegData(compressionQuality: 1.0) {
-            delegate.pictureTaken(data, completion: {
+           let delegate = delegate {
+            delegate.pictureTaken(image, completion: {
                 picker.dismiss(animated: true, completion: nil)
             })
         } else {

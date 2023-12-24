@@ -75,7 +75,7 @@ struct RecipeListView: View {
                 }
             } else {
                 ScrollView {
-                        // Grid view
+                    // Grid view
                     LazyVGrid(columns: [.init(.adaptive(minimum: ViewConstants.itemWidth))],
                               spacing: ViewConstants.columnSpacing) {
                         ForEach(viewModel.recipeList, id: \.id) { item in
@@ -94,6 +94,7 @@ struct RecipeListView: View {
                                             .clipShape(Rectangle())
                                     } placeholder: {
                                         Rectangle()
+                                            .fill(.gray)
                                             .frame(height: ViewConstants.itemHeight)
                                             .frame(minWidth: .zero,
                                                    maxWidth: .infinity)
@@ -111,14 +112,18 @@ struct RecipeListView: View {
                                         .clipShape(Rectangle())
                                 }
                                 
-                                Text(item.title)
-                                    .font(.title3)
-                                    .fontWeight(.thin)
-                                    .lineLimit(ViewConstants.itemTitleLineLimit)
-                                    .multilineTextAlignment(.center)
-                                    .padding(.vertical, ViewConstants.itemTitleVerticalPadding)
-                                    .padding(.horizontal, ViewConstants.itemTitleHorizonalPadding)
-                                    .accessibilityIdentifier(AccesibilityKeys.recipeTitle.rawValue)
+                                VStack {
+                                    Spacer(minLength: .zero)
+                                    Text(item.title)
+                                        .font(.title3)
+                                        .fontWeight(.thin)
+                                        .lineLimit(ViewConstants.itemTitleLineLimit)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.vertical, ViewConstants.itemTitleVerticalPadding)
+                                        .padding(.horizontal, ViewConstants.itemTitleHorizonalPadding)
+                                        .accessibilityIdentifier(AccesibilityKeys.recipeTitle.rawValue)
+                                    Spacer(minLength: .zero)
+                                }
                             }
                                    .background(.white)
                                    .cornerRadius(ViewConstants.itemCornerRadius)
