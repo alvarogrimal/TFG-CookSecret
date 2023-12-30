@@ -104,11 +104,7 @@ final class RecipeDetailViewModel: BaseViewModel<RecipeCoordinatorProtocol> {
         getCoordinator()?.editRecipe(recipeDomainModel,
                                      delegate: self)
     }
-    
-    func shareRecipe() {
-        // TODO: - SHARE
-    }
-    
+
     // MARK: - Private functions
     
     private func parseToView() {

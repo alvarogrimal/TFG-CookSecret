@@ -121,12 +121,6 @@ struct RecipeDetailView: View {
                 
                 Menu {
                     Button {
-                        viewModel.shareRecipe()
-                    } label: {
-                        Label("general_share".localized, systemImage: "square.and.arrow.up")
-                    }
-                    
-                    Button {
                         viewModel.editRecipe()
                     } label: {
                         Label("general_edit".localized, systemImage: "pencil")
