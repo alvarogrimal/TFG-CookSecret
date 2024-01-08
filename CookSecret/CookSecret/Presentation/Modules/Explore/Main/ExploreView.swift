@@ -65,7 +65,7 @@ struct ExploreView: View {
                                 Spacer(minLength: .zero)
                             }
                         }
-                               .background(.white)
+                               .background(.whiteSalt)
                                .cornerRadius(ViewConstants.itemCornerRadius)
                                .shadow(color: .black.opacity(ViewConstants.shadowOpacity),
                                        radius: ViewConstants.shadowRadius,
@@ -87,13 +87,13 @@ struct ExploreView: View {
                                 } label: {
                                     Text(item.value)
                                         .fontWeight(item.selected ? .bold : .regular)
-                                        .foregroundColor(item.selected ? .white : .black)
+                                        .foregroundColor(item.selected ? .customWhite : .customBlack)
                                         .padding(.horizontal)
                                         .frame(height: 40)
                                         .background {
                                             Capsule()
                                                 .fill(item.selected ? .persianBlue : .clear)
-                                                .stroke(Color.black,
+                                                .stroke(Color.customBlack,
                                                         lineWidth: 1)
                                         }
                                 }
@@ -110,7 +110,7 @@ struct ExploreView: View {
             viewModel.searchByText()
         })
         .refreshable(action: { viewModel.refresh() })
-        .navigationTitle("Explore")
+        .navigationTitle("explore_title".localized)
         .navigationBarTitleDisplayMode(.large)
         .isBaseView(viewModel)
     }

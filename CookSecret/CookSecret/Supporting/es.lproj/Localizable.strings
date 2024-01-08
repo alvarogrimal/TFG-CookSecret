@@ -74,6 +74,10 @@
 
 "edit_recipe_title" = "Editar receta";
 
+// MARK: - Explore
+
+"explore_title" = "Explorar";
+
 //  MARK: - Explore recipe detail
 
 "explore_recipe_detail_links" = "Links";

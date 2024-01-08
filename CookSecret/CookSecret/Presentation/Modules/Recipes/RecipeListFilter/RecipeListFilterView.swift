@@ -122,7 +122,7 @@ struct RecipeListFilterView: View {
                                             id: \.self) { element in
                                         HStack {
                                             Text(element)
-                                                .foregroundColor(.white)
+                                                .foregroundColor(.whiteSalt)
                                             Image.cross
                                                 .resizable()
                                                 .frame(width: ViewConstants.ingredientDeleteSize,

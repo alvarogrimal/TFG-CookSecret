@@ -57,12 +57,6 @@ struct RecipeCoordinatorView: View {
                 .sheet(isPresented: $coordinator.editRecipeNavigationItem.isActive) {
                     editRecipeView()
                 }
-                .sheet(isPresented: $coordinator.shareIsPresented) {
-                    if let share = coordinator.share,
-                       let recipe = coordinator.recipe {
-                        // TODO: - SHARE VIEW
-                    }
-                }
         }
     }
     

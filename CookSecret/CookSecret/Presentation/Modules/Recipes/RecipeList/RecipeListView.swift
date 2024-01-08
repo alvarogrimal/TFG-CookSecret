@@ -125,7 +125,7 @@ struct RecipeListView: View {
                                     Spacer(minLength: .zero)
                                 }
                             }
-                                   .background(.white)
+                                   .background(.whiteSalt)
                                    .cornerRadius(ViewConstants.itemCornerRadius)
                                    .shadow(color: .black.opacity(ViewConstants.shadowOpacity),
                                            radius: ViewConstants.shadowRadius,

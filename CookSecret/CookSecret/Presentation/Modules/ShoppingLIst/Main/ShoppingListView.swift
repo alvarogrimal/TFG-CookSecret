@@ -28,7 +28,7 @@ struct ShoppingListView: View {
             ForEach(viewModel.list, id: \.id) { item in
                 HStack {
                     Rectangle()
-                        .fill(item.completed ? .persianBlue : .white)
+                        .fill(item.completed ? .persianBlue : .clear)
                         .frame(width: ViewConstants.checkSize,
                                height: ViewConstants.checkSize)
                         .border(.persianBlue,
