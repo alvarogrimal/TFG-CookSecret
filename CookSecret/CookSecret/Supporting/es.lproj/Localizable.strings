@@ -1,0 +1,97 @@
+/* 
+  Localizable.strings
+  CookSecret
+
+  Created by Alvaro Grimal Cabello on 18/11/23.
+  
+*/
+
+// MARK: - General
+
+"general_cancel" = "Cancelar";
+"general_save" = "Guardar";
+"general_add" = "Añadir";
+"general_share" = "Compartir";
+"general_edit" = "Editar";
+"general_delete" = "Eliminar";
+"general_apply" = "Aplicar";
+"general_reset" = "Resetear";
+
+// MARK: - Info plist
+
+"info_camera_permissions" = "La aplicación necesita acceder a la cámara para añadir una imagen.";
+"info_gallery_permissions" = "La aplicación necesita acceder a la galería para añadir una imagen.";
+
+// MARK: - Recipes
+
+"recipes_title" = "Mis Recetas";
+"recipes_empty" = "Todavía no tienes ninguna receta";
+
+// MARK: - AddRecipe
+
+"add_recipe_nav_title" = "Añadir receta";
+"add_recipe_hours" = "horas";
+"add_recipe_minutes" = "minutos";
+"add_recipe_seconds" = "s";
+"add_recipe_title" = "Título";
+"add_recipe_add_title" = "Añade un título";
+"add_recipe_description" = "Descripción";
+"add_recipe_add_descrition" = "Añade una descripción";
+"add_recipe_time" = "Tiempo";
+"add_recipe_people" = "Personas";
+"add_recipe_person_format" = "%d persona";
+"add_recipe_people_format" = "%d personas";
+"add_recipe_type" = "Tipo";
+"add_recipe_preparation" = "Preparación";
+"add_recipe_add_preparation" = "Añade los pasos de preparación";
+"add_recipe_resources" = "Recursos";
+"add_recipe_gallery" = "Galería";
+"add_recipe_camera" = "Cámara";
+"add_recipe_ingredients" = "Ingredientes";
+"add_recipe_starter" = "Entrante";
+"add_recipe_principal" = "Plato principal";
+"add_recipe_secondary" = "Segundo plato";
+"add_recipe_dessert" = "Postre";
+
+// MARK: - Add Ingredient
+
+"add_ingredient_title" = "Añadir ingrediente";
+"add_ingredient_name" = "Nombre";
+"add_ingredient_name_placeholder" = "Escribe el nombre";
+"add_ingredient_quantity" = "Cantidad";
+"add_ingredient_quantity_placeholder" = "Añade la cantidad";
+
+// MARK: - Filters
+
+"filter_title" = "Filtros";
+"filter_favourites" = "Favoritos";
+"filter_type" = "Tipo";
+"filter_time" = "Tiempo";
+"filter_ingredients" = "Ingredientes";
+"filter_ingredients_placeholder" = "Añade un ingrediente";
+
+// MARK: - Edit recipe
+
+"edit_recipe_title" = "Editar receta";
+
+// MARK: - Explore
+
+"explore_title" = "Explorar";
+
+//  MARK: - Explore recipe detail
+
+"explore_recipe_detail_links" = "Links";
+
+// MARK: - Shopping list
+
+"shopping_list_title" = "Lista de la compra";
+"shopping_list_add_from_recipes" = "Añadir desde recetas";
+
+// MARK: - Calendar
+
+"calendar_title" = "Plan recetas";
+"calendar_today_button" = "Hoy";
+
+// MARK: - Recipes picker
+
+"recipes_picker_title" = "Recetas";

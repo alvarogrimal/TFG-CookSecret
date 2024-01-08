@@ -1,0 +1,97 @@
+/* 
+  Localizable.strings
+  CookSecret
+
+  Created by Alvaro Grimal Cabello on 18/11/23.
+  
+*/
+
+// MARK: - General
+
+"general_cancel" = "Cancel";
+"general_save" = "Save";
+"general_add" = "Add";
+"general_share" = "Share";
+"general_edit" = "Edit";
+"general_delete" = "Delete";
+"general_apply" = "Apply";
+"general_reset" = "Reset";
+
+// MARK: - Info plist
+
+"info_camera_permissions" = "The application needs to access the camera to add an image.";
+"info_gallery_permissions" = "The application needs to access the gallery to add an image.";
+
+// MARK: - Recipes
+
+"recipes_title" = "My Recipes";
+"recipes_empty" = "You do not have any recipe yet";
+
+// MARK: - AddRecipe
+
+"add_recipe_nav_title" = "Add recipe";
+"add_recipe_hours" = "hours";
+"add_recipe_minutes" = "min";
+"add_recipe_seconds" = "sec";
+"add_recipe_title" = "Title";
+"add_recipe_add_title" = "Add a title";
+"add_recipe_description" = "Description";
+"add_recipe_add_descrition" = "Add a description";
+"add_recipe_time" = "Time";
+"add_recipe_people" = "People";
+"add_recipe_person_format" = "%d person";
+"add_recipe_people_format" = "%d people";
+"add_recipe_type" = "Type";
+"add_recipe_preparation" = "Preparation";
+"add_recipe_add_preparation" = "Add the preparation steps";
+"add_recipe_resources" = "Resources";
+"add_recipe_gallery" = "Gallery";
+"add_recipe_camera" = "Camera";
+"add_recipe_ingredients" = "Ingredients";
+"add_recipe_starter" = "Starter";
+"add_recipe_principal" = "Main course";
+"add_recipe_secondary" = "Secondary course";
+"add_recipe_dessert" = "Dessert";
+
+// MARK: - Add Ingredient
+
+"add_ingredient_title" = "Add ingredient";
+"add_ingredient_name" = "Name";
+"add_ingredient_name_placeholder" = "Insert the name";
+"add_ingredient_quantity" = "Quantity";
+"add_ingredient_quantity_placeholder" = "Add the quantity";
+
+// MARK: - Filters
+
+"filter_title" = "Filters";
+"filter_favourites" = "Favourites";
+"filter_type" = "Type";
+"filter_time" = "Time";
+"filter_ingredients" = "Ingredients";
+"filter_ingredients_placeholder" = "Add a ingredient";
+
+// MARK: - Edit recipe
+
+"edit_recipe_title" = "Edit recipe";
+
+// MARK: - Explore
+
+"explore_title" = "Explore";
+
+//  MARK: - Explore recipe detail
+
+"explore_recipe_detail_links" = "Links";
+
+// MARK: - Shopping list
+
+"shopping_list_title" = "Shopping List";
+"shopping_list_add_from_recipes" = "Add from recipes";
+
+// MARK: - Calendar
+
+"calendar_title" = "Plan recipes";
+"calendar_today_button" = "Today";
+
+// MARK: - Recipes picker
+
+"recipes_picker_title" = "Recipes";
